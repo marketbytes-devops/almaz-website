@@ -33,24 +33,24 @@ const Navbar = () => {
   ];
 
   const menuVariants = {
-    hidden: { x: "100%", opacity: 0 },
+    hidden: { y: "-100%", opacity: 0 },
     visible: {
-      x: 0,
+      y: 0,
       opacity: 1,
       transition: { duration: 0.3, ease: "easeOut" },
     },
     exit: {
-      x: "100%",
+      y: "-100%",
       opacity: 0,
       transition: { duration: 0.2, ease: "easeIn" },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: 20 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { duration: 0.2, ease: "easeOut" },
     },
   };
@@ -71,7 +71,7 @@ const Navbar = () => {
         viewport={{ amount: "all" }}
       >
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             <div className="flex-shrink-0">
               <img
                 src={Logo}
@@ -90,10 +90,11 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.to}
-                      className={`text-sm lg:text-base font-medium transition-colors duration-300 ${location.pathname === link.to
+                      className={`text-sm lg:text-base font-medium transition-colors duration-300 ${
+                        location.pathname === link.to
                           ? "text-secondary"
                           : "text-gray-50 hover:text-secondary"
-                        }`}
+                      }`}
                       aria-label={`Navigate to ${link.label}`}
                     >
                       {link.label}
@@ -103,12 +104,12 @@ const Navbar = () => {
               </ul>
             </div>
 
-            <div className="hidden lg:flex pr-6 lg(PR-8">
-                  <Button
-                    label="Get a quote"
-                    icon="ArrowUpRight"
-                    className="bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors duration-300 ripple-button"
-                  />
+            <div className="hidden lg:flex pr-6 lg:pr-8">
+              <Button
+                label="Get a quote"
+                icon="ArrowUpRight"
+                className="bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors duration-300 ripple-button"
+              />
             </div>
 
             <div className="lg:hidden">
@@ -148,13 +149,13 @@ const Navbar = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="lg:hidden fixed top-0 right-0 w-full h-screen bg-primary/95 backdrop-blur-md z-40"
+              className="lg:hidden fixed top-0 left-0 w-full h-screen bg-primary/95 backdrop-blur-md z-40 shadow-md flex flex-col"
               variants={menuVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
             >
-              <div className="flex justify-end p-4">
+              <div className="flex justify-end p-2">
                 <button
                   onClick={toggleMenu}
                   className="text-gray-50 hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary rounded-md p-2"
@@ -175,7 +176,7 @@ const Navbar = () => {
                   </svg>
                 </button>
               </div>
-              <ul className="flex flex-col space-y-4 px-4 sm:px-6 py-8 h-full">
+              <ul className="flex flex-col space-y-2 px-4 py-2 flex-grow" role="navigation">
                 {navLinks.map((link) => (
                   <motion.li
                     key={link.to}
@@ -185,10 +186,11 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.to}
-                      className={`text-lg sm:text-xl font-medium transition-colors duration-300 rounded-md hover:bg-white/10 block px-4 py-3 ${location.pathname === link.to
+                      className={`text-base font-medium transition-colors duration-300 rounded-md hover:bg-white/10 block px-3 py-1.5 ${
+                        location.pathname === link.to
                           ? "text-secondary"
                           : "text-gray-50 hover:text-secondary"
-                        }`}
+                      }`}
                       onClick={() => setIsMenuOpen(false)}
                       aria-label={`Navigate to ${link.label}`}
                     >
@@ -200,11 +202,12 @@ const Navbar = () => {
                   variants={itemVariants}
                   initial="hidden"
                   animate="visible"
+                  className="mt-4"
                 >
                   <Button
                     label="Get a quote"
                     icon="ArrowUpRight"
-                    className="bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors duration-300 ripple-button"
+                    className="bg-secondary text-black rounded-2xl px-4 py-2 text-base hover:bg-white hover:text-gray-900 transition-colors duration-300 ripple-button"
                   />
                 </motion.li>
               </ul>
@@ -239,41 +242,44 @@ const Navbar = () => {
             height: 200%;
           }
 
-          @media (max-width: 640px) {
+          @media (max-width: 639px) {
             .container {
               padding-left: 0.5rem;
               padding-right: 0.5rem;
             }
             nav {
               width: 100%;
+              top: 0 !important; /* Force navbar to top on mobile */
               border-radius: 0;
             }
-            .h-16 {
-              height: 3.5rem; 
+            .h-14 {
+              height: 3.5rem;
             }
           }
 
-          @media (min-width: 641px) and (max-width: 768px) {
+          @media (min-width: 640px) and (max-width: 767px) {
             .container {
               padding-left: 1rem;
               padding-right: 1rem;
             }
             nav {
-              width: 93.5%;
+              width: 100%;
+              top: 0 !important; /* Force navbar to top on mobile */
             }
           }
 
-          @media (min-width: 769px) and (max-width: 1024px) {
+          @media (min-width: 768px) and (max-width: 1023px) {
             .container {
               padding-left: 1.5rem;
               padding-right: 1.5rem;
             }
             nav {
-              width: 93.5%;
+              width: 100%;
+              top: 0 !important; /* Force navbar to top on tablet */
             }
           }
 
-          @media (min-width: 1025px) and (max-width: 1280px) {
+          @media (min-width: 1024px) and (max-width: 1279px) {
             .container {
               padding-left: 2rem;
               padding-right: 2rem;
@@ -283,7 +289,7 @@ const Navbar = () => {
             }
           }
 
-          @media (min-width: 1281px) {
+          @media (min-width: 1280px) {
             .container {
               padding-left: 6.5rem;
               padding-right: 4.5rem;

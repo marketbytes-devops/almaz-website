@@ -16,6 +16,8 @@ import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyAndPolicy/PrivacyAndPolicy";
 import BlogDetail from "./pages/Blogs/BlogDetail";
 import Gallery from "./pages/gallery";
+import InternationalRelocation from "./pages/Home/UiComponents/InternationalRelocation/InternationalRelocation";
+import HouseMoving from "./pages/Home/UiComponents/HouseMoving/HouseMoving";
 
 
 
@@ -36,6 +38,8 @@ const router = createBrowserRouter([
       { path: "/terms-and-conditions", element: <TermsAndConditions/>},
       { path: "/privacy-policy", element: <PrivacyPolicy/>},
       { path: "/gallery", element: <Gallery/>},
+      { path: "/international-relocation", element: <InternationalRelocation/>},
+      { path: "/house-moving", element: <HouseMoving/>},
        
     ],
   },

@@ -22,14 +22,14 @@ const OurServices = () => {
       title: "International relocation",
       text: "If you are looking for relocation services, be sure that the international movers",
       image: InternationalRelocationIcon,
-      slug: "/international-relocation", 
+      slug: "/international-relocation",
     },
     {
       id: 1,
       title: "House moving",
       text: "Basically, we should understand that domestic relocation is not an easy process.",
       image: HouseMovingIcon,
-      slug: "/house-moving", 
+      slug: "/house-moving",
     },
     {
       id: 2,
@@ -163,7 +163,7 @@ const OurServices = () => {
   ];
 
   const getImageSize = () => {
-    if (dimensions.cardsPerRow === 1) return "w-20 h-20";
+    if (dimensions.cardsPerRow === 1) return "w-16 h-16";
     if (dimensions.cardsPerRow === 2) return "w-20 h-20";
     return "w-28 h-28";
   };
@@ -264,9 +264,6 @@ const OurServices = () => {
             position: relative;
           }
           .card-arrow {
-            position: absolute;
-            bottom: -10px;
-            left: -3px;
             width: 45px;
             height: 45px;
             background: transparent;
@@ -274,6 +271,7 @@ const OurServices = () => {
             padding: 3px;
             transition: background 0.3s ease;
             cursor: pointer;
+            margin-top: auto;
           }
           .card:hover .card-arrow {
             background: white;
@@ -289,6 +287,21 @@ const OurServices = () => {
             .card {
               width: 100% !important;
               height: ${dimensions.cardHeight}px;
+              padding: 16px !important;
+            }
+            .card-content {
+              padding-bottom: 48px; /* Space for card-arrow */
+            }
+            .card-arrow {
+              position: absolute;
+              bottom: 16px;
+              left: 16px;
+            }
+            .card h3 {
+              font-size: 1.125rem !important; /* text-lg */
+            }
+            .card p {
+              font-size: 0.875rem !important; /* text-sm */
             }
           }
           @media (min-width: 640px) and (max-width: 1023px) {
@@ -297,12 +310,21 @@ const OurServices = () => {
               height: ${dimensions.cardHeight}px;
               margin-right: ${dimensions.horizontalGap}px;
               margin-bottom: ${dimensions.verticalGap}px;
+              padding: 20px !important;
             }
             .card:nth-child(2n) {
               margin-right: 0;
             }
             .card:nth-last-child(-n+2) {
               margin-bottom: 0;
+            }
+            .card-content {
+              padding-bottom: 48px; /* Space for card-arrow */
+            }
+            .card-arrow {
+              position: absolute;
+              bottom: 20px;
+              left: 20px;
             }
           }
           @media (min-width: 1024px) {
@@ -311,12 +333,21 @@ const OurServices = () => {
               height: ${dimensions.cardHeight}px;
               margin-right: ${dimensions.horizontalGap}px;
               margin-bottom: ${dimensions.verticalGap}px;
+              padding: 24px !important;
             }
             .card:nth-child(3n) {
               margin-right: 0;
             }
             .card:nth-last-child(-n+3) {
               margin-bottom: 0;
+            }
+            .card-content {
+              padding-bottom: 48px; /* Space for card-arrow */
+            }
+            .card-arrow {
+              position: absolute;
+              bottom: 10px;
+              left: 21px;
             }
           }
         `}
@@ -359,7 +390,7 @@ const OurServices = () => {
                 {cards.slice(0, 6).map((card, index) => (
                   <div key={card.id} className="slider-card">
                     <motion.div
-                      className="card bg-gradient-to-br from-gray-300 to-primary rounded-[16px] p-5 sm:p-6"
+                      className="card bg-gradient-to-br from-gray-300 to-primary rounded-[16px]"
                       style={{
                         height: `${dimensions.cardHeight}px`,
                       }}
@@ -382,15 +413,15 @@ const OurServices = () => {
                           className={`card-image ${getImageSize()} mt-4 mb-4 object-contain`}
                           onError={() => console.log(`Failed to load image: ${card.title}`)}
                         />
-                        <h3 className="text-xl sm:text-2xl text-gray-300 mb-4 capitalize">
+                        <h3 className="text-xl sm:text-2xl text-gray-300 mb-2 capitalize">
                           {card.title}
                         </h3>
-                        <p className="text-base sm:text-normal text-gray-300 mb-4 flex-grow">
+                        <p className="text-sm sm:text-base text-gray-300 mb-4 flex-grow">
                           {card.text}
                         </p>
-                        <div
-                          className="card-arrow mb-0"
-                          onClick={() => navigate(card.slug)} 
+                        <button
+                          className="card-arrow"
+                          onClick={() => navigate(card.slug)}
                         >
                           <svg
                             width="38"
@@ -406,7 +437,7 @@ const OurServices = () => {
                               fill="white"
                             />
                           </svg>
-                        </div>
+                        </button>
                       </div>
                     </motion.div>
                   </div>
@@ -432,7 +463,7 @@ const OurServices = () => {
                 return (
                   <motion.div
                     key={card.id}
-                    className="card absolute bg-gradient-to-br from-gray-400 to-primary rounded-[16px] p-5 sm:p-6"
+                    className="card absolute bg-gradient-to-br from-gray-400 to-primary rounded-[16px]"
                     style={{
                       height: `${dimensions.cardHeight}px`,
                     }}
@@ -456,15 +487,15 @@ const OurServices = () => {
                         className={`card-image ${getImageSize()} mt-4 mb-4 object-contain`}
                         onError={() => console.log(`Failed to load image: ${card.title}`)}
                       />
-                      <h3 className="text-xl sm:text-xl text-white mb-4 capitalize">
+                      <h3 className="text-xl sm:text-xl text-white mb-2 capitalize">
                         {card.title}
                       </h3>
                       <p className="text-sm sm:text-base text-gray-200 mb-4 flex-grow">
                         {card.text}
                       </p>
-                      <div
-                        className="card-arrow mb-0"
-                        onClick={() => navigate(card.slug)} // Navigate to the card's slug
+                      <button
+                        className="card-arrow"
+                        onClick={() => navigate(card.slug)}
                       >
                         <svg
                           width="38"
@@ -480,7 +511,7 @@ const OurServices = () => {
                             fill="white"
                           />
                         </svg>
-                      </div>
+                      </button>
                     </div>
                   </motion.div>
                 );
