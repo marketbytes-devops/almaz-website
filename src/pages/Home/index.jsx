@@ -53,9 +53,9 @@ const Home = () => {
 
   return (
     <>
-      <div className="container-primary w-full pt-12 sm:pt-16">
+      <div className="container-primary w-full pt-12">
         <div
-          className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 md:px-8 rounded-b-3xl rounded-t-none"
+          className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 md:px-8 rounded-3xl"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
@@ -64,7 +64,7 @@ const Home = () => {
           }}
         >
           <div
-            className="absolute inset-0 rounded-b-3xl rounded-t-none"
+            className="absolute inset-0 rounded-3xl"
             style={{
               backgroundImage: `linear-gradient(to bottom right, rgba(76, 112, 133, 0.8), rgba(0,0,0, 0.3))`,
             }}
