@@ -35,8 +35,10 @@ const InternationalRelocation = () => {
        
         <OtherServices />
       </section>
-      <section className="bg-primary/20 container-secondary our-services my-16">
-        <GetInTouchSection/>
+      <section className="w-full bg-primary/10 mt-10 sm:mt-12 lg:mt-16">
+        <div className="mx-auto w-full py-6 sm:py-12 md:py-16">
+          <GetInTouchSection />
+        </div>
       </section>
     </>
   );
