@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import InternationalRelocationIcon from "../../../../assets/Icon_InternationalRelocation.webp";
 import HouseMovingIcon from "../../../../assets/Icon_HouseMoving.webp";
 import VehicleMovingIcon from "../../../../assets/Icon_vechiclemoving.webp";
@@ -11,64 +12,74 @@ import SeafrieghtIcon from "../../../../assets/Sea-frieght.webp";
 import TitleDescription from "../../../../components/TitleDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
- 
+
 const OurServices = () => {
+  const navigate = useNavigate();
+
   const cards = [
     {
       id: 0,
       title: "International relocation",
       text: "If you are looking for relocation services, be sure that the international movers",
       image: InternationalRelocationIcon,
+      slug: "/international-relocation", 
     },
     {
       id: 1,
       title: "House moving",
       text: "Basically, we should understand that domestic relocation is not an easy process.",
       image: HouseMovingIcon,
+      slug: "/house-moving", 
     },
     {
       id: 2,
       title: "Vehicle relocation",
       text: "Vehicles are everyone's valued assets and we would not want it to be damaged during.",
       image: VehicleMovingIcon,
+      slug: "/vehicle-relocation",
     },
     {
       id: 3,
       title: "Office relocation",
       text: "Efficient office moving with minimal downtime.",
       image: OfficeRelocationIcon,
+      slug: "/office-relocation",
     },
     {
       id: 4,
       title: "Storage solutions",
       text: "Secure storage options for your belongings.",
       image: StorageIcon,
+      slug: "/storage-solutions",
     },
     {
       id: 5,
       title: "Insurance coverage",
       text: "Comprehensive insurance for all your moving needs.",
       image: InsuranceIcon,
+      slug: "/insurance-coverage",
     },
     {
       id: 6,
       title: "Air freight",
       text: "Fast and reliable air freight services for your cargo.",
       image: AirfreightIcon,
+      slug: "/air-freight",
     },
     {
       id: 7,
       title: "Sea freight",
       text: "Cost-effective and secure sea freight solutions.",
       image: SeafrieghtIcon || HouseMovingIcon,
+      slug: "/sea-freight",
     },
   ];
- 
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [viewAllClicked, setViewAllClicked] = useState(false);
   const gridRef = useRef(null);
   const touchStartX = useRef(null);
- 
+
   const getCardDimensions = () => {
     const width = window.innerWidth;
     if (width < 640) {
@@ -79,27 +90,27 @@ const OurServices = () => {
       return { cardHeight: 360, horizontalGap: 24, verticalGap: 40, cardsPerRow: 3, visibleRows: 2 };
     }
   };
- 
+
   const [dimensions, setDimensions] = useState(getCardDimensions());
- 
+
   useEffect(() => {
     const handleResize = () => {
       setDimensions(getCardDimensions());
       setCurrentSlide(0);
     };
- 
+
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
- 
+
   const calculatePositions = () => {
     if (!gridRef.current || dimensions.cardsPerRow === 1) return [];
     const containerWidth = gridRef.current.offsetWidth;
     const { cardHeight, horizontalGap, verticalGap, cardsPerRow } = dimensions;
- 
+
     const cardWidth = (containerWidth - (cardsPerRow - 1) * horizontalGap) / cardsPerRow;
- 
+
     const positions = [];
     const totalCards = 6;
     for (let i = 0; i < totalCards; i++) {
@@ -110,29 +121,24 @@ const OurServices = () => {
         y: row * (cardHeight + verticalGap),
       });
     }
- 
-    // Adjust positions for slide 1
+
     if (currentSlide === 1 && dimensions.cardsPerRow === 3) {
-      // Move card 6 (Air freight) to row 1, col 3
       positions[2] = { x: 2 * (cardWidth + horizontalGap), y: 0 };
-      // Move card 7 (Sea freight) to row 2, col 3
       positions[5] = { x: 2 * (cardWidth + horizontalGap), y: cardHeight + verticalGap };
     } else if (currentSlide === 1 && dimensions.cardsPerRow === 2) {
-      // Move card 6 (Air freight) to row 1, col 2
       positions[1] = { x: cardWidth + horizontalGap, y: 0 };
-      // Move card 7 (Sea freight) to row 2, col 2
       positions[3] = { x: cardWidth + horizontalGap, y: cardHeight + verticalGap };
     }
- 
+
     return positions;
   };
- 
+
   const [gridPositions, setGridPositions] = useState(calculatePositions());
- 
+
   useEffect(() => {
     setGridPositions(calculatePositions());
   }, [dimensions, currentSlide]);
- 
+
   const cardVariants = [
     {
       visible: { opacity: 1, scale: 1, x: 0, transition: { type: "spring", stiffness: 100, damping: 20, duration: 0.5 } },
@@ -155,52 +161,52 @@ const OurServices = () => {
       exit: { opacity: 0, scale: 0.4, transition: { type: "spring", stiffness: 150, damping: 10, duration: 0.4 } },
     },
   ];
- 
+
   const getImageSize = () => {
     if (dimensions.cardsPerRow === 1) return "w-20 h-20";
     if (dimensions.cardsPerRow === 2) return "w-20 h-20";
     return "w-28 h-28";
   };
- 
+
   const handleViewAll = (e) => {
     e.preventDefault();
     setViewAllClicked(true);
   };
- 
+
   useEffect(() => {
     if (viewAllClicked) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-      }, 3000); // Toggle slide every 3 seconds
+      }, 3000);
       return () => clearInterval(interval);
     }
   }, [viewAllClicked]);
- 
+
   useEffect(() => {
     if (dimensions.cardsPerRow === 1 && viewAllClicked) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % cards.slice(0, 6).length);
-      }, 3000); // Cycle through mobile slides every 3 seconds
+      }, 3000);
       return () => clearInterval(interval);
     }
   }, [viewAllClicked, dimensions.cardsPerRow]);
- 
+
   const handleNextSlide = () => {
     if (currentSlide < 1) {
       setCurrentSlide(1);
     }
   };
- 
+
   const handlePrevSlide = () => {
     if (currentSlide > 0) {
       setCurrentSlide(0);
     }
   };
- 
+
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
- 
+
   const handleTouchEnd = (e) => {
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
@@ -211,33 +217,19 @@ const OurServices = () => {
     }
     touchStartX.current = null;
   };
- 
+
   const getVisibleCards = () => {
     if (currentSlide === 0) {
-      return cards.slice(0, 6); // Initial 6 cards
+      return cards.slice(0, 6);
     }
     if (dimensions.cardsPerRow === 3) {
-      return [
-        cards[1], // Row 1, Col 1 (House moving)
-        cards[2], // Row 1, Col 2 (Vehicle relocation)
-        cards[6], // Row 1, Col 3 (Air freight)
-        cards[4], // Row 2, Col 1 (Storage solutions)
-        cards[5], // Row 2, Col 2 (Insurance coverage)
-        cards[7], // Row 2, Col 3 (Sea freight)
-      ];
+      return [cards[1], cards[2], cards[6], cards[4], cards[5], cards[7]];
     } else if (dimensions.cardsPerRow === 2) {
-      return [
-        cards[2], // Row 1, Col 1 (Vehicle relocation)
-        cards[6], // Row 1, Col 2 (Air freight)
-        cards[4], // Row 2, Col 1 (Storage solutions)
-        cards[7], // Row 2, Col 2 (Sea freight)
-        cards[5], // Row 3, Col 1 (Insurance coverage)
-        cards[3], // Row 3, Col 2 (Office relocation)
-      ];
+      return [cards[2], cards[6], cards[4], cards[7], cards[5], cards[3]];
     }
     return cards.slice(0, 6);
   };
- 
+
   return (
     <div className="w-full py-8 bg-white">
       <style>
@@ -281,6 +273,7 @@ const OurServices = () => {
             border-radius: 50%;
             padding: 3px;
             transition: background 0.3s ease;
+            cursor: pointer;
           }
           .card:hover .card-arrow {
             background: white;
@@ -395,7 +388,10 @@ const OurServices = () => {
                         <p className="text-base sm:text-normal text-gray-300 mb-4 flex-grow">
                           {card.text}
                         </p>
-                        <div className="card-arrow mb-0">
+                        <div
+                          className="card-arrow mb-0"
+                          onClick={() => navigate(card.slug)} 
+                        >
                           <svg
                             width="38"
                             height="38"
@@ -432,7 +428,7 @@ const OurServices = () => {
             >
               {getVisibleCards().map((card, index) => {
                 const { x, y } = gridPositions[index] || { x: 0, y: 0 };
-                const variantIndex = index % 4; // Cycle through 4 animation types
+                const variantIndex = index % 4;
                 return (
                   <motion.div
                     key={card.id}
@@ -466,7 +462,10 @@ const OurServices = () => {
                       <p className="text-sm sm:text-base text-gray-200 mb-4 flex-grow">
                         {card.text}
                       </p>
-                      <div className="card-arrow mb-0">
+                      <div
+                        className="card-arrow mb-0"
+                        onClick={() => navigate(card.slug)} // Navigate to the card's slug
+                      >
                         <svg
                           width="38"
                           height="38"
@@ -493,5 +492,5 @@ const OurServices = () => {
     </div>
   );
 };
- 
+
 export default OurServices;
