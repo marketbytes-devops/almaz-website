@@ -61,7 +61,7 @@ const Navbar = () => {
         className="bg-primary shadow-lg fixed z-50"
         animate={{
           top: isScrolled ? 0 : 50,
-          width: isScrolled ? "93.4%" : ["93.4%", "93.4%", "93.4%", "93.4%"],
+          width: isScrolled ? "93.5%" : ["93.5%", "93.5%", "93.5%", "93.5%"],
           borderTopRightRadius: isScrolled ? 0 : [0, 12, 16, 16],
           borderTopLeftRadius: isScrolled ? 0 : [0, 12, 16, 16],
           borderBottomRightRadius: isScrolled ? [0, 12, 16, 16] : 0,
@@ -259,7 +259,7 @@ const Navbar = () => {
               padding-right: 1rem;
             }
             nav {
-              width: 93.4%;
+              width: 93.5%;
             }
           }
 
@@ -269,7 +269,7 @@ const Navbar = () => {
               padding-right: 1.5rem;
             }
             nav {
-              width: 93.4%;
+              width: 93.5%;
             }
           }
 
@@ -279,7 +279,7 @@ const Navbar = () => {
               padding-right: 2rem;
             }
             nav {
-              width: 93.4%;
+              width: 93.5%;
             }
           }
 
@@ -289,7 +289,7 @@ const Navbar = () => {
               padding-right: 4.5rem;
             }
             nav {
-              width: 93.4%;
+              width: 93.5%;
             }
           }
         `}

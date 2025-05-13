@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import image1 from "../../../../assets/about/relocateimg.webp";
+import TitleDescription from "../../../../components/TitleDescription";
 
 const Relocate = () => {
   const [monthlyServices, setMonthlyServices] = useState(0);
@@ -82,7 +83,7 @@ const Relocate = () => {
           setOnTimeDelivery(0);
         }
       },
-      { threshold: 0.5 } // Trigger when 50% of the section is visible
+      { threshold: 0.5 }
     );
 
     if (sectionRef.current) {
@@ -103,58 +104,57 @@ const Relocate = () => {
     return num.toString();
   };
 
+  const stats = [
+    {
+      value: formatNumber(monthlyServices),
+      label: "Monthly Services",
+    },
+    {
+      value: formatNumber(deliveries),
+      label: "Deliveries",
+    },
+    {
+      value: `${globalPartners}+`,
+      label: "Global Partners",
+    },
+    {
+      value: `${onTimeDelivery}%`,
+      label: "On-Time Delivery",
+    },
+  ];
+
   return (
-    <div ref={sectionRef} className="relative w-full overflow-hidden">
-      <div className="w-full">
-        <img
-          src={image1}
-          alt="Relocate"
-          className="w-full h-auto object-cover"
-        />
+    <div
+      ref={sectionRef}
+      style={{
+        backgroundImage: `url(${image1})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+      className="w-full h-full lg:h-[400px] py-10 lg:py-0 mx-auto overflow-hidden flex flex-col justify-center items-center relative bg-black/50"
+    >
+      <div className="relative w-full mb-4">
+        <div className="w-full flex items-center flex-col">
+          <TitleDescription
+            title="Relocating Made Simple, Secure, and Stress-Free"
+            titleClass="text-secondary"
+          />
+        </div>
       </div>
-
-      <div className="absolute top-10 left-0 right-0 z-20 w-full text-center">
-        <h2 className="text-4xl text-secondary px-4 py-1 inline-block">
-          Relocating Made Simple, Secure, and Stress-Free
-        </h2>
-      </div>
-
-      <div className="absolute inset-0 grid grid-cols-4 z-10 top-10 w-full">
-        <div className="flex flex-col items-center justify-center p-4">
-          <span className="text-white text-5xl font-poppins font-semibold mt-2">
-            {formatNumber(monthlyServices)}
-          </span>
-          <span className="text-white text-xl font-poppins font-medium px-3 py-1">
-            Monthly Services
-          </span>
-        </div>
-
-        <div className="flex flex-col items-center justify-center p-4">
-          <span className="text-white text-5xl font-poppins font-semibold mt-2">
-            {formatNumber(deliveries)}
-          </span>
-          <span className="text-white text-xl font-poppins font-medium px-3 py-1">
-            Deliveries
-          </span>
-        </div>
-
-        <div className="flex flex-col items-center justify-center p-4">
-          <span className="text-white text-5xl font-poppins font-semibold mt-2">
-            {globalPartners}+
-          </span>
-          <span className="text-white text-xl font-poppins font-medium px-3 py-1">
-            Global Partners
-          </span>
-        </div>
-
-        <div className="flex flex-col items-center justify-center p-4">
-          <span className="text-white text-5xl font-poppins font-semibold mt-2">
-            {onTimeDelivery}%
-          </span>
-          <span className="text-white text-xl font-poppins font-medium px-3 py-1">
-            On-Time Delivery
-          </span>
-        </div>
+      <div className="container-secondary grid grid-cols-1 gap-4 sm:grid-cols-1 lg:flex lg:flex-row lg:justify-between items-center w-full">
+        {stats.map((stat, index) => (
+          <div
+            key={index}
+            className="flex space-y-6 pt-8 flex-col items-center justify-center flex-shrink-0"
+          >
+            <span className="text-white text-5xl font-semibold sm:text-[clamp(1.75rem,6vw,2rem)] xs:text-[clamp(1.5rem,5vw,1.75rem)]">
+              {stat.value}
+            </span>
+            <span className="text-white text-xl font-medium sm:text-[clamp(0.875rem,3.5vw,1rem)] xs:text-[clamp(0.75rem,3vw,0.875rem)] text-center">
+              {stat.label}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );

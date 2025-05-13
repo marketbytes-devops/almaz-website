@@ -34,7 +34,7 @@ const WhychooseUs = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: "15px",
+          centerPadding: "20px",
         },
       },
       {
@@ -89,12 +89,12 @@ const WhychooseUs = () => {
 
   return (
     <div className="w-full bg-white">
-      <div className="mx-auto w-full ml-4 mt-0 px-5 sm:px-3 lg:px-5 py-8 sm:py-12 md:py-16">
+      <div>
         <TitleDescription
           title="Why Choose Us"
           titleClass="text-[32px] font-poppins font-normal text-black py-2 mb-6"
         />
-        <p className="text-left text-[20px] font-poppins font-medium leading-[160%] max-w-full text-gray-800">
+        <p className="text-left text-[21px] font-poppins font-medium leading-[160%] max-w-full text-gray-900">
           Why have people loved us for more than 14 years?
         </p>
         <p className="text-left text-[16px] font-poppins font-normal leading-[160%] max-w-full mb-10 text-gray-600">
@@ -106,16 +106,13 @@ const WhychooseUs = () => {
         </p>
         <Slider {...settings} className="slick-slider">
           {slides.map((slide, index) => (
-            <div key={index} className="p-2 sm:p-3 lg:p-4">
-              <div
-                style={{ backgroundColor: "#F8FAFC" }}
-                className="p-6 pl-1 rounded-lg card-container flex items-center"
-              >
+            <div key={index}>
+              <div className="bg-primary/5 p-6 pl-1 card-container flex items-center h-40">
                 <div className="icon-container w-[52px] h-[52px] rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                   <img
                     src={slide.icon}
                     alt={slide.alt}
-                    className="w-[32px] h-[32px]"
+                    className="w-[80px] h-[80px]"
                   />
                 </div>
                 <div>
@@ -137,18 +134,16 @@ const WhychooseUs = () => {
             background-color: #ffffff; /* White background for circle */
           }
           .custom-dots {
-            bottom: -5px;
             display: flex !important;
             justify-content: center;
             align-items: center;
-            margin-top: 1.5rem;
-            padding: 0;
+            padding-top: 10px;
             list-style: none;
             width: 100%;
             position: relative;
           }
           .custom-dots li {
-            margin: 0 6px;
+            margin: 0px 1px;
           }
           .custom-dot {
             width: 12px;
@@ -167,6 +162,9 @@ const WhychooseUs = () => {
             position: relative;
             overflow: visible;
           }
+          .slick-slide {
+            padding: 0 8px; 
+          }
           .slick-slide > div {
             display: flex;
             justify-content: center;
@@ -175,10 +173,13 @@ const WhychooseUs = () => {
           }
           .card-container {
             max-width: 100%;
-            width: calc(100% - 0.5rem);
+            width: 100%;
             margin: 0 auto;
           }
           @media (max-width: 600px) {
+            .slick-slide {
+              padding: 0 0px; 
+            }
             .card-container {
               width: calc(100% - 1rem);
             }
@@ -200,6 +201,9 @@ const WhychooseUs = () => {
             }
           }
           @media (max-width: 400px) {
+            .slick-slide {
+              padding: 0 2px; 
+            }
             .card-container {
               width: calc(100% - 0.75rem);
             }

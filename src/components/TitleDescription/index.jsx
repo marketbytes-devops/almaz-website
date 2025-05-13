@@ -7,7 +7,7 @@ const TitleDescription = ({
   descriptionClass = 'text-lg text-black px-4 py-2',
 }) => {
   return (
-    <div className="">
+    <div className="text-center sm:text-center lg:text-left">
       {title && (
         <h2 className={titleClass}>
           {title}

@@ -28,7 +28,7 @@ const Banner = ({
   return (
     <div className="container-primary w-full">
       <div
-        className="relative w-full min-h-[500px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-4 sm:px-6"
+        className="relative w-full min-h-[300px] lg:min-h-[500px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-4 sm:px-6"
         style={{
           backgroundImage: `url(${bannerImage})`,
           backgroundSize: "cover",
@@ -76,24 +76,21 @@ const Banner = ({
           animate={{ opacity: 1, y: 0 }}
           
         >
-          <div className="flex justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 text-sm sm:text-base">
             <Link
               to="/"
-              className="text-md sm:text-md text-gray-100 cursor-pointer"
-              style={{ textDecoration: 'none' }}
+              className="text-gray-100 hover:text-secondary transition-colors duration-300"
+              aria-label={`Navigate to ${mainRoute}`}
             >
               {mainRoute}
             </Link>
-            <div>
-              <span className="text-sm sm:text-sm mx-2">/</span>
-            </div>
+            <span className="mx-1 text-secondary">/</span>
             <Link
               to={subRoutePath}
-              className="text-sm sm:text-sm cursor-pointer"
-              style={{
-                textDecoration: "none",
-                color: location.pathname === subRoutePath ? "#FFC107" : "white",
-              }}
+              className={`transition-colors duration-300 ${
+                location.pathname === subRoutePath ? "text-secondary" : "text-gray-100 hover:text-secondary"
+              }`}
+              aria-label={`Navigate to ${subRoute}`}
             >
               {subRoute}
             </Link>

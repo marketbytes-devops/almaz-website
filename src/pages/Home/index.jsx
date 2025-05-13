@@ -13,7 +13,7 @@ import GetInTouchSection from "./UiComponents/GetinTouch";
 const Home = () => {
   const [activeTab, setActiveTab] = useState("booking");
   const [isExpanded, setIsExpanded] = useState(false);
-  const [areFieldsEnabled, setAreFieldsEnabled] = useState(false); // Track if fields are enabled
+  const [areFieldsEnabled, setAreFieldsEnabled] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -36,13 +36,13 @@ const Home = () => {
   };
 
   const handleFullNameClick = () => {
-    setIsExpanded(true); // Expand the form
-    setAreFieldsEnabled(true); // Enable the fields
+    setIsExpanded(true);
+    setAreFieldsEnabled(true);
   };
 
   const handleCloseExpandedForm = () => {
-    setIsExpanded(false); // Collapse the expanded form
-    setAreFieldsEnabled(false); // Disable the fields again
+    setIsExpanded(false);
+    setAreFieldsEnabled(false);
   };
 
   const serviceOptions = [
@@ -53,36 +53,9 @@ const Home = () => {
 
   return (
     <>
-      <style>
-        {`
-          .ripple-button {
-            position: relative;
-            overflow: hidden;
-          }
- 
-          .ripple-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-            pointer-events: none;
-          }
- 
-          .ripple-button:hover::before {
-            width: 200%;
-            height: 200%;
-          }
-        `}
-      </style>
-      <div className="container-primary w-full pt-16">
+      <div className="container-primary w-full pt-12 sm:pt-16">
         <div
-          className="relative w-full min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 overflow-hidden rounded-3xl"
+          className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 md:px-8 rounded-b-3xl rounded-t-none"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
@@ -91,48 +64,38 @@ const Home = () => {
           }}
         >
           <div
-            className="absolute inset-0 min-h-[700px] rounded-3xl"
+            className="absolute inset-0 rounded-b-3xl rounded-t-none"
             style={{
-              backgroundImage: `linear-gradient(to bottom right, rgb(76, 112, 133), rgba(0,0,0, 0.3))`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
+              backgroundImage: `linear-gradient(to bottom right, rgba(76, 112, 133, 0.8), rgba(0,0,0, 0.3))`,
             }}
           ></div>
           <motion.div
-            className="relative z-20 max-w-5xl mx-auto pt-20"
+            className="relative z-10 w-full max-w-5xl mx-auto pt-12 sm:pt-16 md:pt-20"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
             <motion.h1
-              className="text-4xl sm:text-5xl font-bold mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 space-y-4 sm:space-y-5"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <div className="space-y-5 font-bold pt-8 lg:pt-10">
-                <div>
-                  <span className="text-white"> Moving from </span>
-                  <span className="text-secondary">Qatar? </span>
-                </div>
-                <div>
-                  <span className="text-white">We'll get you there, </span>
-                  <span className="text-secondary">fast and safe!</span>
-                </div>
-                <div className="text-gray-100 font-normal text-xl">
-                  Qatar's most trusted international moving & relocation <br />
-                  experts delivering seamless and reliable logistics solution
-                </div>
+              <div>
+                <span className="text-white">Moving from </span>
+                <span className="text-yellow-400">Qatar? </span>
+              </div>
+              <div>
+                <span className="text-white">We'll get you there, </span>
+                <span className="text-yellow-400">fast and safe!</span>
+              </div>
+              <div className="text-gray-100 font-normal text-base sm:text-lg md:text-xl">
+                Qatar's most trusted international moving & relocation <br />
+                experts delivering seamless and reliable logistics solutions
               </div>
             </motion.h1>
-            <motion.p
-              className="text-lg sm:text-xl max-w-[600px] mx-auto mt-14 lg:mt-20"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-            ></motion.p>
             <motion.div
-              className="max-w-[1100px] w-full bg-[rgba(255,255,255,0.5)] rounded-3xl shadow-lg shadow-black/30 mb-6 overflow-hidden mx-auto relative"
+              className="w-full bg-white/50 rounded-3xl shadow-lg shadow-black/30 mb-6 mx-auto relative overflow-hidden max-w-[90%] sm:max-w-4xl"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -140,11 +103,11 @@ const Home = () => {
               {isExpanded && (
                 <button
                   onClick={handleCloseExpandedForm}
-                  className="absolute top-1 lg:top-4 right-1 lg:right-4 text-gray-900 hover:text-gray-600 focus:outline-none"
+                  className="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-900 hover:text-gray-600 focus:outline-none"
                   aria-label="Close expanded form"
                 >
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5 sm:w-6 sm:h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -159,18 +122,18 @@ const Home = () => {
                   </svg>
                 </button>
               )}
-              <div className="p-6">
-                <div className="flex justify-center gap-4 sm:gap-6">
+              <div className="p-4 sm:p-6">
+                <div className="flex justify-center gap-2 sm:gap-4">
                   <button
                     onClick={() => {
                       setActiveTab("booking");
                       setIsExpanded(false);
                       setAreFieldsEnabled(false);
                     }}
-                    className={`text-[16px] sm:text-[16px] lg:text-[16px] font-normal cursor-pointer rounded-xl px-10 py-2 ${activeTab === "booking"
-                        ? "text-black border-b-4 border-[#121211]"
-                        : "text-gray-600"
-                      } bg-white rounded-xl`}
+                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6(py-1 sm:py-2 ${activeTab === "booking"
+                        ? "text-black border-b-4 border-gray-900 bg-white"
+                        : "text-gray-600 bg-white/80"
+                      } transition-colors`}
                   >
                     Booking
                   </button>
@@ -180,22 +143,20 @@ const Home = () => {
                       setIsExpanded(false);
                       setAreFieldsEnabled(false);
                     }}
-                    className={`text-[16px] sm:text-[16px] lg:text-[16px] font-normal cursor-pointer rounded-xl px-10 py-2 ${activeTab === "tracking"
-                        ? "text-black border-b-4 border-[#121211]"
-                        : "text-gray-600"
-                      } bg-white rounded-md`}
+                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${activeTab === "tracking"
+                        ? "text-black border-b-4 border-gray-900 bg-white"
+                        : "text-gray-600 bg-white/80"
+                      } transition-colors`}
                   >
                     Tracking
                   </button>
-
-
                 </div>
-                <div className="border-t border-white -mx-6 sm:-mx-8 mt-6"></div>
+                <div className="border-t border-white/50 -mx-4 sm:-mx-6 mt-4 sm:mt-6"></div>
 
                 {activeTab === "booking" ? (
-                  <div className={`pt-6 ${!isExpanded ? "pb-0" : ""}`}>
-                    <div className="flex gap-3 sm:gap-4 flex-wrap">
-                      <div className="flex-1 min-w-[270px]">
+                  <div className={`pt-4 sm:pt-6 ${!isExpanded ? "pb-0" : "pb-4"}`}>
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap">
+                      <div className="flex-1 min-w-[200px]">
                         <FormField
                           type="text"
                           name="fullName"
@@ -204,9 +165,10 @@ const Home = () => {
                           onChange={handleInputChange}
                           onClick={handleFullNameClick}
                           required
+                          className="w-full"
                         />
                       </div>
-                      <div className="flex-1 min-w-[270px]">
+                      <div className="flex-1 min-w-[200px]">
                         <FormField
                           type="tel"
                           name="phoneNumber"
@@ -215,9 +177,10 @@ const Home = () => {
                           onChange={handleInputChange}
                           disabled={!areFieldsEnabled}
                           required
+                          className="w-full"
                         />
                       </div>
-                      <div className="flex-1 min-w-[270px]">
+                      <div className="flex-1 min-w-[200px]">
                         <FormField
                           type="select"
                           name="serviceType"
@@ -227,6 +190,7 @@ const Home = () => {
                           options={serviceOptions}
                           disabled={!areFieldsEnabled}
                           required
+                          className="w-full"
                         />
                       </div>
                     </div>
@@ -237,8 +201,8 @@ const Home = () => {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden mt-4"
                       >
-                        <div className="flex gap-4 sm:gap-4 flex-wrap">
-                          <div className="flex-1 min-w-[270px]">
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap">
+                          <div className="flex-1 min-w-[200px]">
                             <FormField
                               type="email"
                               name="email"
@@ -246,6 +210,7 @@ const Home = () => {
                               value={formData.email}
                               onChange={handleInputChange}
                               required
+                              className="w-full"
                             />
                           </div>
                         </div>
@@ -257,13 +222,14 @@ const Home = () => {
                             value={formData.message}
                             onChange={handleInputChange}
                             required
+                            className="w-full"
                           />
                         </div>
                         <div className="mt-4">
                           <Button
                             label="Get a quote"
                             icon="ArrowUpRight"
-                            className="bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors ripple-button"
+                            className="bg-yellow-400 text-black rounded-2xl px-4 py-2 sm:px-4 sm:py-3 text-base sm:text-lg hover:bg-white hover:text-gray-900 transition-colors w-full sm:w-auto"
                             onClick={handleFormSubmit}
                           />
                         </div>
@@ -271,7 +237,7 @@ const Home = () => {
                     )}
                   </div>
                 ) : (
-                  <div className="flex gap-4 sm:gap-4 items-center p-2 flex-wrap">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center p-2">
                     <div className="flex-1 min-w-[200px]">
                       <FormField
                         type="text"
@@ -281,12 +247,13 @@ const Home = () => {
                         value={formData.trackingNumber}
                         onChange={handleInputChange}
                         required
+                        className="w-full"
                       />
                     </div>
                     <Button
                       label="Track"
                       icon="ArrowUpRight"
-                      className="w-auto bg-secondary text-black text-xl text-left rounded-2xl px-4 py-3 mb-3 hover:bg-white hover:text-gray-900 transition-colors"
+                      className="w-full sm:w-auto bg-yellow-400 text-black text-base sm:text-lg rounded-2xl px-4 py-2 sm:px-4 sm:py-3 hover:bg-white hover:text-gray-900 transition-colors"
                     />
                   </div>
                 )}
@@ -295,25 +262,23 @@ const Home = () => {
           </motion.div>
         </div>
       </div>
-      <section className="container-secondary about-us mt-10 sm:mt-10 lg:mt-16">
+      <section className="container-secondary about-us mt-8 sm:mt-10 lg:mt-16">
         <AboutSection />
       </section>
-
-      <section className="container-secondary our-services pl-40 mt-6 sm:mt-6 lg:mt-16">
+      <section className="container-secondary our-services pl-10 sm:pl-20 md:pl-40 mt-6 sm:mt-6 lg:mt-16">
         <OurServices />
       </section>
-
-      <section className="container-secondary our-services mt-10 sm:mt-10 lg:mt-16">
+      <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
         <ContactUs />
       </section>
-      <section className="container-secondary our-services mt-10 sm:mt-10 lg:mt-16">
+      <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
         <Review />
       </section>
-      <section className="container-secondary our-services ">
+      <section className="container-secondary our-services">
         <BlogSection />
       </section>
-      <section className="w-full bg-primary/10 mt-12 sm:mt-12 lg:mt-16">
-        <div className="mx-auto w-full py-8 sm:py-12 md:py-16">
+      <section className="w-full bg-primary/10 mt-10 sm:mt-12 lg:mt-16">
+        <div className="mx-auto w-full py-6 sm:py-12 md:py-16">
           <GetInTouchSection />
         </div>
       </section>

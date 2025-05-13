@@ -2,243 +2,114 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import whowearePic from "../../../../assets/about/whowearePic.webp";
 import yellowTick from "../../../../assets/about/yellowtick.svg";
+import TitleDescription from "../../../../components/TitleDescription";
+
+// JSON data for dynamic content
+const whoWeAreData = {
+  title: "Who we are",
+  description:
+    "Almas Movers International is an ISO-certified moving company based in Doha, Qatar since 2011. With global affiliations and a trusted team, we provide safe, professional relocation services locally and worldwide.",
+  sections: [
+    {
+      id: "certified",
+      title: "Certified Excellence",
+      description:
+        "ISO certified for quality and reliability, ensuring the safety of your belongings.",
+      icon: yellowTick,
+    },
+    {
+      id: "seamless",
+      title: "Seamless Relocation Services",
+      description: "Zero compromise on service standards.",
+      icon: yellowTick,
+    },
+    {
+      id: "worldwide",
+      title: "Worldwide Support Network",
+      description: "Global reach with local expertise.",
+      icon: yellowTick,
+    },
+  ],
+  image: {
+    src: whowearePic,
+    alt: "Who We Are",
+  },
+};
 
 const WhoweAre = () => {
-  const [openSection, setOpenSection] = useState("certified");
+  const [openSection, setOpenSection] = useState(whoWeAreData.sections[0].id);
 
-  const toggleSection = (section) => {
-    setOpenSection(openSection === section ? null : section);
+  const toggleSection = (sectionId) => {
+    setOpenSection(openSection === sectionId ? null : sectionId);
   };
 
   return (
-    <div className="w-full">
-      <div className="w-full primary_Gradient">
-        <div className="mx-auto w-full max-w-7xl px-2 sm:px-3 lg:px-4 font-sans overflow-x-hidden">
-          <div className="flex flex-col md:flex-row">
-            <div className="w-full md:w-1/2 px-2 sm:px-3 lg:px-4 py-8 sm:py-12 md:py-20">
-              <motion.h1
-                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4 sm:mb-6"
-                style={{ color: "#FFC107" }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                Who we are
-              </motion.h1>
-
-              <motion.p
-                className="text-sm sm:text-base md:text-lg text-gray-200 mb-12 sm:mb-12 md:mb-8"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Almas Movers International is an ISO-certified moving company
-                based in Doha, Qatar since 2011. With global affiliations and a
-                trusted team, we provide safe, professional relocation services
-                locally and worldwide.
-              </motion.p>
-
-              <div className="space-y-4 sm:space-y-6">
-               
-                <div>
+    <div className="w-full py-16">
+      <div className="mx-auto">
+        <div className="flex flex-col md:flex-row space-x-0 sm:space-x-0 md:space-x-0 lg:space-x-20 xl:space-x-20">
+          <div className="w-full md:w-1/2">
+            <TitleDescription title={whoWeAreData.title} description={whoWeAreData.description} titleClass="text-secondary pb-2" descriptionClass="text-gray-100 pb-2"/>
+            <div className="space-y-4 sm:space-y-6 pt-6">
+              {whoWeAreData.sections.map((section, index) => (
+                <div key={section.id}>
                   <div
-                    className="flex items-center justify-between p-2 sm:p-3 rounded"
-                    style={{
-                      background:
-                        "linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))",
-                    }}
+                    className="flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-white/10 to-white/5"
                   >
                     <motion.h3
-                      className="text-base sm:text-lg md:text-xl text-white flex items-center px-9"
+                      className="text-base sm:text-lg md:text-xl text-white flex items-center pl-4 sm:pl-6"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
+                      transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
                     >
                       <img
-                        src={yellowTick}
+                        src={section.icon}
                         alt="Tick"
-                        className="mr-2 w-6 h-6 sm:w-7 sm:h-7"
-                      />{" "}
-                      Certified Excellence
+                        className="mr-2 w-5 h-5 sm:w-6 sm:h-6"
+                      />
+                      {section.title}
                     </motion.h3>
                     <button
-                      onClick={() => toggleSection("certified")}
-                      className="text-lg sm:text-xl md:text-2xl text-gray-300 px-5"
+                      onClick={() => toggleSection(section.id)}
+                      className="text-lg sm:text-xl md:text-2xl text-gray-300 pr-4 sm:pr-6"
+                      aria-expanded={openSection === section.id}
+                      aria-controls={`section-${section.id}`}
                     >
-                      {openSection === "certified" ? "−" : "+"}
+                      {openSection === section.id ? "−" : "+"}
                     </button>
                   </div>
-                  {openSection === "certified" && (
+                  {openSection === section.id && (
                     <div
-                      className="p-2 sm:p-3 rounded"
-                      style={{
-                        background:
-                          "linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))",
-                      }}
+                      className="p-3 sm:p-4 bg-gradient-to-r from-white/10 to-white/5"
+                      id={`section-${section.id}`}
                     >
                       <motion.p
-                        className="text-xs sm:text-sm md:text-base text-gray-300 mt-2 pl-4 sm:pl-6"
+                        className="text-xs sm:text-sm md:text-base text-gray-300 pl-4 sm:pl-6"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         transition={{ duration: 0.5 }}
                       >
-                        ISO certified for quality and reliability, ensuring the
-                        safety of your belongings.
+                        {section.description}
                       </motion.p>
                     </div>
                   )}
                 </div>
-
-                <div>
-                  <div
-                    className="flex items-center justify-between p-2 sm:p-3 rounded"
-                    style={{
-                      background:
-                        "linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))",
-                    }}
-                  >
-                    <motion.h3
-                      className="text-base sm:text-lg md:text-xl text-white flex items-center px-9"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
-                    >
-                      <img
-                        src={yellowTick}
-                        alt="Tick"
-                        className="mr-2 w-6 h-6 sm:w-7 sm:h-7"
-                      />{" "}
-                      Seamless Relocation Services
-                    </motion.h3>
-                    <button
-                      onClick={() => toggleSection("seamless")}
-                      className="text-lg sm:text-xl md:text-2xl text-gray-300 px-5"
-                    >
-                      {openSection === "seamless" ? "−" : "+"}
-                    </button>
-                  </div>
-                  {openSection === "seamless" && (
-                    <div
-                      className="p-2 sm:p-3 rounded"
-                      style={{
-                        background:
-                          "linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))",
-                      }}
-                    >
-                      <motion.p
-                        className="text-xs sm:text-sm md:text-base text-gray-300 mt-2 pl-4 sm:pl-6"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        Zero compromise on service standards.
-                      </motion.p>
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  <div
-                    className="flex items-center justify-between p-2 sm:p-3 rounded"
-                    style={{
-                      background:
-                        "linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))",
-                    }}
-                  >
-                    <motion.h3
-                      className="text-base sm:text-lg md:text-xl text-white flex items-center px-9"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.8 }}
-                    >
-                      <img
-                        src={yellowTick}
-                        alt="Tick"
-                        className="mr-2 w-6 h-6 sm:w-7 sm:h-7"
-                      />{" "}
-                      Worldwide Support Network
-                    </motion.h3>
-                    <button
-                      onClick={() => toggleSection("worldwide")}
-                      className="text-lg sm:text-xl md:text-2xl text-gray-300 px-5"
-                    >
-                      {openSection === "worldwide" ? "−" : "+"}
-                    </button>
-                  </div>
-                  {openSection === "worldwide" && (
-                    <div
-                      className="p-2 sm:p-3 rounded"
-                      style={{
-                        background:
-                          "linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))",
-                      }}
-                    >
-                      <motion.p
-                        className="text-xs sm:text-sm md:text-base text-gray-300 mt-2 pl-4 sm:pl-6"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        Global reach with local expertise.
-                      </motion.p>
-                    </div>
-                  )}
-                </div>
-              </div>
+              ))}
             </div>
+          </div>
 
-            <div className="w-full md:w-1/2 min-h-[250px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[400px] flex items-center justify-center sm:px-3 lg:px-4 py-8 sm:py-12 md:py-16">
-              <motion.img
-                src={whowearePic}
-                alt="Who We Are"
-                className="w-full max-w-[90%] sm:max-w-[90%] md:max-w-[90%] max-h-[90%] rounded-3xl object-cover"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              />
-            </div>
+          {/* Right Section: Image */}
+          <div className="w-full md:w-1/2 flex items-center justify-center pt-16 sm:pt-16 md:pt-0 lg:pt-0 xl:pt-0">
+            <motion.img
+              src={whoWeAreData.image.src}
+              alt={whoWeAreData.image.alt}
+              className="w-full h-auto object-cover rounded-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            />
           </div>
         </div>
       </div>
-      <style jsx>{`
-        .container {
-          max-width: 100%;
-          overflow-x: hidden;
-        }
-        @media (max-width: 640px) {
-          .text-xl {
-            font-size: clamp(1rem, 4vw, 1.25rem);
-          }
-          .text-lg {
-            font-size: clamp(0.875rem, 3.5vw, 1rem);
-          }
-          .text-base {
-            font-size: clamp(0.75rem, 3vw, 0.875rem);
-          }
-          .text-sm {
-            font-size: clamp(0.625rem, 2.5vw, 0.75rem);
-          }
-          .px-2 {
-            padding-left: clamp(0.5rem, 2vw, 0.75rem);
-            padding-right: clamp(0.5rem, 2vw, 0.75rem);
-          }
-          .space-y-6 {
-            margin-top: clamp(0.75rem, 3vw, 1rem);
-          }
-        }
-        @media (max-width: 400px) {
-          .min-h-[150px] {
-            min-height: 120px;
-          }
-          .px-2 {
-            padding-left: clamp(0.25rem, 1.5vw, 0.5rem);
-            padding-right: clamp(0.25rem, 1.5vw, 0.5rem);
-          }
-          .max-w-\[95\%\] {
-            max-width: 98%;
-          }
-        }
-      `}</style>
     </div>
   );
 };

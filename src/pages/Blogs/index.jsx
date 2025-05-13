@@ -13,8 +13,8 @@ const Blogs = () => {
           titleFirst="Blogs"
           titleSecond=""
           mainRoute="Home"
-          subRoute="About Us"
-          subRoutePath="/about-us"
+          subRoute="Blogs"
+          subRoutePath="/blogs"
         />
       </div>
       <section className="container-secondary our-services my-16">

@@ -11,6 +11,7 @@ import cert6 from "../../../../assets/about/certification6.webp";
 import cert7 from "../../../../assets/about/certification7.webp";
 import cert8 from "../../../../assets/about/certification8.webp";
 import cert9 from "../../../../assets/about/certification9.webp";
+import TitleDescription from "../../../../components/TitleDescription";
 
 const Certifications = () => {
   const sliderRef = useRef(null);
@@ -65,21 +66,22 @@ const Certifications = () => {
     autoplaySpeed: 4000,
     arrows: true,
     dots: true,
-    dotsClass: "slick-dots custom-dots",
+    dotsClass: "slick-dots flex justify-center items-center p-0 m-0 list-none",
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
-    appendDots: dots => (
+    appendDots: (dots) => (
       <div>
-        <ul className="custom-dots">
-          {/* Only show first 5 dots */}
+        <ul className="flex justify-center items-center space-x-2">
           {dots.slice(0, 5)}
         </ul>
       </div>
     ),
-    customPaging: (i) => {
-      return (
-        <div className={`custom-dot ${i === currentSlide % 5 ? 'active' : ''}`}></div>
-      );
-    },
+    customPaging: (i) => (
+      <div
+        className={`w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-all duration-300 sm:w-3 sm:h-3 ${
+          i === currentSlide % 5 ? "bg-yellow-400 w-3 h-3 sm:w-3 sm:h-3" : ""
+        }`}
+      />
+    ),
     responsive: [
       {
         breakpoint: 1024,
@@ -112,49 +114,46 @@ const Certifications = () => {
     { src: cert9, alt: "Certification 9" },
   ];
 
-  // Determine which slide is centered
   const getCenteredSlideIndex = () => {
     const centerIndex = Math.floor(slidesToShow / 2);
     return (currentSlide + centerIndex) % certifications.length;
   };
 
   return (
-    <div className="slider-container pb-16 pt-1 px-0 sm:px-0">
-      <div className="mb-8 text-left px-4 sm:px-6">
-        <h2 className="text-3xl font-poppins font-normal">
-          Members & Certifications
-        </h2>
+    <div className="w-ful pb-8">
+      <div className="mb-8 text-left">
+        <TitleDescription title="Members & Certifications" />
       </div>
-      <Slider ref={sliderRef} {...settings} className="mx-0">
+      <Slider
+        ref={sliderRef}
+        {...settings}
+        className="mx-0"
+      >
         {certifications.map((cert, index) => {
           const isCentered = index === getCenteredSlideIndex();
-          const isAdjacentToCenter =
-            Math.abs(index - getCenteredSlideIndex()) === 1;
+          const isAdjacentToCenter = Math.abs(index - getCenteredSlideIndex()) === 1;
           return (
             <div
               key={index}
-              className={`px-1 flex justify-center ${
+              className={`px-1 flex justify-center mb-10 ${
                 isCentered ? "mx-2" : isAdjacentToCenter ? "mx-1" : "mx-0.5"
               }`}
             >
               <div className="transition-all duration-200 ease-in-out flex justify-center">
                 <div
-                  className={`w-[218px] h-[109px] flex items-center justify-center transition-transform duration-200 ${
+                  className={`flex items-center justify-center align-middle bg-[#F3F7F8] shadow-[4px_4px_10px_rgba(0,0,0,0.3)] transition-transform duration-200 h-[120px] ${
                     isCentered
-                      ? "transform scale-120 z-10 w-[240px] h-[150px]"
-                      : "transform scale-90 opacity-90"
+                      ? "flex items-center justify-center transform scale-150 m-8 z-10 w-full h-[120px]"
+                      : "flex items-center justify-center transform scale-100 opacity-90 w-full h-[120px]"
                   }`}
-                  style={{
-                    backgroundColor: "#F3F7F8",
-                    boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.3)",
-                    zIndex: isCentered ? 10 : 1,
-                  }}
                 >
                   <img
                     src={cert.src}
                     alt={cert.alt}
-                    className={`object-contain transition-transform duration-200 ${
-                      isCentered ? "w-[100px] h-[100px]" : "w-[83px] h-[83px]"
+                    className={`object-contain flex items-center justify-center transition-transform duration-200 p-4 ${
+                      isCentered
+                        ? "w-full h-full p-8 aspect-auto"
+                        : "w-full h-full aspect-auto"
                     }`}
                   />
                 </div>
@@ -163,53 +162,6 @@ const Certifications = () => {
           );
         })}
       </Slider>
-      <style jsx>{`
-        .custom-dots {
-          bottom: -5px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 0;
-          margin: 0;
-          list-style: none;
-        }
-        .custom-dot {
-          width: 10px;
-          height: 10px;
-          background: #d1d5db;
-          border-radius: 50%;
-          margin: 0 6px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        .custom-dot.active {
-          background: #facc15;
-          width: 12px;
-          height: 12px;
-        }
-        @media (max-width: 640px) {
-          .custom-dot {
-            width: 8px;
-            height: 8px;
-          }
-          .custom-dot.active {
-            width: 10px;
-            height: 10px;
-          }
-        }
-        .slick-slide {
-          transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-        .slider-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        .mb-8.text-left {
-          text-align: left;
-          width: 100%;
-        }
-      `}</style>
     </div>
   );
 };
