@@ -43,7 +43,7 @@ const Shipment = () => {
   };
 
   return (
-    <div className="container-primary px-4 sm:px-6">
+    <div>
       <TitleDescription
         title="Shipment & Container Tracking"
         titleClass="text-2xl sm:text-3xl md:text-4xl text-black font-semibold"
