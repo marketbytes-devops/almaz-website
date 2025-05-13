@@ -3,11 +3,38 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../Button";
 import Logo from "../../assets/logo.webp";
+import FormField from ".././../components/FormField";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phoneNumber: "",
+    email: "",
+    serviceType: "",
+    message: "",
+  });
   const location = useLocation();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Enquiry Form submitted:", formData);
+    setIsModalOpen(false);
+  };
+
+  const serviceOptions = [
+    { value: "moving", label: "Moving" },
+    { value: "logistics", label: "Logistics" },
+    { value: "relocation", label: "Relocation" },
+    { value: "other", label: "Other" },
+  ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -109,6 +136,7 @@ const Navbar = () => {
                 label="Get a quote"
                 icon="ArrowUpRight"
                 className="bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors duration-300 ripple-button"
+                onClick={() => setIsModalOpen(true)}
               />
             </div>
 
@@ -208,6 +236,7 @@ const Navbar = () => {
                     label="Get a quote"
                     icon="ArrowUpRight"
                     className="bg-secondary text-black rounded-2xl px-4 py-2 text-base hover:bg-white hover:text-gray-900 transition-colors duration-300 ripple-button"
+                    onClick={() => setIsModalOpen(true)}
                   />
                 </motion.li>
               </ul>
@@ -215,6 +244,89 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </motion.nav>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div
+            className="absolute bg-black opacity-50"
+            onClick={() => setIsModalOpen(false)}
+          ></div>
+
+          <div className="relative bg-gradient-to-b from-gray-500 to-primary text-white rounded-3xl p-8 shadow-lg w-full max-w-lg mx-4">
+            <button
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+              onClick={() => setIsModalOpen(false)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            <h2 className="text-2xl text-center mb-6">Make an Enquiry</h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <FormField
+                type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                placeholder="Name"
+                required
+              />
+              <FormField
+                type="tel"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                placeholder="Phone number"
+                required
+              />
+              <FormField
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email"
+                required
+              />
+              <FormField
+                type="select"
+                name="serviceType"
+                value={formData.serviceType}
+                onChange={handleChange}
+                options={serviceOptions}
+                placeholder="Service type"
+                required
+              />
+              <FormField
+                type="textarea"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Message"
+                required
+              />
+              <div className="flex justify-center">
+                <Button
+                  label="Submit"
+                  icon="ArrowUpRight"
+                  className="w-fit bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors duration-300 ripple-button"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       <style>
         {`
