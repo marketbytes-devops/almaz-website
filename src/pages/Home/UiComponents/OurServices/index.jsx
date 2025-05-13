@@ -83,7 +83,8 @@ const OurServices = () => {
   const getCardDimensions = () => {
     const width = window.innerWidth;
     if (width < 640) {
-      return { cardHeight: 280, horizontalGap: 16, verticalGap: 24, cardsPerRow: 1, visibleRows: 6 };
+      // Increase the cardHeight for mobile view
+      return { cardHeight: 320, horizontalGap: 16, verticalGap: 24, cardsPerRow: 1, visibleRows: 6 };
     } else if (width < 1024) {
       return { cardHeight: 320, horizontalGap: 20, verticalGap: 32, cardsPerRow: 2, visibleRows: 3 };
     } else {
@@ -163,7 +164,7 @@ const OurServices = () => {
   ];
 
   const getImageSize = () => {
-    if (dimensions.cardsPerRow === 1) return "w-16 h-16";
+    if (dimensions.cardsPerRow === 1) return "w-20 h-20";
     if (dimensions.cardsPerRow === 2) return "w-20 h-20";
     return "w-28 h-28";
   };
@@ -264,6 +265,9 @@ const OurServices = () => {
             position: relative;
           }
           .card-arrow {
+            position: absolute;
+            bottom: -10px;
+            left: -3px;
             width: 45px;
             height: 45px;
             background: transparent;
@@ -271,7 +275,6 @@ const OurServices = () => {
             padding: 3px;
             transition: background 0.3s ease;
             cursor: pointer;
-            margin-top: auto;
           }
           .card:hover .card-arrow {
             background: white;
@@ -287,21 +290,9 @@ const OurServices = () => {
             .card {
               width: 100% !important;
               height: ${dimensions.cardHeight}px;
-              padding: 16px !important;
-            }
-            .card-content {
-              padding-bottom: 48px; /* Space for card-arrow */
             }
             .card-arrow {
-              position: absolute;
-              bottom: 16px;
-              left: 16px;
-            }
-            .card h3 {
-              font-size: 1.125rem !important; /* text-lg */
-            }
-            .card p {
-              font-size: 0.875rem !important; /* text-sm */
+              bottom: -10px; /* Adjusted to move the button lower in mobile view */
             }
           }
           @media (min-width: 640px) and (max-width: 1023px) {
@@ -310,21 +301,12 @@ const OurServices = () => {
               height: ${dimensions.cardHeight}px;
               margin-right: ${dimensions.horizontalGap}px;
               margin-bottom: ${dimensions.verticalGap}px;
-              padding: 20px !important;
             }
             .card:nth-child(2n) {
               margin-right: 0;
             }
             .card:nth-last-child(-n+2) {
               margin-bottom: 0;
-            }
-            .card-content {
-              padding-bottom: 48px; /* Space for card-arrow */
-            }
-            .card-arrow {
-              position: absolute;
-              bottom: 20px;
-              left: 20px;
             }
           }
           @media (min-width: 1024px) {
@@ -333,21 +315,12 @@ const OurServices = () => {
               height: ${dimensions.cardHeight}px;
               margin-right: ${dimensions.horizontalGap}px;
               margin-bottom: ${dimensions.verticalGap}px;
-              padding: 24px !important;
             }
             .card:nth-child(3n) {
               margin-right: 0;
             }
             .card:nth-last-child(-n+3) {
               margin-bottom: 0;
-            }
-            .card-content {
-              padding-bottom: 48px; /* Space for card-arrow */
-            }
-            .card-arrow {
-              position: absolute;
-              bottom: 10px;
-              left: 21px;
             }
           }
         `}
@@ -390,7 +363,7 @@ const OurServices = () => {
                 {cards.slice(0, 6).map((card, index) => (
                   <div key={card.id} className="slider-card">
                     <motion.div
-                      className="card bg-gradient-to-br from-gray-300 to-primary rounded-[16px]"
+                      className="card bg-gradient-to-br from-gray-300 to-primary rounded-[16px] p-5 sm:p-6"
                       style={{
                         height: `${dimensions.cardHeight}px`,
                       }}
@@ -413,14 +386,14 @@ const OurServices = () => {
                           className={`card-image ${getImageSize()} mt-4 mb-4 object-contain`}
                           onError={() => console.log(`Failed to load image: ${card.title}`)}
                         />
-                        <h3 className="text-xl sm:text-2xl text-gray-300 mb-2 capitalize">
+                        <h3 className="text-xl sm:text-2xl text-gray-300 mb-4 capitalize">
                           {card.title}
                         </h3>
-                        <p className="text-sm sm:text-base text-gray-300 mb-4 flex-grow">
+                        <p className="text-base sm:text-normal text-gray-300 mb-4 flex-grow">
                           {card.text}
                         </p>
-                        <button
-                          className="card-arrow"
+                        <div
+                          className="card-arrow mb-0"
                           onClick={() => navigate(card.slug)}
                         >
                           <svg
@@ -437,7 +410,7 @@ const OurServices = () => {
                               fill="white"
                             />
                           </svg>
-                        </button>
+                        </div>
                       </div>
                     </motion.div>
                   </div>
@@ -463,7 +436,7 @@ const OurServices = () => {
                 return (
                   <motion.div
                     key={card.id}
-                    className="card absolute bg-gradient-to-br from-gray-400 to-primary rounded-[16px]"
+                    className="card absolute bg-gradient-to-br from-gray-400 to-primary rounded-[16px] p-5 sm:p-6"
                     style={{
                       height: `${dimensions.cardHeight}px`,
                     }}
@@ -487,14 +460,14 @@ const OurServices = () => {
                         className={`card-image ${getImageSize()} mt-4 mb-4 object-contain`}
                         onError={() => console.log(`Failed to load image: ${card.title}`)}
                       />
-                      <h3 className="text-xl sm:text-xl text-white mb-2 capitalize">
+                      <h3 className="text-xl sm:text-xl text-white mb-4 capitalize">
                         {card.title}
                       </h3>
                       <p className="text-sm sm:text-base text-gray-200 mb-4 flex-grow">
                         {card.text}
                       </p>
-                      <button
-                        className="card-arrow"
+                      <div
+                        className="card-arrow mb-0"
                         onClick={() => navigate(card.slug)}
                       >
                         <svg
@@ -511,7 +484,7 @@ const OurServices = () => {
                             fill="white"
                           />
                         </svg>
-                      </button>
+                      </div>
                     </div>
                   </motion.div>
                 );
