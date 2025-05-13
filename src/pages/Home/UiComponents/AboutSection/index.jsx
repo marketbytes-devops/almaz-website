@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import rightImage from "../../../../assets/Frame9757.webp";
 import Button from "../../../../components/Button";
 import TitleDescription from "../../../../components/TitleDescription";
- 
+
 const AboutSection = () => {
   const [monthlyServices, setMonthlyServices] = useState(0);
   const [deliveriesCompleted, setDeliveriesCompleted] = useState(0);
@@ -10,23 +10,23 @@ const AboutSection = () => {
   const [onTimeDelivery, setOnTimeDelivery] = useState(0);
   const sectionRef = useRef(null);
   const intervalRef = useRef(null);
- 
+
   const targets = {
     monthlyServices: 348,
     deliveriesCompleted: 499,
     globalPartners: 150,
     onTimeDelivery: 99,
   };
- 
+
   const duration = 2000;
   const intervalTime = 50;
- 
+
   const startCounterAnimation = () => {
     setMonthlyServices(0);
     setDeliveriesCompleted(0);
     setGlobalPartners(0);
     setOnTimeDelivery(0);
- 
+
     const steps = duration / intervalTime;
     const increments = {
       monthlyServices: targets.monthlyServices / steps,
@@ -34,7 +34,7 @@ const AboutSection = () => {
       globalPartners: targets.globalPartners / steps,
       onTimeDelivery: targets.onTimeDelivery / steps,
     };
- 
+
     intervalRef.current = setInterval(() => {
       setMonthlyServices((prev) =>
         prev + increments.monthlyServices >= targets.monthlyServices
@@ -58,7 +58,7 @@ const AboutSection = () => {
       );
     }, intervalTime);
   };
- 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -76,11 +76,11 @@ const AboutSection = () => {
         threshold: 0.3,
       }
     );
- 
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
- 
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
@@ -90,7 +90,7 @@ const AboutSection = () => {
       }
     };
   }, []);
- 
+
   const formatNumber = (value, suffix) => {
     if (suffix === "K") {
       return `${Math.round(value)}K`;
@@ -101,7 +101,7 @@ const AboutSection = () => {
     }
     return Math.round(value);
   };
- 
+
   return (
     <div
       ref={sectionRef}
@@ -129,36 +129,36 @@ const AboutSection = () => {
                 icon="ArrowUpRight"
                 className="w-fit bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors ripple-button duration-300"
               />
-              <div className="flex justify-between items-center gap-4 md:gap-4">
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-4 lg:flex lg:justify-between lg:items-center lg:gap-4">
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-semibold text-[#121211] mb-4">
+                  <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#121211] mb-2 sm:mb-4">
                     {formatNumber(monthlyServices, "K")}
                   </p>
-                  <p className="text-base md:text-lg text-gray-700">
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-700">
                     Monthly <br /> Services
                   </p>
                 </div>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl text-[#121211] font-semibold mb-4">
+                  <p className="text-2xl sm:text-3xl lg:text-4xl text-[#121211] font-semibold mb-2 sm:mb-4">
                     {formatNumber(deliveriesCompleted, "K")}
                   </p>
-                  <p className="text-base md:text-lg text-gray-700">
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-700">
                     Deliveries <br /> Completed
                   </p>
                 </div>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl text-[#121211] font-semibold mb-4">
+                  <p className="text-2xl sm:text-3xl lg:text-4xl text-[#121211] font-semibold mb-2 sm:mb-4">
                     {formatNumber(globalPartners, "+")}
                   </p>
-                  <p className="text-base md:text-lg text-gray-700">
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-700">
                     Global <br /> Partners
                   </p>
                 </div>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl text-[#121211] font-semibold mb-4">
+                  <p className="text-2xl sm:text-3xl lg:text-4xl text-[#121211] font-semibold mb-2 sm:mb-4">
                     {formatNumber(onTimeDelivery, "%")}
                   </p>
-                  <p className="text-base md:text-lg text-gray-700">
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-700">
                     On-time <br /> Delivery
                   </p>
                 </div>
@@ -177,5 +177,5 @@ const AboutSection = () => {
     </div>
   );
 };
- 
+
 export default AboutSection;

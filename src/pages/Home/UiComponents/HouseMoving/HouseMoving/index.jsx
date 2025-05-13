@@ -4,7 +4,9 @@ import bannerImage from "../../../../../assets/international_relocation.webp";
 import MakingInternationalMoves from "../../../UiComponents/MakeInternational";
 import MakeanEnquiry from "../../../../Moving/UiComponents/MakeanEnquiry";
 import OtherServices from "../../../../Moving/UiComponents/OtherServices";
-import GetInTouchSection from "../../../../Home/UiComponents/GetinTouch";
+import GetInTouchSection from "./../../GetinTouch";
+
+
  
 const HouseMoving = () => {
   return (
@@ -35,9 +37,11 @@ const HouseMoving = () => {
        
         <OtherServices />
       </section>
-      <section className="bg-primary/20 container-secondary our-services my-16">
-        <GetInTouchSection/>
-      </section>
+     <section className="w-full bg-primary/10 mt-10 sm:mt-12 lg:mt-16">
+        <div className="mx-auto w-full py-6 sm:py-12 md:py-16">
+          <GetInTouchSection />
+        </div>
+        </section>
     </>
   );
 };
