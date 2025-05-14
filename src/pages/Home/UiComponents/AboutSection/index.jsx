@@ -169,7 +169,7 @@ const AboutSection = () => {
             <img
               src={rightImage}
               alt="Logistics and Moving"
-              className="w-full h-[450px] object-fill rounded-lg shadow-lg"
+              className="w-full h-[300px] sm:h-[450px] object-cover rounded-lg shadow-lg"
             />
           </div>
         </div>
