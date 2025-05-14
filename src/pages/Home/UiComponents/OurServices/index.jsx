@@ -83,13 +83,12 @@ const OurServices = () => {
   const getCardDimensions = () => {
     const width = window.innerWidth;
     if (width < 640) {
-      // Increase the cardHeight for mobile view
       return {
         cardHeight: 320,
         horizontalGap: 16,
         verticalGap: 24,
         cardsPerRow: 1,
-        visibleRows: 6,
+        visibleRows: 8,
       };
     } else if (width < 1024) {
       return {
@@ -288,21 +287,21 @@ const OurServices = () => {
   useEffect(() => {
     if (dimensions.cardsPerRow === 1 && viewAllClicked) {
       const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % cards.slice(0, 6).length);
+        setCurrentSlide((prev) => (prev + 1) % cards.length);
       }, 3000);
       return () => clearInterval(interval);
     }
   }, [viewAllClicked, dimensions.cardsPerRow]);
 
   const handleNextSlide = () => {
-    if (currentSlide < 1) {
-      setCurrentSlide(1);
+    if (currentSlide < cards.length - 1) {
+      setCurrentSlide(currentSlide + 1);
     }
   };
 
   const handlePrevSlide = () => {
     if (currentSlide > 0) {
-      setCurrentSlide(0);
+      setCurrentSlide(currentSlide - 1);
     }
   };
 
@@ -313,10 +312,10 @@ const OurServices = () => {
   const handleTouchEnd = (e) => {
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
-    if (diff > 50 && currentSlide < 1) {
-      setCurrentSlide(1);
+    if (diff > 50 && currentSlide < cards.length - 1) {
+      setCurrentSlide(currentSlide + 1);
     } else if (diff < -50 && currentSlide > 0) {
-      setCurrentSlide(0);
+      setCurrentSlide(currentSlide - 1);
     }
     touchStartX.current = null;
   };
@@ -370,7 +369,7 @@ const OurServices = () => {
             position: absolute;
             bottom: -10px;
             left: -3px;
-            width: 45px;
+            width​​: 45px;
             height: 45px;
             background: transparent;
             border-radius: 50%;
@@ -394,7 +393,7 @@ const OurServices = () => {
               height: ${dimensions.cardHeight}px;
             }
             .card-arrow {
-              bottom: -10px; /* Adjusted to move the button lower in mobile view */
+              bottom: -10px;
             }
           }
           @media (min-width: 640px) and (max-width: 1023px) {
@@ -413,9 +412,7 @@ const OurServices = () => {
           }
           @media (min-width: 1024px) {
             .card {
-              width: calc(33.333% - ${
-                (dimensions.horizontalGap * 2) / 3
-              }px) !important;
+              width: calc(33.333% - ${dimensions.horizontalGap * 2 / 3}px) !important;
               height: ${dimensions.cardHeight}px;
               margin-right: ${dimensions.horizontalGap}px;
               margin-bottom: ${dimensions.verticalGap}px;
@@ -463,7 +460,7 @@ const OurServices = () => {
                   transform: `translateX(-${currentSlide * 100}%)`,
                 }}
               >
-                {cards.slice(0, 6).map((card, index) => (
+                {cards.map((card, index) => (
                   <div key={card.id} className="slider-card">
                     <motion.div
                       className="card bg-gradient-to-br from-gray-300 to-primary rounded-[16px] p-5 sm:p-6"
@@ -534,6 +531,18 @@ const OurServices = () => {
                     </motion.div>
                   </div>
                 ))}
+              </div>
+              <div className="flex items-center justify-center lg:hidden pt-6 text-center">
+                <button
+                  onClick={handleViewAll}
+                  className="text-black hover:text-primary transition-all duration-300 mt-4 md:mt-0 md:ml-auto text-base sm:text-lg"
+                >
+                  View All
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    className="ml-2 text-sm sm:text-base"
+                  />
+                </button>
               </div>
             </div>
           ) : (
@@ -632,18 +641,6 @@ const OurServices = () => {
             </div>
           )}
         </div>
-      </div>
-      <div className="flex items-center justify-center lg:hidden pt-6 text-center">
-        <button
-          onClick={handleViewAll}
-          className="text-black hover:text-primary transition-all duration-300 mt-4 md:mt-0 md:ml-auto text-base sm:text-lg"
-        >
-          View All
-          <FontAwesomeIcon
-            icon={faChevronRight}
-            className="ml-2 text-sm sm:text-base"
-          />
-        </button>
       </div>
     </div>
   );
