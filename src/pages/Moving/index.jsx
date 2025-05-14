@@ -11,7 +11,7 @@ const Moving = () => {
     <>
       <Banner
         bannerImage={bannerImage}
-        titleFirst="Services"
+        titleFirst="Moving"
         mainRoute="HOME"
         subRoute="MOVING"
         subRoutePath="/moving"

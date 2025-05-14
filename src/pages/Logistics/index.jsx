@@ -10,7 +10,7 @@ const Logistics = () => {
     <>
       <Banner
         bannerImage={bannerImage}
-        titleFirst="Services"
+        titleFirst="Logistics"
         titleSecond=""
         bannerDescription="Dubai, London, Tokyo, wherever life takes you nexxt, we ensure you and your loved ones arrive with ease and feel at home from the very start."
         description="Almas Movers International is entirely based on the notion of serving expatriates and clients with its absolute services. We are a Qatar brand and are globally recognized. We are different from other moving companies as we believe in distinction, customer satisfaction, and customization."
