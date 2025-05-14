@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "../Button";
 import Logo from "../../assets/logo.webp";
 import FormField from ".././../components/FormField";
-
+ 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,38 +17,38 @@ const Navbar = () => {
     message: "",
   });
   const location = useLocation();
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Enquiry Form submitted:", formData);
     setIsModalOpen(false);
   };
-
+ 
   const serviceOptions = [
     { value: "moving", label: "Moving" },
     { value: "logistics", label: "Logistics" },
     { value: "relocation", label: "Relocation" },
     { value: "other", label: "Other" },
   ];
-
+ 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
-
+ 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+ 
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/about-us", label: "About Us" },
@@ -58,7 +58,7 @@ const Navbar = () => {
     { to: "/blogs", label: "Blog" },
     { to: "/contact", label: "Contact" },
   ];
-
+ 
   const menuVariants = {
     hidden: { y: "-100%", opacity: 0 },
     visible: {
@@ -72,7 +72,7 @@ const Navbar = () => {
       transition: { duration: 0.2, ease: "easeIn" },
     },
   };
-
+ 
   const itemVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: {
@@ -81,7 +81,7 @@ const Navbar = () => {
       transition: { duration: 0.2, ease: "easeOut" },
     },
   };
-
+ 
   return (
     <div className="flex items-center justify-center">
       <motion.nav
@@ -105,9 +105,9 @@ const Navbar = () => {
                 className="h-8 w-auto sm:h-9 md:h-10"
               />
             </div>
-
-            <div className="hidden lg:flex items-center space-x-6 lg:space-x-8 py-2.5 px-8 lg:px-10 rounded-[20px] border-2 border-gray-300 bg-white/15">
-              <ul className="flex space-x-4 md:space-x-6 lg:space-x-12">
+ 
+            <div className="hidden lg:flex items-center space-x-6 lg:space-x-8 py-2.5 px-8 lg:px-10 rounded-[20px] border-2 border-gray-300 bg-white/20">
+              <ul className="flex space-x-4 lg:space-x-6">
                 {navLinks.map((link) => (
                   <motion.li
                     key={link.to}
@@ -116,7 +116,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.to}
-                      className={`text-sm md:text-md lg:text-[16px] font-normal transition-colors duration-300 ${
+                      className={`text-sm lg:text-base font-medium transition-colors duration-300 ${
                         location.pathname === link.to
                           ? "text-secondary"
                           : "text-gray-50 hover:text-secondary"
@@ -129,7 +129,7 @@ const Navbar = () => {
                 ))}
               </ul>
             </div>
-
+ 
             <div className="hidden lg:flex pr-6 lg:pr-8">
               <Button
                 label="Get a quote"
@@ -138,7 +138,7 @@ const Navbar = () => {
                 onClick={() => setIsModalOpen(true)}
               />
             </div>
-
+ 
             <div className="lg:hidden">
               <button
                 onClick={toggleMenu}
@@ -172,7 +172,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
+ 
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -243,14 +243,14 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </motion.nav>
-
+ 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div
             className="absolute bg-black opacity-50"
             onClick={() => setIsModalOpen(false)}
           ></div>
-
+ 
           <div className="relative bg-gradient-to-b from-gray-500 to-primary text-white rounded-3xl p-8 shadow-lg w-full max-w-lg mx-4">
             <button
               className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
@@ -271,7 +271,7 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-
+ 
             <h2 className="text-2xl text-center mb-6">Make an Enquiry</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <FormField
@@ -326,14 +326,14 @@ const Navbar = () => {
           </div>
         </div>
       )}
-
+ 
       <style>
         {`
           .ripple-button {
             position: relative;
             overflow: hidden;
           }
-
+ 
           .ripple-button::after {
             content: '';
             position: absolute;
@@ -347,45 +347,47 @@ const Navbar = () => {
             transition: width 0.4s ease, height 0.4s ease;
             pointer-events: none;
           }
-
+ 
           .ripple-button:hover::after {
             width: 200%;
             height: 200%;
           }
-
+ 
           @media (max-width: 1023px) {
             .container {
               padding-left: 0.5rem;
               padding-right: 0.5rem;
             }
             nav {
-
+              width: 100% !important; /* Ensure full-width on mobile */
+              top: 0 !important; /* Force navbar to top on mobile */
+              border-radius: 0 !important; /* Remove rounded corners on mobile */
             }
             .h-14 {
               height: 3.5rem;
             }
           }
-
+ 
           @media (min-width: 1024px) {
             .container {
               padding-left: 2.5rem;
               padding-right: 2.5rem;
             }
             nav {
-
+              width: 93.5% !important; /* Maintain desktop width */
             }
           }
-
+ 
           @media (min-width: 1280px) {
             .container {
               padding-left: 6.5rem;
               padding-right: 4.5rem;
-
+            }
           }
         `}
       </style>
     </div>
   );
 };
-
+ 
 export default Navbar;

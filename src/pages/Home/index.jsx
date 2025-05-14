@@ -9,7 +9,7 @@ import ContactUs from "./UiComponents/ContactUs";
 import Review from "./UiComponents/Review";
 import BlogSection from "./UiComponents/Blogs";
 import GetInTouchSection from "./UiComponents/GetinTouch";
-
+ 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("booking");
   const [isExpanded, setIsExpanded] = useState(false);
@@ -22,7 +22,7 @@ const Home = () => {
     message: "",
     trackingNumber: "",
   });
-
+ 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -30,32 +30,32 @@ const Home = () => {
       [name]: value,
     }));
   };
-
+ 
   const handleFormSubmit = () => {
     console.log("Form submitted:", formData);
   };
-
+ 
   const handleFullNameClick = () => {
     setIsExpanded(true);
     setAreFieldsEnabled(true);
   };
-
+ 
   const handleCloseExpandedForm = () => {
     setIsExpanded(false);
     setAreFieldsEnabled(false);
   };
-
+ 
   const serviceOptions = [
     { value: "moving", label: "Moving" },
     { value: "logistics", label: "Logistics" },
     { value: "relocation", label: "Relocation" },
   ];
-
+ 
   return (
     <>
-      <div className="container-primary w-full pt-12">
+      <div className="container-primary w-full pt-12 sm:pt-16">
         <div
-
+          className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white mx-0 px-0 sm:px-6 md:px-8 rounded-b-3xl rounded-t-none"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
@@ -64,7 +64,7 @@ const Home = () => {
           }}
         >
           <div
-            className="absolute inset-0 rounded-3xl"
+            className="absolute inset-0 rounded-b-3xl rounded-t-none"
             style={{
               backgroundImage: `linear-gradient(to bottom right, rgba(76, 112, 133, 0.8), rgba(0,0,0, 0.3))`,
             }}
@@ -154,7 +154,7 @@ const Home = () => {
                   </button>
                 </div>
                 <div className="border-t border-white/50 -mx-4 sm:-mx-6 mt-4 sm:mt-6"></div>
-
+ 
                 {activeTab === "booking" ? (
                   <div className={`pt-4 sm:pt-6 ${!isExpanded ? "pb-0" : "pb-4"}`}>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap">
@@ -287,5 +287,5 @@ const Home = () => {
     </>
   );
 };
-
+ 
 export default Home;
