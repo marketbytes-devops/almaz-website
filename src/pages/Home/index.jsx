@@ -55,7 +55,7 @@ const Home = () => {
     <>
       <div className="container-primary w-full pt-12 sm:pt-16">
         <div
-          className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 md:px-8 rounded-b-3xl rounded-t-none"
+          className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white mx-0 px-0 sm:px-6 md:px-8 rounded-b-3xl rounded-t-none"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
@@ -76,7 +76,7 @@ const Home = () => {
             transition={{ duration: 1 }}
           >
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 space-y-4 sm:space-y-5"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 space-y-4 sm:space-y-5 px-4 sm:px-0"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
@@ -95,7 +95,7 @@ const Home = () => {
               </div>
             </motion.h1>
             <motion.div
-              className="w-full bg-white/50 rounded-3xl shadow-lg shadow-black/30 mb-6 mx-auto relative overflow-hidden max-w-[90%] sm:max-w-4xl"
+              className="w-full bg-white/50 rounded-3xl shadow-lg shadow-black/30 mb-6 mx-auto relative overflow-hidden max-w-[90%] sm:max-w-4xl px-4 sm:px-0"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -130,10 +130,11 @@ const Home = () => {
                       setIsExpanded(false);
                       setAreFieldsEnabled(false);
                     }}
-                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6(py-1 sm:py-2 ${activeTab === "booking"
+                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${
+                      activeTab === "booking"
                         ? "text-black border-b-4 border-gray-900 bg-white"
                         : "text-gray-600 bg-white/80"
-                      } transition-colors`}
+                    } transition-colors`}
                   >
                     Booking
                   </button>
@@ -143,10 +144,11 @@ const Home = () => {
                       setIsExpanded(false);
                       setAreFieldsEnabled(false);
                     }}
-                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${activeTab === "tracking"
+                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${
+                      activeTab === "tracking"
                         ? "text-black border-b-4 border-gray-900 bg-white"
                         : "text-gray-600 bg-white/80"
-                      } transition-colors`}
+                    } transition-colors`}
                   >
                     Tracking
                   </button>

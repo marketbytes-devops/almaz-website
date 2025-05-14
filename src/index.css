@@ -37,17 +37,17 @@ img {
 
 @media (max-width: 345px) {
   .container-primary {
-    padding: 0 11px; 
+    padding: 0 0px; 
   }
 
   .container-secondary {
-    padding: 0 11px; 
+    padding: 0 0px; 
   }
 }
 
 @media (max-width: 576px) {
   .container-primary {
-    padding: 0 12px; 
+    padding: 0 0px; 
   }
 
   .container-secondary {
