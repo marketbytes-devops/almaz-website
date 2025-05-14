@@ -9,7 +9,7 @@ import {
   faInstagram,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
- 
+
 const Banner = ({
   bannerImage,
   titleFirst,
@@ -24,11 +24,29 @@ const Banner = ({
   showSocialIcons = false,
 }) => {
   const location = useLocation();
- 
+
   return (
     <div className="container-primary w-full">
+      <style>
+        {`
+          @media (max-width: 639px) {
+            .banner-title {
+              font-size: 1.875rem !important; /* text-3xl */
+            }
+            .banner-description {
+              font-size: 0.75rem !important; /* text-xs */
+            }
+            .banner-breadcrumbs {
+              font-size: 0.75rem !important; /* text-xs */
+            }
+            .banner-meta {
+              font-size: 0.75rem !important; /* text-xs */
+            }
+          }
+        `}
+      </style>
       <div
-        className="relative w-full min-h-[300px] lg:min-h-[500px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-4 sm:px-6"
+        className="relative w-full min-h-[300px] lg:min-h-[500px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-2 sm:px-3"
         style={{
           backgroundImage: `url(${bannerImage})`,
           backgroundSize: "cover",
@@ -37,13 +55,13 @@ const Banner = ({
         }}
       >
         <motion.div
-          className="relative z-20 max-w-5xl mx-auto pt-10"
+          className="relative z-20 max-w-5xl mx-auto "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
           <motion.h1
-            className="text-4xl sm:text-5xl"
+            className="text-4xl sm:text-5xl banner-title text-center"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -54,7 +72,7 @@ const Banner = ({
           </motion.h1>
           {smallText && (
             <motion.p
-              className="text-sm sm:text-sm text-white mt-4 max-w-3xl"
+              className="text-sm sm:text-sm banner-description mt-4 max-w-3xl"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -64,19 +82,18 @@ const Banner = ({
             </motion.p>
           )}
         </motion.div>
- 
+
         <motion.div
-          className="absolute bottom-0 w-full py-4 "
+          className="absolute bottom-0 w-full py-4"
           style={{
-            background: 'linear-gradient(to right, rgba(100, 100, 100, 0.7), rgba(150, 150, 150, 0.7))',
-            marginLeft: 'calc(-50vw + 50%)',
-            marginRight: 'calc(-50vw + 50%)',
+            background:
+              "linear-gradient(to right, rgba(100, 100, 100, 0.7), rgba(150, 150, 150, 0.7))",
+            marginLeft: "calc(-50vw + 50%)",
+            marginRight: "calc(-50vw + 50%)",
           }}
-         
           animate={{ opacity: 1, y: 0 }}
-          
         >
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 text-sm sm:text-base">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 banner-breadcrumbs text-sm sm:text-base">
             <Link
               to="/"
               className="text-gray-100 hover:text-secondary transition-colors duration-300"
@@ -88,7 +105,9 @@ const Banner = ({
             <Link
               to={subRoutePath}
               className={`transition-colors duration-300 ${
-                location.pathname === subRoutePath ? "text-secondary" : "text-gray-100 hover:text-secondary"
+                location.pathname === subRoutePath
+                  ? "text-secondary"
+                  : "text-gray-100 hover:text-secondary"
               }`}
               aria-label={`Navigate to ${subRoute}`}
             >
@@ -96,13 +115,10 @@ const Banner = ({
             </Link>
           </div>
         </motion.div>
- 
+
         <motion.div
-          className="absolute bottom-4 left-8 flex gap-4 z-20 text-sm sm:text-sm text-white"
-         
+          className="absolute bottom-4 left-8 flex gap-4 z-20 banner-meta text-sm sm:text-sm text-white"
           animate={{ opacity: 1, y: 0 }}
-         
-         
         >
           {author && <span>By {author}</span>}
           {author && (date || time) && <span> | </span>}
@@ -163,6 +179,5 @@ const Banner = ({
     </div>
   );
 };
- 
+
 export default Banner;
- 
