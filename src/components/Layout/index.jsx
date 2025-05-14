@@ -1,9 +1,19 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Layout = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    };
+    scrollToTop();
+    const timeout = setTimeout(scrollToTop, 0);
+    return () => clearTimeout(timeout);
+  }, [location]);
   return (
     <>
       <div className="">
