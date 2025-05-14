@@ -129,7 +129,7 @@ const AboutSection = () => {
                 icon="ArrowUpRight"
                 className="w-fit bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors ripple-button duration-300"
               />
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-4 lg:flex lg:justify-between lg:items-center lg:gap-4">
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-4 lg:flex lg:justify-between lg:items-center lg:gap-4 bg-gray-100 p-4 rounded-2xl sm:bg-transparent sm:p-0">
                 <div className="text-center">
                   <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#121211] mb-2 sm:mb-4">
                     {formatNumber(monthlyServices, "K")}

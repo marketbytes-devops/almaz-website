@@ -85,10 +85,9 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-center">
       <motion.nav
-        className="bg-primary shadow-lg fixed z-50"
+        className="bg-primary shadow-lg fixed z-50 w-full lg:w-[93.5%]"
         animate={{
           top: isScrolled ? 0 : 50,
-          width: isScrolled ? "93.5%" : ["93.5%", "93.5%", "93.5%", "93.5%"],
           borderTopRightRadius: isScrolled ? 0 : [0, 12, 16, 16],
           borderTopLeftRadius: isScrolled ? 0 : [0, 12, 16, 16],
           borderBottomRightRadius: isScrolled ? [0, 12, 16, 16] : 0,
@@ -354,50 +353,26 @@ const Navbar = () => {
             height: 200%;
           }
 
-          @media (max-width: 639px) {
+          @media (max-width: 1023px) {
             .container {
               padding-left: 0.5rem;
               padding-right: 0.5rem;
             }
             nav {
-              width: 94% !important;
-              top: 15px !important; 
-              border-radius: 0;
+
             }
             .h-14 {
               height: 3.5rem;
             }
           }
 
-          @media (min-width: 640px) and (max-width: 767px) {
+          @media (min-width: 1024px) {
             .container {
-              padding-left: 1rem;
-              padding-right: 1rem;
+              padding-left: 2.5rem;
+              padding-right: 2.5rem;
             }
             nav {
-              width: 93.5% !important;
-              top: 20px !important; /* Force navbar to top on mobile */
-            }
-          }
 
-          @media (min-width: 768px) and (max-width: 1023px) {
-            .container {
-              padding-left: 1.5rem;
-              padding-right: 1.5rem;
-            }
-            nav {
-              width: 93.5% !important;
-              top: 25px !important; /* Force navbar to top on tablet */
-            }
-          }
-
-          @media (min-width: 1024px) and (max-width: 1279px) {
-            .container {
-              padding-left: 2rem;
-              padding-right: 2rem;
-            }
-            nav {
-              width: 93.5% !important;
             }
           }
 
@@ -405,10 +380,7 @@ const Navbar = () => {
             .container {
               padding-left: 6.5rem;
               padding-right: 4.5rem;
-            }
-            nav {
-              width: 93.5% !important;
-            }
+
           }
         `}
       </style>
