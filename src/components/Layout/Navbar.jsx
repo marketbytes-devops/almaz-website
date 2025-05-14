@@ -106,8 +106,8 @@ const Navbar = () => {
               />
             </div>
 
-            <div className="hidden lg:flex items-center space-x-6 lg:space-x-8 py-2.5 px-8 lg:px-10 rounded-[20px] border-2 border-gray-300 bg-white/20">
-              <ul className="flex space-x-4 lg:space-x-6">
+            <div className="hidden lg:flex items-center space-x-6 lg:space-x-8 py-2.5 px-8 lg:px-10 rounded-[20px] border-2 border-gray-300 bg-white/15">
+              <ul className="flex space-x-4 md:space-x-6 lg:space-x-12">
                 {navLinks.map((link) => (
                   <motion.li
                     key={link.to}
@@ -116,7 +116,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.to}
-                      className={`text-sm lg:text-base font-medium transition-colors duration-300 ${
+                      className={`text-sm md:text-md lg:text-[16px] font-normal transition-colors duration-300 ${
                         location.pathname === link.to
                           ? "text-secondary"
                           : "text-gray-50 hover:text-secondary"
@@ -359,9 +359,7 @@ const Navbar = () => {
               padding-right: 0.5rem;
             }
             nav {
-              width: 100% !important; /* Ensure full-width on mobile */
-              top: 0 !important; /* Force navbar to top on mobile */
-              border-radius: 0 !important; /* Remove rounded corners on mobile */
+
             }
             .h-14 {
               height: 3.5rem;
@@ -374,7 +372,7 @@ const Navbar = () => {
               padding-right: 2.5rem;
             }
             nav {
-              width: 93.5% !important; /* Maintain desktop width */
+
             }
           }
 
@@ -382,7 +380,7 @@ const Navbar = () => {
             .container {
               padding-left: 6.5rem;
               padding-right: 4.5rem;
-            }
+
           }
         `}
       </style>

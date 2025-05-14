@@ -40,8 +40,11 @@ const BlogSection = () => {
               description="Moving made easy with Qatar's most trusted relocation experts"
               descriptionClass="text-2xl font-medium text-black mb-2"
             />
-            <p className="text-gray-600">
+            <p className="text-gray-600 px-3.5 lg:px-0">
               Delivering excellence to our clients, ready to do the same for you
+            </p>
+            <p className="text-gray-600 font-medium px-3.5 lg:px-0 pt-2">
+              16 Dec 2024
             </p>
           </div>
 
@@ -69,9 +72,9 @@ const BlogSection = () => {
             ].map((card, index) => (
               <div
                 key={index}
-                className="rounded-xl shadow-sm flex flex-col sm:flex-row items-center"
+                className="rounded-xl flex flex-col sm:flex-row items-center"
               >
-                <div className="w-full sm:w-1/3 sm:mr-4 mb-8">
+                <div className="w-full sm:w-1/3 sm:mr-4 mb-8 mt-8 sm:mt-8 md:mt-0 lg:mt-0 xl:mt-0">
                   <img
                     src={card.img}
                     alt={card.alt}

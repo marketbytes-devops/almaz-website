@@ -65,7 +65,7 @@ const GetInTouchSection = () => {
           title="Get in touch"
           description="Please get in touch with us if you have any questions or need further assistance."
           titleClass="text-3xl sm:text-4xl text-black py-2"
-          descriptionClass="text-base sm:text-lg text-gray-600"
+          descriptionClass="text-base sm:text-lg text-gray-600 mb-4"
         />
 
         <form onSubmit={handleSubmit} className="space-y-4">

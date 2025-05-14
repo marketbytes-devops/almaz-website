@@ -132,7 +132,7 @@ const reviewCard = [
 
 const Review = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const sliderRef = useRef(null); // Ref to control the slider
+  const sliderRef = useRef(null); 
 
   const settings = {
     className: "center",
@@ -143,7 +143,7 @@ const Review = () => {
     speed: 500,
     autoplay: true,
     autoplaySpeed: 4000,
-    dots: false, // Disabled dots
+    dots: false, 
     afterChange: (current) => setCurrentSlide(current),
     responsive: [
       {
@@ -222,7 +222,7 @@ const Review = () => {
           Delivering excellence to our client, ready to do the same for you
         </p>
         <button
-          className="text-black hover:text-primary transition-all duration-300 text-sm sm:text-base font-semibold mt-2 sm:mt-0"
+          className="text-gray-800 hover:text-primary transition-all duration-300 text-sm sm:text-base font-medium mt-2 sm:mt-0"
         >
           View all
           <FontAwesomeIcon
@@ -236,7 +236,7 @@ const Review = () => {
           {reviewCard.map((review, index) => (
             <div key={review.id} className="card-container w-full p-2 sm:p-2">
               <div
-                className={`review-card relative w-full py-8 sm:py-12 pb-12 sm:pb-16 space-y-2 px-5 rounded-2xl shadow-lg overflow-hidden ${
+                className={`review-card relative w-full py-8 sm:py-12 pb-12 sm:pb-16 space-y-4 px-4 rounded-3xl shadow-lg overflow-hidden ${
                   index === currentSlide % reviewCard.length
                     ? "bg-gradient-to-br from-primary to-gray-700"
                     : "bg-gradient-to-br from-[#c0c0c0] to-gray-50"
@@ -253,13 +253,11 @@ const Review = () => {
                   <div className="ml-4">
                     <p
                       className="text-base sm:text-lg font-semibold text-white"
-                      style={{ fontFamily: '"Poppins", sans-serif' }}
                     >
                       {review.title}
                     </p>
                     <p
                       className="text-xs sm:text-sm text-white"
-                      style={{ fontFamily: '"Poppins", sans-serif' }}
                     >
                       {review.role}
                     </p>
