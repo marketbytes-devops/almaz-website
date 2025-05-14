@@ -31,16 +31,16 @@ const Banner = ({
         {`
           @media (max-width: 639px) {
             .banner-title {
-              font-size: 1.875rem !important; /* text-3xl */
+              font-size: 1.875rem !important; 
             }
             .banner-description {
-              font-size: 0.75rem !important; /* text-xs */
+              font-size: 0.75rem !important;
             }
             .banner-breadcrumbs {
-              font-size: 0.75rem !important; /* text-xs */
+              font-size: 0.75rem !important;
             }
             .banner-meta {
-              font-size: 0.75rem !important; /* text-xs */
+              font-size: 0.75rem !important;
             }
           }
         `}
@@ -55,7 +55,7 @@ const Banner = ({
         }}
       >
         <motion.div
-          className="relative z-20 max-w-5xl mx-auto "
+          className="relative -top-4 sm:-top-4 md:-top-0 lg:-top-0 xl:-top-0 z-20 max-w-5xl mx-auto "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -117,7 +117,7 @@ const Banner = ({
         </motion.div>
 
         <motion.div
-          className="absolute bottom-4 left-8 flex gap-4 z-20 banner-meta text-sm sm:text-sm text-white"
+          className="absolute bottom-14 lg:bottom-4 left-2 lg:left-8 flex gap-2 md:gap-4 lg:gap-4 xl:gap-4 z-20 banner-meta text-xs lg:text-sm text-white"
           animate={{ opacity: 1, y: 0 }}
         >
           {author && <span>By {author}</span>}
@@ -128,7 +128,7 @@ const Banner = ({
         </motion.div>
         {showSocialIcons && (
           <motion.div
-            className="absolute bottom-4 right-8 flex gap-4 z-20"
+            className="absolute bottom-14 lg:bottom-4 right-2 lg:right-8 flex gap-4 z-20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -139,7 +139,7 @@ const Banner = ({
               rel="noopener noreferrer"
               className="text-white hover:text-secondary transition-colors duration-300"
             >
-              <FontAwesomeIcon icon={faFacebookF} size="lg" />
+              <FontAwesomeIcon icon={faFacebookF} size="md" />
             </a>
             <a
               href="https://twitter.com"
@@ -147,7 +147,7 @@ const Banner = ({
               rel="noopener noreferrer"
               className="text-white hover:text-secondary transition-colors duration-300"
             >
-              <FontAwesomeIcon icon={faTwitter} size="lg" />
+              <FontAwesomeIcon icon={faTwitter} size="md" />
             </a>
             <a
               href="https://linkedin.com"
@@ -155,7 +155,7 @@ const Banner = ({
               rel="noopener noreferrer"
               className="text-white hover:text-secondary transition-colors duration-300"
             >
-              <FontAwesomeIcon icon={faLinkedinIn} size="lg" />
+              <FontAwesomeIcon icon={faLinkedinIn} size="md" />
             </a>
             <a
               href="https://instagram.com"
@@ -163,7 +163,7 @@ const Banner = ({
               rel="noopener noreferrer"
               className="text-white hover:text-secondary transition-colors duration-300"
             >
-              <FontAwesomeIcon icon={faInstagram} size="lg" />
+              <FontAwesomeIcon icon={faInstagram} size="md" />
             </a>
             <a
               href="https://youtube.com"
@@ -171,7 +171,7 @@ const Banner = ({
               rel="noopener noreferrer"
               className="text-white hover:text-secondary transition-colors duration-300"
             >
-              <FontAwesomeIcon icon={faYoutube} size="lg" />
+              <FontAwesomeIcon icon={faYoutube} size="md" />
             </a>
           </motion.div>
         )}
