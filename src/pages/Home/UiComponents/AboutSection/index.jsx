@@ -123,7 +123,7 @@ const AboutSection = () => {
                 BAR (British Association of Movers) and FIATA.
               </p>
             </div>
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-10 -mt-2 sm:-mt-2 lg:-mt-0">
               <Button
                 label="Explore More"
                 icon="ArrowUpRight"

@@ -633,7 +633,7 @@ const OurServices = () => {
           )}
         </div>
       </div>
-      <div className="flex items-center justify-center lg:hidden pt-6 text-center">
+      <div className="flex items-center justify-center lg:hidden pt-4 text-center">
         <button
           onClick={handleViewAll}
           className="text-black hover:text-primary transition-all duration-300 mt-4 md:mt-0 md:ml-auto text-base sm:text-lg"

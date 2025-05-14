@@ -67,7 +67,7 @@ const BlogSection = () => {
                 key={index}
                 className="rounded-xl flex flex-col sm:flex-row items-center"
               >
-                <div className="w-full sm:w-1/3 sm:mr-4 mb-8 mt-8 sm:mt-8 md:mt-0 lg:mt-0 xl:mt-0">
+                <div className="w-full sm:w-1/3 sm:mr-4 mb-8 mt-0 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0">
                   <img
                     src={card.img}
                     alt={card.alt}
@@ -87,7 +87,7 @@ const BlogSection = () => {
           </div>
         </div>
       </div>
-      <div className="mt-8 lg:hidden flex items-center justify-center">
+      <div className="mt-2 lg:hidden flex items-center justify-center">
         <button className="text-gray-800 hover:text-primary transition-all duration-300 text-sm sm:text-base font-medium mt-2 sm:mt-0">
           View all
           <FontAwesomeIcon

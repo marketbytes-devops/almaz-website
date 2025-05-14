@@ -270,7 +270,7 @@ const Home = () => {
       <section className="container-secondary our-services pl-10 sm:pl-20 md:pl-40 mt-0 sm:mt-0 lg:mt-16">
         <OurServices />
       </section>
-      <section className="container-secondary our-services mt-2 sm:mt-2 lg:mt-16">
+      <section className="container-secondary our-services mt-0 sm:mt-0 lg:mt-16">
         <ContactUs />
       </section>
       <section className="container-secondary our-services mt-6 sm:mt-6 lg:mt-16">
@@ -279,7 +279,7 @@ const Home = () => {
       <section className="container-secondary our-services mt-2 sm:mt-2 lg:mt-16">
         <BlogSection />
       </section>
-      <section className="w-full bg-primary/10 mt-10 sm:mt-12 lg:mt-16">
+      <section className="w-full bg-primary/10 mt-8 sm:mt-8 lg:mt-16">
         <div className="mx-auto w-full py-6 sm:py-12 md:py-16">
           <GetInTouchSection />
         </div>
