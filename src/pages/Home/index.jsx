@@ -276,7 +276,7 @@ const Home = () => {
       <section className="container-secondary our-services mt-6 sm:mt-6 lg:mt-16">
         <Review />
       </section>
-      <section className="container-secondary our-services mt-2 sm:mt-2 lg:mt-16">
+      <section className="container-secondary our-services mt-0 sm:mt-0 lg:mt-16">
         <BlogSection />
       </section>
       <section className="w-full bg-primary/10 mt-8 sm:mt-8 lg:mt-16">

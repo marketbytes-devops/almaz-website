@@ -10,7 +10,7 @@ const BlogSection = () => {
   return (
     <div className="bg-white">
       <div className="mx-auto">
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-center lg:justify-between items-center mb-6">
           <TitleDescription
             title="Latest News and Articles"
             titleClass="text-3xl text-black"

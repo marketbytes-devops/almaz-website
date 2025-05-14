@@ -5,12 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear(); // Dynamic year
+  const currentYear = new Date().getFullYear(); 
 
   return (
     <footer
-      className="bg-gradient-to-r from-primary/80 to-secondaryGradient text-black pt-16 sm:pt-20 md:pt-24 px-4 sm:px-6 md:px-16 pb-0"
-      style={{ fontFamily: '"Poppins", sans-serif' }}
+      className="-mt-4 lg:-mt-0 bg-gradient-to-r from-primary/80 to-secondaryGradient text-black pt-16 sm:pt-20 md:pt-24 px-4 sm:px-6 md:px-16 pb-0"
     >
       <style>
         {`
