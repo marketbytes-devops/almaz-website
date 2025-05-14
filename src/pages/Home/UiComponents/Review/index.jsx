@@ -132,7 +132,7 @@ const reviewCard = [
 
 const Review = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const sliderRef = useRef(null); 
+  const sliderRef = useRef(null);
 
   const settings = {
     className: "center",
@@ -143,7 +143,7 @@ const Review = () => {
     speed: 500,
     autoplay: true,
     autoplaySpeed: 4000,
-    dots: false, 
+    dots: false,
     afterChange: (current) => setCurrentSlide(current),
     responsive: [
       {
@@ -164,7 +164,7 @@ const Review = () => {
   };
 
   const renderStars = (count) => {
-    return Array.from({ length: 5 }, (_, index) => (
+    return Array.from({ length: 5 }, (_, index) =>
       index < count ? (
         <svg
           key={index}
@@ -196,7 +196,7 @@ const Review = () => {
           />
         </svg>
       )
-    ));
+    );
   };
 
   const handlePrev = () => {
@@ -212,18 +212,16 @@ const Review = () => {
   };
 
   return (
-    <div className="slider-container pb-12 sm:pb-20">
+    <div className="slider-container pb-6 lg:pb-20">
       <TitleDescription
         title="What Our Client Says"
         titleClass="text-3xl text-black py-2"
       />
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8">
-        <p className="text-gray-600 text-base sm:text-base text-center sm:text-left mt-5">
+        <p className="text-gray-600 text-base sm:text-base text-center sm:text-left mt-4">
           Delivering excellence to our client, ready to do the same for you
         </p>
-        <button
-          className="text-gray-800 hover:text-primary transition-all duration-300 text-sm sm:text-base font-medium mt-2 sm:mt-0"
-        >
+        <button className="hidden lg:block text-gray-800 hover:text-primary transition-all duration-300 text-sm sm:text-base font-medium mt-2 sm:mt-0">
           View all
           <FontAwesomeIcon
             icon={faAngleRight}
@@ -234,7 +232,7 @@ const Review = () => {
       <div className="relative">
         <Slider {...settings} ref={sliderRef}>
           {reviewCard.map((review, index) => (
-            <div key={review.id} className="card-container w-full p-2 sm:p-2">
+            <div key={review.id} className="card-container w-full">
               <div
                 className={`review-card relative w-full py-8 sm:py-12 pb-12 sm:pb-16 space-y-4 px-4 rounded-3xl shadow-lg overflow-hidden ${
                   index === currentSlide % reviewCard.length
@@ -251,19 +249,17 @@ const Review = () => {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <p
-                      className="text-base sm:text-lg font-semibold text-white"
-                    >
+                    <p className="text-base sm:text-lg font-semibold text-white">
                       {review.title}
                     </p>
-                    <p
-                      className="text-xs sm:text-sm text-white"
-                    >
+                    <p className="text-xs sm:text-sm text-white">
                       {review.role}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center">{renderStars(review.stars)}</div>
+                <div className="flex items-center">
+                  {renderStars(review.stars)}
+                </div>
                 <div>
                   <p
                     className="text-xs sm:text-sm text-white"
@@ -280,13 +276,13 @@ const Review = () => {
                     {review.date}
                   </p>
                 </div>
-              <div className="absolute bottom-[-3rem] sm:bottom-[-3rem] lg:bottom-[-8rem] left-1/2 -translate-x-1/2">
-                <img
-                  src={AlmasLogo}
-                  alt="Almas Logo"
-                  className="w-40 sm:w-56 lg:w-80 h-40 sm:h-56 lg:h-80 opacity-90 object-contain"
-                />
-              </div>
+                <div className="absolute bottom-[-3rem] sm:bottom-[-3rem] lg:bottom-[-8rem] left-1/2 -translate-x-1/2">
+                  <img
+                    src={AlmasLogo}
+                    alt="Almas Logo"
+                    className="w-40 sm:w-56 lg:w-80 h-40 sm:h-56 lg:h-80 opacity-90 object-contain"
+                  />
+                </div>
               </div>
             </div>
           ))}
@@ -310,6 +306,15 @@ const Review = () => {
             <FontAwesomeIcon
               icon={faAngleRight}
               className="text-gray-800 text-lg sm:text-xl"
+            />
+          </button>
+        </div>
+        <div className="mt-8 lg:hidden flex items-center justify-center">
+          <button className="text-gray-800 hover:text-primary transition-all duration-300 text-sm sm:text-base font-medium mt-2 sm:mt-0">
+            View all
+            <FontAwesomeIcon
+              icon={faAngleRight}
+              className="ml-2 text-sm sm:text-base"
             />
           </button>
         </div>

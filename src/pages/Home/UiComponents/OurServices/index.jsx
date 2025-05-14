@@ -84,11 +84,29 @@ const OurServices = () => {
     const width = window.innerWidth;
     if (width < 640) {
       // Increase the cardHeight for mobile view
-      return { cardHeight: 320, horizontalGap: 16, verticalGap: 24, cardsPerRow: 1, visibleRows: 6 };
+      return {
+        cardHeight: 320,
+        horizontalGap: 16,
+        verticalGap: 24,
+        cardsPerRow: 1,
+        visibleRows: 6,
+      };
     } else if (width < 1024) {
-      return { cardHeight: 320, horizontalGap: 20, verticalGap: 32, cardsPerRow: 2, visibleRows: 3 };
+      return {
+        cardHeight: 320,
+        horizontalGap: 20,
+        verticalGap: 32,
+        cardsPerRow: 2,
+        visibleRows: 3,
+      };
     } else {
-      return { cardHeight: 360, horizontalGap: 24, verticalGap: 40, cardsPerRow: 3, visibleRows: 2 };
+      return {
+        cardHeight: 360,
+        horizontalGap: 24,
+        verticalGap: 40,
+        cardsPerRow: 3,
+        visibleRows: 2,
+      };
     }
   };
 
@@ -110,7 +128,8 @@ const OurServices = () => {
     const containerWidth = gridRef.current.offsetWidth;
     const { cardHeight, horizontalGap, verticalGap, cardsPerRow } = dimensions;
 
-    const cardWidth = (containerWidth - (cardsPerRow - 1) * horizontalGap) / cardsPerRow;
+    const cardWidth =
+      (containerWidth - (cardsPerRow - 1) * horizontalGap) / cardsPerRow;
 
     const positions = [];
     const totalCards = 6;
@@ -125,10 +144,16 @@ const OurServices = () => {
 
     if (currentSlide === 1 && dimensions.cardsPerRow === 3) {
       positions[2] = { x: 2 * (cardWidth + horizontalGap), y: 0 };
-      positions[5] = { x: 2 * (cardWidth + horizontalGap), y: cardHeight + verticalGap };
+      positions[5] = {
+        x: 2 * (cardWidth + horizontalGap),
+        y: cardHeight + verticalGap,
+      };
     } else if (currentSlide === 1 && dimensions.cardsPerRow === 2) {
       positions[1] = { x: cardWidth + horizontalGap, y: 0 };
-      positions[3] = { x: cardWidth + horizontalGap, y: cardHeight + verticalGap };
+      positions[3] = {
+        x: cardWidth + horizontalGap,
+        y: cardHeight + verticalGap,
+      };
     }
 
     return positions;
@@ -142,24 +167,101 @@ const OurServices = () => {
 
   const cardVariants = [
     {
-      visible: { opacity: 1, scale: 1, x: 0, transition: { type: "spring", stiffness: 100, damping: 20, duration: 0.5 } },
+      visible: {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        transition: {
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+          duration: 0.5,
+        },
+      },
       hidden: { opacity: 0, scale: 0.8, x: -100 },
-      exit: { opacity: 0, x: 100, transition: { type: "spring", stiffness: 100, damping: 20, duration: 0.5 } },
+      exit: {
+        opacity: 0,
+        x: 100,
+        transition: {
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+          duration: 0.5,
+        },
+      },
     },
     {
-      visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 15, duration: 0.6 } },
+      visible: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: {
+          type: "spring",
+          stiffness: 120,
+          damping: 15,
+          duration: 0.6,
+        },
+      },
       hidden: { opacity: 0, scale: 0.8, y: -100 },
-      exit: { opacity: 0, y: 100, transition: { type: "spring", stiffness: 120, damping: 15, duration: 0.6 } },
+      exit: {
+        opacity: 0,
+        y: 100,
+        transition: {
+          type: "spring",
+          stiffness: 120,
+          damping: 15,
+          duration: 0.6,
+        },
+      },
     },
     {
-      visible: { opacity: 1, scale: 1, rotate: 0, transition: { type: "spring", stiffness: 80, damping: 25, duration: 0.5 } },
+      visible: {
+        opacity: 1,
+        scale: 1,
+        rotate: 0,
+        transition: {
+          type: "spring",
+          stiffness: 80,
+          damping: 25,
+          duration: 0.5,
+        },
+      },
       hidden: { opacity: 0, scale: 0.8, rotate: 90 },
-      exit: { opacity: 0, rotate: -90, transition: { type: "spring", stiffness: 80, damping: 25, duration: 0.5 } },
+      exit: {
+        opacity: 0,
+        rotate: -90,
+        transition: {
+          type: "spring",
+          stiffness: 80,
+          damping: 25,
+          duration: 0.5,
+        },
+      },
     },
     {
-      visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 150, damping: 10, duration: 0.4, bounce: 0.5 } },
+      visible: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: {
+          type: "spring",
+          stiffness: 150,
+          damping: 10,
+          duration: 0.4,
+          bounce: 0.5,
+        },
+      },
       hidden: { opacity: 0, scale: 0.5, y: 50 },
-      exit: { opacity: 0, scale: 0.4, transition: { type: "spring", stiffness: 150, damping: 10, duration: 0.4 } },
+      exit: {
+        opacity: 0,
+        scale: 0.4,
+        transition: {
+          type: "spring",
+          stiffness: 150,
+          damping: 10,
+          duration: 0.4,
+        },
+      },
     },
   ];
 
@@ -256,7 +358,7 @@ const OurServices = () => {
           }
           .slider-card {
             flex: 0 0 100%;
-            padding: 0 16px;
+            padding: 0 0px;
           }
           .card-content {
             display: flex;
@@ -311,7 +413,9 @@ const OurServices = () => {
           }
           @media (min-width: 1024px) {
             .card {
-              width: calc(33.333% - ${dimensions.horizontalGap * 2 / 3}px) !important;
+              width: calc(33.333% - ${
+                (dimensions.horizontalGap * 2) / 3
+              }px) !important;
               height: ${dimensions.cardHeight}px;
               margin-right: ${dimensions.horizontalGap}px;
               margin-bottom: ${dimensions.verticalGap}px;
@@ -331,14 +435,13 @@ const OurServices = () => {
             <TitleDescription
               title="Our Services"
               titleClass="text-3xl text-black"
+              description="Seamless & Stress-Free Moving Solutions Tailored for You"
+              descriptionClass="mt-4"
             />
-            <p className="text-base sm:text-base text-gray-600 mt-4">
-              Seamless & Stress-Free Moving Solutions Tailored for You
-            </p>
           </div>
           <button
             onClick={handleViewAll}
-            className="text-black hover:text-primary transition-all duration-300 mt-4 md:mt-0 md:ml-auto text-base sm:text-lg"
+            className="hidden lg:flex items-center justify-center text-black hover:text-primary transition-all duration-300 mt-4 md:mt-0 md:ml-auto text-base sm:text-lg"
           >
             View All
             <FontAwesomeIcon
@@ -384,7 +487,9 @@ const OurServices = () => {
                           src={card.image}
                           alt={card.title}
                           className={`card-image ${getImageSize()} mt-4 mb-4 object-contain`}
-                          onError={() => console.log(`Failed to load image: ${card.title}`)}
+                          onError={() =>
+                            console.log(`Failed to load image: ${card.title}`)
+                          }
                         />
                         <h3 className="text-xl sm:text-2xl text-gray-300 mb-4 capitalize">
                           {card.title}
@@ -403,8 +508,22 @@ const OurServices = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            <rect x="0.5" y="0.5" width="37" height="37" rx="18.5" fill="none" />
-                            <rect x="0.5" y="0.5" width="37" height="37" rx="18.5" stroke="white" />
+                            <rect
+                              x="0.5"
+                              y="0.5"
+                              width="37"
+                              height="37"
+                              rx="18.5"
+                              fill="none"
+                            />
+                            <rect
+                              x="0.5"
+                              y="0.5"
+                              width="37"
+                              height="37"
+                              rx="18.5"
+                              stroke="white"
+                            />
                             <path
                               d="M15.452 13.5802L16.513 12.5202L22.292 18.2972C22.3851 18.3898 22.4591 18.4999 22.5095 18.6211C22.56 18.7424 22.5859 18.8724 22.5859 19.0037C22.5859 19.1351 22.56 19.2651 22.5095 19.3863C22.4591 19.5076 22.3851 19.6177 22.292 19.7102L16.513 25.4902L15.453 24.4302L20.877 19.0052L15.452 13.5802Z"
                               fill="white"
@@ -423,7 +542,8 @@ const OurServices = () => {
               className="relative w-full pt-2"
               style={{
                 height: `${
-                  dimensions.visibleRows * (dimensions.cardHeight + dimensions.verticalGap) -
+                  dimensions.visibleRows *
+                    (dimensions.cardHeight + dimensions.verticalGap) -
                   dimensions.verticalGap
                 }px`,
               }}
@@ -446,10 +566,14 @@ const OurServices = () => {
                     variants={cardVariants[variantIndex]}
                     transition={{
                       type: "spring",
-                      stiffness: cardVariants[variantIndex].visible.transition.stiffness,
-                      damping: cardVariants[variantIndex].visible.transition.damping,
-                      duration: cardVariants[variantIndex].visible.transition.duration,
-                      bounce: cardVariants[variantIndex].visible.transition.bounce,
+                      stiffness:
+                        cardVariants[variantIndex].visible.transition.stiffness,
+                      damping:
+                        cardVariants[variantIndex].visible.transition.damping,
+                      duration:
+                        cardVariants[variantIndex].visible.transition.duration,
+                      bounce:
+                        cardVariants[variantIndex].visible.transition.bounce,
                       delay: index * 0.05,
                     }}
                   >
@@ -458,7 +582,9 @@ const OurServices = () => {
                         src={card.image}
                         alt={card.title}
                         className={`card-image ${getImageSize()} mt-4 mb-4 object-contain`}
-                        onError={() => console.log(`Failed to load image: ${card.title}`)}
+                        onError={() =>
+                          console.log(`Failed to load image: ${card.title}`)
+                        }
                       />
                       <h3 className="text-xl sm:text-xl text-white mb-4 capitalize">
                         {card.title}
@@ -477,8 +603,22 @@ const OurServices = () => {
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <rect x="0.5" y="0.5" width="37" height="37" rx="18.5" fill="none" />
-                          <rect x="0.5" y="0.5" width="37" height="37" rx="18.5" stroke="white" />
+                          <rect
+                            x="0.5"
+                            y="0.5"
+                            width="37"
+                            height="37"
+                            rx="18.5"
+                            fill="none"
+                          />
+                          <rect
+                            x="0.5"
+                            y="0.5"
+                            width="37"
+                            height="37"
+                            rx="18.5"
+                            stroke="white"
+                          />
                           <path
                             d="M15.452 13.5802L16.513 12.5202L22.292 18.2972C22.3851 18.3898 22.4591 18.4999 22.5095 18.6211C22.56 18.7424 22.5859 18.8724 22.5859 19.0037C22.5859 19.1351 22.56 19.2651 22.5095 19.3863C22.4591 19.5076 22.3851 19.6177 22.292 19.7102L16.513 25.4902L15.453 24.4302L20.877 19.0052L15.452 13.5802Z"
                             fill="white"
@@ -492,6 +632,18 @@ const OurServices = () => {
             </div>
           )}
         </div>
+      </div>
+      <div className="flex items-center justify-center lg:hidden pt-6 text-center">
+        <button
+          onClick={handleViewAll}
+          className="text-black hover:text-primary transition-all duration-300 mt-4 md:mt-0 md:ml-auto text-base sm:text-lg"
+        >
+          View All
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            className="ml-2 text-sm sm:text-base"
+          />
+        </button>
       </div>
     </div>
   );
