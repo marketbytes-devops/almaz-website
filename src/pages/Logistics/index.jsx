@@ -3,8 +3,8 @@ import Banner from "../../components/Banner";
 import bannerImage from "../../assets/logistics/MovingBanner.webp";
 import OtherServices from "./UiComponents/OtherServices";
 import GetInTouchSection from "../Home/UiComponents/GetinTouch";
-
-
+ 
+ 
 const Logistics = () => {
   return (
     <>
@@ -18,12 +18,10 @@ const Logistics = () => {
         subRoute="Logistics"
         subRoutePath="/logistics"
       />
-     
-      
-      <section className="container-secondary mt-16">
+      <section className="container-secondary mt-10">
         <OtherServices />
       </section>
-      <section className="w-full bg-primary/10 mt-12 sm:mt-12 lg:mt-16">
+      <section className="w-full bg-primary/10 mt-8 sm:mt-8 lg:mt-16">
         <div className="mx-auto w-full py-8 sm:py-12 md:py-16">
           <GetInTouchSection />
         </div>
@@ -31,5 +29,5 @@ const Logistics = () => {
     </>
   );
 };
-
+ 
 export default Logistics;
