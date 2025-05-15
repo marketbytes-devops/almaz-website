@@ -94,7 +94,7 @@ const Connectwithus = () => {
               </svg>
               <h3 className="text-lg sm:text-xl lg:text-2xl text-black">Phone Number</h3>
             </div>
-            <div className="w-full pl-8 sm:pl-10 lg:pl-10">
+            <div className="w-full pl-8 sm:pl-10 lg:pl-10 pb-4 sm:pb-4 md:pb-0 lg:pb-0 xl:pb-0">
               <p className="text-sm sm:text-base lg:text-base">+974 4435 5663</p>
               <p className="text-sm sm:text-base lg:text-base">+974 6640 4688</p>
             </div>

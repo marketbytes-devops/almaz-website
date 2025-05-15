@@ -17,7 +17,7 @@ const Moving = () => {
       <section className="container-secondary mt-10">
         <OtherServices serviceType="Movers" />
       </section>
-      <section className="w-full bg-primary/10 mt-8 sm:mt-8 lg:mt-16">
+      <section className="w-full bg-primary/10 mt-6 sm:mt-6 lg:mt-16">
         <div className="mx-auto w-full py-8 sm:py-12 md:py-16">
           <GetInTouchSection />
         </div>

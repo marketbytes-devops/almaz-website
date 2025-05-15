@@ -17,7 +17,7 @@ const Blogs = () => {
           subRoutePath="/blogs"
         />
       </div>
-      <section className="container-secondary our-services my-16">
+      <section className="container-secondary our-services my-14">
         <LatestUpdates />
       </section>
       <section className="w-full bg-primary/10 mt-12 sm:mt-12 lg:mt-16">

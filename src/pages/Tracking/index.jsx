@@ -17,13 +17,12 @@ const Tracking = () => {
         subRoute="TRACKING"
         subRoutePath="/tracking"
       />
-       <section className="container-secondary mt-16">
+       <section className="container-secondary mt-8 sm:mt-8 lg:mt-16">
         <Shipment/>
       </section>
-      <section className="w-full container-secondary mt-16">
+      <section className="w-full container-secondary mt-10 sm:mt-10 lg:mt-16">
         <MakeanEnquiry />
       </section>
-     
     </>
   );
 };

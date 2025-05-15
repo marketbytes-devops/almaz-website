@@ -71,8 +71,8 @@ const LatestUpdates = () => {
             </div>
           ))}
         </div>
-        <hr className="my-4 sm:my-6 border-t border-gray-600" />
-        <div className="flex justify-center items-center space-x-2 sm:space-x-4">
+        <hr className="pt-8 my-4 sm:my-6 border-t border-gray-600" />
+        <div className="flex justify-center items-center space-x-4">
           <button
             onClick={handlePrevPage}
             className={`text-gray-600 hover:text-gray-900 text-sm sm:text-base ${
@@ -110,7 +110,6 @@ const LatestUpdates = () => {
   );
 };
 
-// Card component
 const Card = ({ id, image, title, date, description, isLatest }) => {
   const [isHovered, setIsHovered] = useState(false);
 

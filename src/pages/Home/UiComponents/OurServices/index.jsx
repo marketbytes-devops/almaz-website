@@ -255,7 +255,6 @@ const OurServices = ({ currentSlug }) => {
     const startIndex = currentSlide * cardsPerSlide;
     let selectedCards = cards.slice(startIndex, startIndex + cardsPerSlide);
 
-    // Adjust for desktop view when "View All" is clicked
     if (currentSlide === 1 && dimensions.cardsPerRow === 3 && !currentSlug) {
       selectedCards = [cards[1], cards[2], cards[6], cards[4], cards[5], cards[7]].filter(
         (card) => card
@@ -294,7 +293,7 @@ const OurServices = ({ currentSlug }) => {
           }
           .slider-card {
             flex: 0 0 100%;
-            padding: 0 0px;
+            padding: 0 2px;
           }
           .card-content {
             display: flex;

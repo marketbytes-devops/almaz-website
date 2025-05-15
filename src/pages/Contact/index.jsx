@@ -19,7 +19,7 @@ const Contact= () => {
         smallText="Dubai, London, Tokyo, wherever life takes you next, we ensure you and your loved ones arrive with ease and feel at home from the very start"
       />
       <section>
-        <div className="mx-auto w-full mt-16">
+        <div className="mx-auto w-full mt-12 sm:mt-12 lg:mt-16">
          <Connectwithus/>
         </div>
       </section>
