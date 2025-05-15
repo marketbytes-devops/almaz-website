@@ -17,10 +17,15 @@ const AboutUs = () => {
         mainRoute="Home"
         subRoute="About Us"
         subRoutePath="/about-us"
-        description="With over a decade of trusted services, Almas Movers International is based in Doha, Qatar and brings a perfect blend of global reach and local expertise. We are proud members of the International Association of Movers (IAM), the British Association of Movers (BAR), and the International Federation of Freight Forwarders Associations (FIATA), reflecting our commitment to international standards and professional excellence in the moving industry."
       />
-      <section className="w-full bg-primary">
-        <div className="container-secondary our-services mt-10 sm:mt-10 lg:mt-16">
+
+      <section className="w-full mt-10 sm:mt-10 lg:mt-16">
+      <div className="w-full container-secondary">
+        <p className="text-gray-700 text-center">With over a decade of trusted services, Almas Movers International is based in Doha, Qatar and brings a perfect blend of global reach and local expertise. We are proud members of the International Association of Movers (IAM), the British Association of Movers (BAR), and the International Federation of Freight Forwarders Associations (FIATA), reflecting our commitment to international standards and professional excellence in the moving industry.</p>
+      </div>
+    </section>
+      <section className="w-full bg-primary mt-10 sm:mt-10 lg:mt-16 overflow-hidden">
+        <div className="container-secondary our-services">
           <WhoweAre />
         </div>
       </section>

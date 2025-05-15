@@ -27,24 +27,6 @@ const Banner = ({
 
   return (
     <div className="container-primary w-full">
-      <style>
-        {`
-          @media (max-width: 639px) {
-            .banner-title {
-              font-size: 1.875rem !important; 
-            }
-            .banner-description {
-              font-size: 0.75rem !important;
-            }
-            .banner-breadcrumbs {
-              font-size: 0.75rem !important;
-            }
-            .banner-meta {
-              font-size: 0.75rem !important;
-            }
-          }
-        `}
-      </style>
       <div
         className="relative w-full min-h-[300px] lg:min-h-[500px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white px-2 sm:px-3"
         style={{
@@ -72,7 +54,7 @@ const Banner = ({
           </motion.h1>
           {smallText && (
             <motion.p
-              className="text-sm sm:text-sm banner-description mt-4 max-w-3xl"
+              className="text-gray-700 mt-4 max-w-3xl"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}

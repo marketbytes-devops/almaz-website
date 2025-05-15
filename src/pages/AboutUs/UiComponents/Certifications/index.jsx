@@ -18,7 +18,6 @@ const Certifications = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(5);
 
-  // Handle mouse wheel scrolling
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
@@ -40,7 +39,6 @@ const Certifications = () => {
     };
   }, []);
 
-  // Handle responsive slidesToShow
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -77,7 +75,7 @@ const Certifications = () => {
     ),
     customPaging: (i) => (
       <div
-        className={`w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-all duration-300 sm:w-3 sm:h-3 ${
+        className={`w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-gray-300 cursor-pointer transition-all duration-300 ${
           i === currentSlide % 5 ? "bg-yellow-400 w-3 h-3 sm:w-3 sm:h-3" : ""
         }`}
       />
@@ -120,9 +118,11 @@ const Certifications = () => {
   };
 
   return (
-    <div className="w-ful pb-8">
+    <div className="w-full pb-6 sm:pb-6 lg:pb-8">
       <div className="mb-8 text-left">
-        <TitleDescription title="Members & Certifications" />
+        <TitleDescription title="Members & Certifications"
+        titleClass="text-3xl"
+        />
       </div>
       <Slider
         ref={sliderRef}

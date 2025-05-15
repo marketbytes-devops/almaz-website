@@ -92,12 +92,12 @@ const WhychooseUs = () => {
       <div>
         <TitleDescription
           title="Why Choose Us"
-          titleClass="text-[32px] font-poppins font-normal text-black py-2 mb-6"
+          titleClass="text-3xl font-poppins font-normal text-black pb-6 sm:pb-6 lg:pb-10"
         />
-        <p className="text-left text-[21px] font-poppins font-medium leading-[160%] max-w-full text-gray-900">
+        <p className="text-left text-[22px] font-poppins font-medium max-w-full text-gray-900">
           Why have people loved us for more than 14 years?
         </p>
-        <p className="text-left text-[16px] font-poppins font-normal leading-[160%] max-w-full mb-10 text-gray-600">
+        <p className="text-left max-w-full mt-6 mb-10 text-gray-600">
           At Almas Movers International, trust isn't built overnight—it's earned
           move by move. For over a decade, we've been the reliable choice for
           families and businesses relocating across Qatar and around the world.
@@ -126,10 +126,6 @@ const WhychooseUs = () => {
           ))}
         </Slider>
         <style jsx>{`
-          @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
-          .font-poppins {
-            font-family: "Poppins", sans-serif;
-          }
           .icon-container {
             background-color: #ffffff; /* White background for circle */
           }

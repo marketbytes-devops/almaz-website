@@ -44,7 +44,7 @@ const WhoweAre = () => {
   };
 
   return (
-    <div className="w-full py-16">
+    <div className="w-full py-8 sm:py-8 lg:py-16">
       <div className="mx-auto">
         <div className="flex flex-col md:flex-row space-x-0 sm:space-x-0 md:space-x-0 lg:space-x-20 xl:space-x-20">
           <div className="w-full md:w-1/2">
@@ -98,7 +98,7 @@ const WhoweAre = () => {
           </div>
 
           {/* Right Section: Image */}
-          <div className="w-full md:w-1/2 flex items-center justify-center pt-16 sm:pt-16 md:pt-0 lg:pt-0 xl:pt-0">
+          <div className="w-full md:w-1/2 flex items-center justify-center pt-8 sm:pt-8 md:pt-0 lg:pt-0 xl:pt-0">
             <motion.img
               src={whoWeAreData.image.src}
               alt={whoWeAreData.image.alt}

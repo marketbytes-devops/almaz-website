@@ -1,79 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import InternationalRelocationIcon from "../../../../assets/Icon_InternationalRelocation.webp";
-import HouseMovingIcon from "../../../../assets/Icon_HouseMoving.webp";
-import VehicleMovingIcon from "../../../../assets/Icon_vechiclemoving.webp";
-import OfficeRelocationIcon from "../../../../assets/Icon_OfficeRelocation.webp";
-import StorageIcon from "../../../../assets/Icon_StorageandWarehouse.webp";
-import InsuranceIcon from "../../../../assets/Icon_Insurance.webp";
-import AirfreightIcon from "../../../../assets/Air-freight.webp";
-import SeafrieghtIcon from "../../../../assets/Sea-frieght.webp";
+import { Link } from "react-router-dom";
 import TitleDescription from "../../../../components/TitleDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import serviceData from "../../../../assets/data/serviceData";
 
-const OurServices = () => {
-  const navigate = useNavigate();
-
-  const cards = [
-    {
-      id: 0,
-      title: "International relocation",
-      text: "If you are looking for relocation services, be sure that the international movers",
-      image: InternationalRelocationIcon,
-      slug: "/international-relocation",
-    },
-    {
-      id: 1,
-      title: "House moving",
-      text: "Basically, we should understand that domestic relocation is not an easy process.",
-      image: HouseMovingIcon,
-      slug: "/house-moving",
-    },
-    {
-      id: 2,
-      title: "Vehicle relocation",
-      text: "Vehicles are everyone's valued assets and we would not want it to be damaged during.",
-      image: VehicleMovingIcon,
-      slug: "/vehicle-relocation",
-    },
-    {
-      id: 3,
-      title: "Office relocation",
-      text: "Efficient office moving with minimal downtime.",
-      image: OfficeRelocationIcon,
-      slug: "/office-relocation",
-    },
-    {
-      id: 4,
-      title: "Storage solutions",
-      text: "Secure storage options for your belongings.",
-      image: StorageIcon,
-      slug: "/storage-solutions",
-    },
-    {
-      id: 5,
-      title: "Insurance coverage",
-      text: "Comprehensive insurance for all your moving needs.",
-      image: InsuranceIcon,
-      slug: "/insurance-coverage",
-    },
-    {
-      id: 6,
-      title: "Air freight",
-      text: "Fast and reliable air freight services for your cargo.",
-      image: AirfreightIcon,
-      slug: "/air-freight",
-    },
-    {
-      id: 7,
-      title: "Sea freight",
-      text: "Cost-effective and secure sea freight solutions.",
-      image: SeafrieghtIcon || HouseMovingIcon,
-      slug: "/sea-freight",
-    },
-  ];
+const OurServices = ({ currentSlug }) => {
+  const cards = serviceData
+    .filter((service) => !currentSlug || service.slug !== `/services/${currentSlug}`)
+    .map((service) => ({
+      id: service.id,
+      title: service.title,
+      text: service.shortDescription,
+      image: service.cardImage,
+      slug: service.slug,
+    }));
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [viewAllClicked, setViewAllClicked] = useState(false);
@@ -131,7 +73,7 @@ const OurServices = () => {
       (containerWidth - (cardsPerRow - 1) * horizontalGap) / cardsPerRow;
 
     const positions = [];
-    const totalCards = 6;
+    const totalCards = Math.min(cards.length, 6);
     for (let i = 0; i < totalCards; i++) {
       const row = Math.floor(i / cardsPerRow);
       const col = i % cardsPerRow;
@@ -141,13 +83,13 @@ const OurServices = () => {
       });
     }
 
-    if (currentSlide === 1 && dimensions.cardsPerRow === 3) {
+    if (currentSlide === 1 && dimensions.cardsPerRow === 3 && cards.length > 6) {
       positions[2] = { x: 2 * (cardWidth + horizontalGap), y: 0 };
       positions[5] = {
         x: 2 * (cardWidth + horizontalGap),
         y: cardHeight + verticalGap,
       };
-    } else if (currentSlide === 1 && dimensions.cardsPerRow === 2) {
+    } else if (currentSlide === 1 && dimensions.cardsPerRow === 2 && cards.length > 4) {
       positions[1] = { x: cardWidth + horizontalGap, y: 0 };
       positions[3] = {
         x: cardWidth + horizontalGap,
@@ -162,7 +104,7 @@ const OurServices = () => {
 
   useEffect(() => {
     setGridPositions(calculatePositions());
-  }, [dimensions, currentSlide]);
+  }, [dimensions, currentSlide, cards.length]);
 
   const cardVariants = [
     {
@@ -276,13 +218,13 @@ const OurServices = () => {
   };
 
   useEffect(() => {
-    if (viewAllClicked) {
+    if (viewAllClicked && dimensions.cardsPerRow !== 1) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
       }, 3000);
       return () => clearInterval(interval);
     }
-  }, [viewAllClicked]);
+  }, [viewAllClicked, dimensions.cardsPerRow]);
 
   useEffect(() => {
     if (dimensions.cardsPerRow === 1 && viewAllClicked) {
@@ -291,19 +233,7 @@ const OurServices = () => {
       }, 3000);
       return () => clearInterval(interval);
     }
-  }, [viewAllClicked, dimensions.cardsPerRow]);
-
-  const handleNextSlide = () => {
-    if (currentSlide < cards.length - 1) {
-      setCurrentSlide(currentSlide + 1);
-    }
-  };
-
-  const handlePrevSlide = () => {
-    if (currentSlide > 0) {
-      setCurrentSlide(currentSlide - 1);
-    }
-  };
+  }, [viewAllClicked, dimensions.cardsPerRow, cards.length]);
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
@@ -312,7 +242,7 @@ const OurServices = () => {
   const handleTouchEnd = (e) => {
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
-    if (diff > 50 && currentSlide < cards.length - 1) {
+    if (diff > 50 && currentSlide < Math.ceil(cards.length / dimensions.cardsPerRow) - 1) {
       setCurrentSlide(currentSlide + 1);
     } else if (diff < -50 && currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
@@ -321,15 +251,22 @@ const OurServices = () => {
   };
 
   const getVisibleCards = () => {
-    if (currentSlide === 0) {
-      return cards.slice(0, 6);
+    const cardsPerSlide = dimensions.cardsPerRow * dimensions.visibleRows;
+    const startIndex = currentSlide * cardsPerSlide;
+    let selectedCards = cards.slice(startIndex, startIndex + cardsPerSlide);
+
+    // Adjust for desktop view when "View All" is clicked
+    if (currentSlide === 1 && dimensions.cardsPerRow === 3 && !currentSlug) {
+      selectedCards = [cards[1], cards[2], cards[6], cards[4], cards[5], cards[7]].filter(
+        (card) => card
+      );
+    } else if (currentSlide === 1 && dimensions.cardsPerRow === 2 && !currentSlug) {
+      selectedCards = [cards[2], cards[6], cards[4], cards[7], cards[5], cards[3]].filter(
+        (card) => card
+      );
     }
-    if (dimensions.cardsPerRow === 3) {
-      return [cards[1], cards[2], cards[6], cards[4], cards[5], cards[7]];
-    } else if (dimensions.cardsPerRow === 2) {
-      return [cards[2], cards[6], cards[4], cards[7], cards[5], cards[3]];
-    }
-    return cards.slice(0, 6);
+
+    return selectedCards;
   };
 
   return (
@@ -430,10 +367,10 @@ const OurServices = () => {
         <div className="flex flex-col md:flex-row justify-start items-start mb-6">
           <div>
             <TitleDescription
-              title="Our Services"
+              title={currentSlug ? "Other Services" : "Our Services"}
               titleClass="text-3xl text-black"
               description="Seamless & Stress-Free Moving Solutions Tailored for You"
-              descriptionClass="mt-4"
+              descriptionClass="mt-5 mb-1"
             />
           </div>
           <button
@@ -494,9 +431,10 @@ const OurServices = () => {
                         <p className="text-base sm:text-normal text-gray-300 mb-4 flex-grow">
                           {card.text}
                         </p>
-                        <div
+                        <Link
+                          to={card.slug}
                           className="card-arrow mb-0"
-                          onClick={() => navigate(card.slug)}
+                          aria-label={`View ${card.title} details`}
                         >
                           <svg
                             width="38"
@@ -526,7 +464,7 @@ const OurServices = () => {
                               fill="white"
                             />
                           </svg>
-                        </div>
+                        </Link>
                       </div>
                     </motion.div>
                   </div>
@@ -550,10 +488,11 @@ const OurServices = () => {
               ref={gridRef}
               className="relative w-full pt-2"
               style={{
-                height: `${dimensions.visibleRows *
-                  (dimensions.cardHeight + dimensions.verticalGap) -
+                height: `${
+                  dimensions.visibleRows *
+                    (dimensions.cardHeight + dimensions.verticalGap) -
                   dimensions.verticalGap
-                  }px`,
+                }px`,
               }}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
@@ -600,9 +539,10 @@ const OurServices = () => {
                       <p className="text-sm sm:text-base text-gray-200 mb-4 flex-grow">
                         {card.text}
                       </p>
-                      <div
+                      <Link
+                        to={card.slug}
                         className="card-arrow mb-0"
-                        onClick={() => navigate(card.slug)}
+                        aria-label={`View ${card.title} details`}
                       >
                         <svg
                           width="38"
@@ -632,7 +572,7 @@ const OurServices = () => {
                             fill="white"
                           />
                         </svg>
-                      </div>
+                      </Link>
                     </div>
                   </motion.div>
                 );

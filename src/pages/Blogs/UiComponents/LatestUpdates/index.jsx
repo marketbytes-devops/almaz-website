@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { data } from '../../../../assets/data/blogData';
 import Banner from '../../../../components/Banner';
+import TitleDescription from '../../../../components/TitleDescription';
 
 
 const truncateDescription = (text, wordLimit = 40) => {
@@ -37,7 +38,9 @@ const LatestUpdates = () => {
     <div className="mx-auto">
       {currentPage === 1 && (
         <section className="mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl font-bold text-left mb-4 sm:mb-6">LATEST UPDATES</h1>
+          <div className='pb-8 sm:pb-8 lg:pb-14 -mt-8 sm:-mt-8 lg:-mt-0'>
+          <TitleDescription title='Latest Updates' titleClass='text-3xl'/>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-items-center">
             {latestUpdates.map((update) => (
               <Card
@@ -52,7 +55,9 @@ const LatestUpdates = () => {
       )}
 
       <section className="">
-        <h1 className="text-2xl sm:text-3xl font-bold text-left mb-4 sm:mb-6">OTHER UPDATES</h1>
+        <div className='pb-8 sm:pb-8 lg:pb-14'>
+          <TitleDescription title='Other Updates' titleClass='text-3xl'/>
+          </div>
         <div className="space-y-4 sm:space-y-6">
           {currentOtherUpdates.map((update, index) => (
             <div key={update.id}>
