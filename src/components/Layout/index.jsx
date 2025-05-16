@@ -29,7 +29,9 @@ const Layout = () => {
       <div className="">
         <Navbar />
       </div>
-
+      <div className="main-content mt-16">
+        <Outlet />
+      </div>
       <div className="mt-16">
         <Footer />
       </div>

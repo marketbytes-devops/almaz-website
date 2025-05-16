@@ -120,7 +120,7 @@ const BlogDetail = () => {
           titleSecond={titleSecond}
           mainRoute="Home"
           subRoute="Blogs"
-          subRoutePath="/blogs"
+          subRoutePath={`/blogs/${slug}`}
           date={blog.date}
           time={blog.time}
           author={blog.author}

@@ -16,9 +16,6 @@ export const data = {
       date: "9 Feb 2025",
       time: "10:00 AM",
       author: "Aisha Al-Mansoori",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -190,9 +187,6 @@ export const data = {
       date: "9 Feb 2025",
       time: "11:00 AM",
       author: "Ben Wilson",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -251,9 +245,6 @@ export const data = {
       date: "9 Feb 2025",
       time: "12:00 PM",
       author: "Sarah Johnson",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -317,9 +308,6 @@ export const data = {
       date: "9 Feb 2025",
       time: "01:00 PM",
       author: "Emma Davis",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -384,9 +372,6 @@ export const data = {
       date: "9 Feb 2025",
       time: "02:00 PM",
       author: "Michael Lee",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -450,9 +435,6 @@ export const data = {
       date: "9 Feb 2025",
       time: "03:00 PM",
       author: "Aisha Al-Mansoori",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -516,9 +498,6 @@ export const data = {
       date: "9 Feb 2025",
       time: "04:00 PM",
       author: "Ben Wilson",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -582,9 +561,6 @@ export const data = {
       date: "10 Feb 2025",
       time: "09:00 AM",
       author: "Sarah Johnson",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -648,9 +624,6 @@ export const data = {
       date: "10 Feb 2025",
       time: "10:00 AM",
       author: "Michael Lee",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -714,9 +687,6 @@ export const data = {
       date: "10 Feb 2025",
       time: "11:00 AM",
       author: "Emma Davis",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -780,9 +750,6 @@ export const data = {
       date: "10 Feb 2025",
       time: "12:00 PM",
       author: "Ben Wilson",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -846,9 +813,6 @@ export const data = {
       date: "11 Feb 2025",
       time: "09:00 AM",
       author: "Aisha Al-Mansoori",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -912,9 +876,6 @@ export const data = {
       date: "11 Feb 2025",
       time: "10:00 AM",
       author: "Sarah Johnson",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
@@ -978,9 +939,6 @@ export const data = {
       date: "11 Feb 2025",
       time: "11:00 AM",
       author: "Michael Lee",
-      sqaureShadeTop: "170",
-      sqaureShadeLeft: "605",
-      sqaureShadeWidth: "245",
       detail: {
         content: [
           {
