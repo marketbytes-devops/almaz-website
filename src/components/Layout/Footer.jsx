@@ -57,7 +57,7 @@ const Footer = () => {
           </h3>
           <div className="flex space-x-2 sm:space-x-3">
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@AlmasInternational"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
@@ -67,7 +67,7 @@ const Footer = () => {
               </div>
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/AlmasInternational"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -77,7 +77,7 @@ const Footer = () => {
               </div>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/AlmasInternational"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -87,7 +87,7 @@ const Footer = () => {
               </div>
             </a>
             <a
-              href="https://x.com"
+              href="https://x.com/AlmasIntl"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X"
@@ -108,18 +108,30 @@ const Footer = () => {
           <h3 className="text-base sm:text-lg md:text-lg font-bold mb-3 sm:mb-4 pt-4">
             Email
           </h3>
-          <p className="text-sm sm:text-base md:text-lg hover:text-primary transition-colors">
+          <a
+            href="mailto:movers@almasintl.com"
+            className="text-sm sm:text-base md:text-lg hover:text-primary transition-colors"
+            aria-label="Email us"
+          >
             movers@almasintl.com
-          </p>
+          </a>
           <h3 className="text-base sm:text-lg md:text-lg font-bold mb-1 pt-6 sm:pt-8">
             Phone
           </h3>
-          <p className="text-sm sm:text-base md:text-lg hover:text-primary transition-colors">
+          <a
+            href="tel:+97444355663"
+            className="pb-2 text-sm sm:text-base md:text-lg hover:text-primary transition-colors"
+            aria-label="Call phone number +97444355663"
+          >
             +97444355663
-          </p>
-          <p className="text-sm sm:text-base md:text-lg hover:text-primary transition-colors">
+          </a>
+          <a
+            href="tel:+97466404688"
+            className="text-sm sm:text-base md:text-lg hover:text-primary transition-colors"
+            aria-label="Call phone number +97466404688"
+          >
             +97466404688
-          </p>
+          </a>
         </div>
 
         {/* Location */}
@@ -178,7 +190,11 @@ const Footer = () => {
       <div className="text-sm sm:text-base md:text-lg text-center py-6 sm:py-8 md:py-10">
         <p>
           © {currentYear} All rights reserved. Made by{" "}
-          <span className="font-bold"><a href="https://www.marketbytes.in/" className="decoration-none cursor-pointer hover:text-primary">MarketBytes WebWorks Pvt Ltd</a></span>
+          <span className="font-bold">
+            <a href="https://www.marketbytes.in/" className="decoration-none cursor-pointer hover:text-primary">
+              MarketBytes WebWorks Pvt Ltd
+            </a>
+          </span>
         </p>
       </div>
     </footer>
