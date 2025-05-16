@@ -5,8 +5,6 @@ import MakeanEnquiry from "../Moving/UiComponents/MakeanEnquiry";
 import Shipment from "./UiComponents/Shipment";
 import GetInTouchSection from "../Home/UiComponents/GetinTouch";
 
-
-
 const Tracking = () => {
   return (
     <>

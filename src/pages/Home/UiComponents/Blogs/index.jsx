@@ -71,7 +71,7 @@ const BlogSection = () => {
           </div>
         </div>
       </div>
-      <div className="mt-2 lg:hidden flex items-center justify-center">
+      <div className="-mt-6 sm:-mt-6 md:mt-0 lg:mt-0 xl:mt-0 lg:hidden flex items-center justify-center">
         <button
           className="text-gray-800 hover:text-primary transition-all duration-300 text-sm sm:text-base font-medium mt-2 sm:mt-0"
           onClick={() => navigate("/blogs")}
