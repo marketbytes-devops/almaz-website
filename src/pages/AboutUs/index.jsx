@@ -30,20 +30,20 @@ const AboutUs = () => {
         </div>
       </section>
  
-      <section className="w-full">
+      <section className="w-full overflow-hidden">
         <div className="container-secondary our-services mt-10 sm:mt-10 lg:mt-16">
           <WhychooseUs />
         </div>
       </section>
  
-      <section className="w-full mt-10 sm:mt-10 lg:mt-16">
+      <section className="w-full mt-10 sm:mt-10 lg:mt-16 overflow-hidden">
         <div className="container-secondary">
           <Certifications />
         </div>
       </section>
  
       <section className="w-full mt-10 sm:mt-10 lg:mt-16">
-      <div className=" w-full">
+      <div className="w-full">
         <Relocate />
       </div>
     </section>

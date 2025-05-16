@@ -116,7 +116,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.to}
-                      className={`text-sm lg:text-base font-medium transition-colors duration-300 ${
+                      className={`px-0 md:px-0 lg:px-2 text-sm lg:text-base font-medium transition-colors duration-300 ${
                         location.pathname === link.to
                           ? "text-secondary"
                           : "text-gray-50 hover:text-secondary"

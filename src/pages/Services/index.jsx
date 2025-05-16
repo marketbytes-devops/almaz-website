@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Banner from "../../components/Banner";
 import serviceData from "../../assets/data/serviceData";
 import OurServices from "../Home/UiComponents/OurServices";
+import TickIcon from "../../assets/moving/yellowtick.svg";
 
 const Services = () => {
   const { slug } = useParams();
@@ -12,9 +13,9 @@ const Services = () => {
 
   if (!service) {
     return (
-      <div className="w-full py-8 bg-white text-center">
-        <h2 className="text-3xl text-black">Service Not Found</h2>
-        <p className="mt-4 text-gray-600">
+      <div className="w-full py-8 bg-white text-center min-h-[400px]">
+        <h2 className="text-3xl font-bold text-black">Service Not Found</h2>
+        <p className="mt-4 text-gray-600 text-lg">
           The service you're looking for does not exist.
         </p>
       </div>
@@ -22,39 +23,56 @@ const Services = () => {
   }
 
   return (
-    <>
-      <div className="w-full">
-        <Banner
-          bannerImage={service.bannerImage}
-          titleFirst={service.title}
-          mainRoute="Home"
-          subRoute={service.title}
-          subRoutePath={`/services/${slug}`}
-          onError={() => console.log(`Failed to load banner image: ${service.title}`)}
-        />
+    <div className="w-full">
+      <Banner
+        bannerImage={service.bannerImage}
+        titleFirst={service.title}
+        mainRoute="Home"
+        smallText={service.bannerDescription}
+        subRoute={service.title}
+        subRoutePath={`/services/${slug}`}
+        onError={() => console.log(`Failed to load banner image: ${service.title}`)}
+      />
 
-        <div className="container-secondary our-services pl-10 sm:pl-20 md:pl-40 mt-0 sm:mt-0 lg:mt-16">
-          <div className="mt-8">
-            <h3 className="text-2xl text-black mb-4">About This Service</h3>
-            <p className="text-base text-gray-700 mb-6">
-              {service.detailedDescription}
-            </p>
-            <h3 className="text-2xl text-black mb-4">Key Features</h3>
-            <ul className="list-disc pl-6 text-base text-gray-700">
-              {service.features.map((feature, index) => (
-                <li key={index} className="mb-2">
-                  {feature}
-                </li>
-              ))}
-            </ul>
+      <div className="container-secondary pl-4 sm:pl-8 md:pl-16 lg:pl-40 mt-8 lg:mt-16">
+        <div className="mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
+            <div className="w-full">
+              <img
+                src={service.featureImage}
+                alt={service.title}
+                className="w-full h-auto rounded-lg object-cover max-h-[500px]"
+                onError={() => console.log(`Failed to load feature image: ${service.title}`)}
+              />
+            </div>
+            <div className="w-full self-start">
+              <h2 className="text-3xlpt-0 md:pt-6 pb-3 mb-6">
+                {service.featureTitle}
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-700 mb-6 pr-0 md:pr-20">
+                {service.featureDescription}
+              </p>
+              <ul className="space-y-3 text-lg text-gray-800">
+                {service.features.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <img 
+                      src={TickIcon} 
+                      alt="Check mark" 
+                      className="mr-3 mt-1 w-5 h-5 flex-shrink-0" 
+                    />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
-      <section className="container-secondary our-services pl-10 sm:pl-20 md:pl-40 mt-0 sm:mt-0 lg:mt-16">
+      <section className="container-secondary -mb-16 sm:-mb-16 lg:-mb-0">
         <OurServices currentSlug={slug} />
       </section>
-    </>
+    </div>
   );
 };
 

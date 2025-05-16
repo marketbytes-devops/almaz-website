@@ -3,6 +3,7 @@ import Banner from "../../components/Banner";
 import bannerImage from "../../assets/tracking/Banner.webp";
 import MakeanEnquiry from "../Moving/UiComponents/MakeanEnquiry";
 import Shipment from "./UiComponents/Shipment";
+import GetInTouchSection from "../Home/UiComponents/GetinTouch";
 
 
 
@@ -17,11 +18,16 @@ const Tracking = () => {
         subRoute="TRACKING"
         subRoutePath="/tracking"
       />
-       <section className="container-secondary mt-8 sm:mt-8 lg:mt-16">
-        <Shipment/>
+      <section className="container-secondary mt-8 sm:mt-8 lg:mt-16">
+        <Shipment />
       </section>
       <section className="w-full container-secondary mt-10 sm:mt-10 lg:mt-16">
         <MakeanEnquiry />
+      </section>
+      <section className="w-full bg-primary/10 mt-8 sm:mt-8 lg:mt-16">
+        <div className="mx-auto w-full py-6 sm:py-12 md:py-16">
+          <GetInTouchSection />
+        </div>
       </section>
     </>
   );

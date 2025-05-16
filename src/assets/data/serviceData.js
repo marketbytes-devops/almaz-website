@@ -15,6 +15,7 @@ import InsuranceBanner from "../../assets/international_relocation.webp";
 import AirfreightBanner from "../../assets/international_relocation.webp";
 import SeafrieghtBanner from "../../assets/international_relocation.webp";
 
+import InternationalFeatureImage from "../../assets/moving/pic2.webp";
 const serviceData = [
   {
     id: 0,
@@ -22,9 +23,13 @@ const serviceData = [
     slug: "/services/international-relocation",
     cardImage: InternationalRelocationIcon,
     bannerImage: InternationalRelocationBanner,
+    bannerDescription:
+      "Dubai, London, Tokyo, wherever life takes you next, we ensure you and your loved ones arrive with ease and feel at home from the very start",
     shortDescription:
       "Seamless international moving services tailored to your needs.",
-    detailedDescription:
+    featureImage: InternationalFeatureImage,
+    featureTitle: "Making International Moves Seamless and Stress Free",
+    featureDescription:
       "Our international relocation services ensure a smooth transition to your new home abroad. We handle everything from packing and shipping to customs clearance, providing you with peace of mind. Our experienced team coordinates every detail, ensuring your belongings arrive safely and on time, no matter the destination.",
     features: [
       "Professional packing and unpacking",
@@ -39,9 +44,13 @@ const serviceData = [
     slug: "/services/house-moving",
     cardImage: HouseMovingIcon,
     bannerImage: HouseMovingBanner,
+    bannerDescription:
+      "Dubai, London, Tokyo, wherever life takes you next, we ensure you and your loved ones arrive with ease and feel at home from the very start",
     shortDescription:
       "Stress-free house moving services for a hassle-free experience.",
-    detailedDescription:
+    featureImage: InternationalFeatureImage,
+    featureTitle: "",
+    featureDescription:
       "Moving to a new home can be overwhelming, but our house moving services make it easy. We provide comprehensive solutions, including packing, loading, transportation, and unpacking. Our team ensures your belongings are handled with care, delivering them safely to your new home.",
     features: [
       "Expert packing for fragile items",
@@ -56,8 +65,12 @@ const serviceData = [
     slug: "/services/vehicle-relocation",
     cardImage: VehicleMovingIcon,
     bannerImage: VehicleMovingBanner,
+    bannerDescription:
+      "Dubai, London, Tokyo, wherever life takes you next, we ensure you and your loved ones arrive with ease and feel at home from the very start",
     shortDescription: "Safe and reliable vehicle relocation services.",
-    detailedDescription:
+    featureImage: InternationalFeatureImage,
+    featureTitle: "",
+    featureDescription:
       "Your vehicle is one of your most valuable assets, and we treat it as such. Our vehicle relocation services ensure your car, motorcycle, or other vehicles are transported securely to your destination. We offer both open and enclosed transport options to suit your needs.",
     features: [
       "Door-to-door vehicle transport",
@@ -72,8 +85,12 @@ const serviceData = [
     slug: "/services/office-relocation",
     cardImage: OfficeRelocationIcon,
     bannerImage: OfficeRelocationBanner,
+    bannerDescription:
+      "Dubai, London, Tokyo, wherever life takes you next, we ensure you and your loved ones arrive with ease and feel at home from the very start",
     shortDescription: "Efficient office moving with minimal downtime.",
-    detailedDescription:
+    featureImage: InternationalFeatureImage,
+    featureTitle: "",
+    featureDescription:
       "Relocating your office requires precision and efficiency to minimize disruptions. Our office relocation services are designed to get your business up and running quickly. We handle everything from packing office equipment to setting up at the new location, ensuring a seamless transition.",
     features: [
       "Specialized packing for IT equipment",
@@ -88,8 +105,12 @@ const serviceData = [
     slug: "/services/storage-solutions",
     cardImage: StorageIcon,
     bannerImage: StorageBanner,
+    bannerDescription:
+      "Dubai, London, Tokyo, wherever life takes you next, we ensure you and your loved ones arrive with ease and feel at home from the very start",
     shortDescription: "Secure storage options for your belongings.",
-    detailedDescription:
+    featureImage: InternationalFeatureImage,
+    featureTitle: "",
+    featureDescription:
       "Whether you need short-term or long-term storage, our secure storage solutions provide a safe place for your belongings. Our facilities are climate-controlled and monitored 24/7, ensuring your items are protected until you're ready to retrieve them.",
     features: [
       "Climate-controlled storage units",
@@ -104,8 +125,12 @@ const serviceData = [
     slug: "/services/insurance-coverage",
     cardImage: InsuranceIcon,
     bannerImage: InsuranceBanner,
+    bannerDescription:
+      "Dubai, London, Tokyo, wherever life takes you next, we ensure you and your loved ones arrive with ease and feel at home from the very start",
     shortDescription: "Comprehensive insurance for all your moving needs.",
-    detailedDescription:
+    featureImage: InternationalFeatureImage,
+    featureTitle: "",
+    featureDescription:
       "Protect your belongings during the move with our comprehensive insurance coverage. We offer various insurance plans to suit your needs, ensuring peace of mind in case of unexpected events. Our team will guide you through the options to find the best coverage for your move.",
     features: [
       "Customizable insurance plans",
@@ -120,8 +145,12 @@ const serviceData = [
     slug: "/services/air-freight",
     cardImage: AirfreightIcon,
     bannerImage: AirfreightBanner,
+    bannerDescription:
+      "Dubai, London, Tokyo, wherever life takes you next, we ensure you and your loved ones arrive with ease and feel at home from the very start",
     shortDescription: "Fast and reliable air freight services for your cargo.",
-    detailedDescription:
+    featureImage: InternationalFeatureImage,
+    featureTitle: "",
+    featureDescription:
       "When time is of the essence, our air freight services provide a fast and reliable solution for transporting your cargo. We work with trusted airlines to ensure your goods are delivered on time, with full tracking and support throughout the process.",
     features: [
       "Express air freight options",
@@ -136,8 +165,12 @@ const serviceData = [
     slug: "/services/sea-freight",
     cardImage: SeafrieghtIcon,
     bannerImage: SeafrieghtBanner,
+    bannerDescription:
+      "Dubai, London, Tokyo, wherever life takes you next, we ensure you and your loved ones arrive with ease and feel at home from the very start",
     shortDescription: "Cost-effective and secure sea freight solutions.",
-    detailedDescription:
+    featureImage: InternationalFeatureImage,
+    featureTitle: "",
+    featureDescription:
       "Our sea freight services offer a cost-effective way to transport large or heavy items across the globe. We provide both full container load (FCL) and less-than-container load (LCL) options, ensuring your cargo is delivered securely and on schedule.",
     features: [
       "FCL and LCL shipping options",

@@ -6,7 +6,7 @@ import AlmasLogo from "../../../../assets/watermark.svg";
 import TitleDescription from "../../../../components/TitleDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"; // Updated icons
-
+ 
 const reviewCard = [
   {
     id: "1",
@@ -129,11 +129,11 @@ const reviewCard = [
     date: "23 June 2025",
   },
 ];
-
+ 
 const Review = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
-
+ 
   const settings = {
     className: "center",
     centerMode: true,
@@ -162,9 +162,9 @@ const Review = () => {
       },
     ],
   };
-
+ 
   const renderStars = (count) => {
-    return Array.from({ length: 5 }, (_, index) =>
+    return Array.from({ length: 5 }, (_, index) => (
       index < count ? (
         <svg
           key={index}
@@ -196,43 +196,36 @@ const Review = () => {
           />
         </svg>
       )
-    );
+    ));
   };
-
+ 
   const handlePrev = () => {
     if (sliderRef.current) {
       sliderRef.current.slickPrev();
     }
   };
-
+ 
   const handleNext = () => {
     if (sliderRef.current) {
       sliderRef.current.slickNext();
     }
   };
-
+ 
   return (
-    <div className="slider-container pb-6 lg:pb-20">
+    <div className="slider-container pb-12 sm:pb-20">
       <TitleDescription
         title="What Our Client Says"
         titleClass="text-3xl text-black py-2"
       />
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8">
-        <p className="text-gray-600 text-base sm:text-base text-center sm:text-left mt-4">
+        <p className="text-gray-600 text-base sm:text-base text-center sm:text-left mt-5">
           Delivering excellence to our client, ready to do the same for you
         </p>
-        <button className="hidden lg:block text-gray-800 hover:text-primary transition-all duration-300 text-sm sm:text-base font-medium mt-2 sm:mt-0">
-          View all
-          <FontAwesomeIcon
-            icon={faAngleRight}
-            className="ml-2 text-sm sm:text-base"
-          />
-        </button>
       </div>
       <div className="relative">
         <Slider {...settings} ref={sliderRef}>
           {reviewCard.map((review, index) => (
-            <div key={review.id} className="card-container w-full">
+            <div key={review.id} className="card-container w-full px-0 sm:px-0 md:px-2 lg:px-2 py-0 sm:py-0 md:py-4">
               <div
                 className={`review-card relative w-full py-8 sm:py-12 pb-12 sm:pb-16 space-y-4 px-4 rounded-3xl shadow-lg overflow-hidden ${
                   index === currentSlide % reviewCard.length
@@ -249,17 +242,19 @@ const Review = () => {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <p className="text-base sm:text-lg font-semibold text-white">
+                    <p
+                      className="text-base sm:text-lg font-semibold text-white"
+                    >
                       {review.title}
                     </p>
-                    <p className="text-xs sm:text-sm text-white">
+                    <p
+                      className="text-xs sm:text-sm text-white"
+                    >
                       {review.role}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center">
-                  {renderStars(review.stars)}
-                </div>
+                <div className="flex items-center">{renderStars(review.stars)}</div>
                 <div>
                   <p
                     className="text-xs sm:text-sm text-white"
@@ -276,13 +271,13 @@ const Review = () => {
                     {review.date}
                   </p>
                 </div>
-                <div className="absolute bottom-[-3rem] sm:bottom-[-3rem] lg:bottom-[-8rem] left-1/2 -translate-x-1/2">
-                  <img
-                    src={AlmasLogo}
-                    alt="Almas Logo"
-                    className="w-40 sm:w-56 lg:w-80 h-40 sm:h-56 lg:h-80 opacity-90 object-contain"
-                  />
-                </div>
+              <div className="absolute bottom-[-3rem] sm:bottom-[-3rem] lg:bottom-[-8rem] left-1/2 -translate-x-1/2">
+                <img
+                  src={AlmasLogo}
+                  alt="Almas Logo"
+                  className="w-40 sm:w-56 lg:w-80 h-40 sm:h-56 lg:h-80 opacity-90 object-contain"
+                />
+              </div>
               </div>
             </div>
           ))}
@@ -309,15 +304,6 @@ const Review = () => {
             />
           </button>
         </div>
-        <div className="mt-8 lg:hidden flex items-center justify-center">
-          <button className="text-gray-800 hover:text-primary transition-all duration-300 text-sm sm:text-base font-medium mt-2 sm:mt-0">
-            View all
-            <FontAwesomeIcon
-              icon={faAngleRight}
-              className="ml-2 text-sm sm:text-base"
-            />
-          </button>
-        </div>
       </div>
       <style>
         {`
@@ -328,7 +314,7 @@ const Review = () => {
             flex-direction: column;
             transition: all 0.5s ease;
           }
-          
+         
           /* Scale up animation during sliding */
           .slick-slide {
             z-index: 1;
@@ -336,18 +322,18 @@ const Review = () => {
             transform: scale(0.9);
             transition: all 0.5s ease;
           }
-          
+         
           .slick-active {
             opacity: 0.9;
             transform: scale(0.95);
           }
-          
+         
           .slick-center {
             z-index: 10;
             opacity: 1;
             transform: scale(1.05);
           }
-          
+         
           /* Navigation button styling */
           .nav-button {
             width: 40px;
@@ -357,41 +343,41 @@ const Review = () => {
             justify-content: center;
             font-family: 'Poppins', sans-serif;
           }
-          
+         
           @media (max-width: 640px) {
             .review-card {
               height: 280px;
             }
-            
+           
             .slick-slide {
               padding: Goldberg 2px;
               transform: scale(0.95);
             }
-            
+           
             .slick-center {
               transform: scale(1);
             }
-            
+           
             .nav-button {
               width: 32px;
               height: 32px;
             }
-            
+           
             .nav-button svg {
               font-size: 16px;
             }
           }
-          
+         
           @media (min-width: 641px) and (max-width: 1024px) {
             .review-card {
               height: 300px;
             }
-            
+           
             .slick-slide {
               padding: 0 4px;
               transform: scale(0.92);
             }
-            
+           
             .slick-center {
               transform: scale(1.02);
             }
@@ -401,5 +387,5 @@ const Review = () => {
     </div>
   );
 };
-
+ 
 export default Review;

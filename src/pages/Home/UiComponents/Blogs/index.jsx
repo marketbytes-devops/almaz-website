@@ -13,7 +13,7 @@ const BlogSection = () => {
         <div className="flex justify-center lg:justify-between items-center mb-6">
           <TitleDescription
             title="Latest News and Articles"
-            titleClass="text-3xl text-black"
+            titleClass="text-3xl text-black mb-2"
           />
           <button className="hidden lg:flex items-center text-black hover:text-primary transition-all duration-300 text-sm sm:text-base">
             View All

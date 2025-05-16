@@ -172,7 +172,7 @@ const Home = () => {
                       </div>
                       <div className="flex-1 min-w-[200px]">
                         <FormField
-                          type="tel"
+                          type="number"
                           name="phoneNumber"
                           placeholder="Phone Number"
                           value={formData.phoneNumber}
@@ -276,7 +276,7 @@ const Home = () => {
       <section className="container-secondary our-services mt-6 sm:mt-6 lg:mt-16">
         <Review />
       </section>
-      <section className="container-secondary our-services mt-0 sm:mt-0 lg:mt-16">
+      <section className="container-secondary our-services -mt-4 sm:-mt-4 lg:mt-16">
         <BlogSection />
       </section>
       <section className="w-full bg-primary/10 mt-8 sm:mt-8 lg:mt-16">

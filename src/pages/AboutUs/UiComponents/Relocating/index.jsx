@@ -111,7 +111,7 @@ const Relocate = () => {
     },
     {
       value: formatNumber(deliveries),
-      label: "Deliveries",
+      label: "Deliveries Completed",
     },
     {
       value: `${globalPartners}+`,
@@ -147,10 +147,10 @@ const Relocate = () => {
             key={index}
             className="flex space-y-6 pt-8 flex-col items-center justify-center flex-shrink-0"
           >
-            <span className="text-white text-5xl font-semibold sm:text-[clamp(1.75rem,6vw,2rem)] xs:text-[clamp(1.5rem,5vw,1.75rem)]">
+            <span className="text-white font-semibold text-2xl sm:text-2xl lg:text-5xl">
               {stat.value}
             </span>
-            <span className="text-white text-xl font-medium sm:text-[clamp(0.875rem,3.5vw,1rem)] xs:text-[clamp(0.75rem,3vw,0.875rem)] text-center">
+            <span className="text-white text-xl font-medium sm:text-[clamp(0.875rem,3.5vw,1.1rem)] xs:text-[clamp(0.75rem,3vw,0.875rem)] text-center">
               {stat.label}
             </span>
           </div>

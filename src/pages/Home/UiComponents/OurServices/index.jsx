@@ -303,7 +303,7 @@ const OurServices = ({ currentSlug }) => {
           }
           .card-arrow {
             position: absolute;
-            bottom: -10px;
+            bottom: -6px;
             left: -3px;
             width: 45px;
             height: 45px;
@@ -329,7 +329,7 @@ const OurServices = ({ currentSlug }) => {
               height: ${dimensions.cardHeight}px;
             }
             .card-arrow {
-              bottom: -10px;
+              bottom: -6px;
             }
           }
           @media (min-width: 640px) and (max-width: 1023px) {
@@ -372,16 +372,6 @@ const OurServices = ({ currentSlug }) => {
               descriptionClass="mt-5 mb-1"
             />
           </div>
-          <button
-            onClick={handleViewAll}
-            className="hidden lg:flex items-center justify-center text-black hover:text-primary transition-all duration-300 mt-4 md:mt-0 md:ml-auto text-base sm:text-lg"
-          >
-            View All
-            <FontAwesomeIcon
-              icon={faChevronRight}
-              className="ml-2 text-sm sm:text-base"
-            />
-          </button>
         </div>
         <div className="flex flex-col items-start relative">
           {dimensions.cardsPerRow === 1 ? (
@@ -468,18 +458,6 @@ const OurServices = ({ currentSlug }) => {
                     </motion.div>
                   </div>
                 ))}
-              </div>
-              <div className="flex items-center justify-center lg:hidden pt-4 text-center">
-                <button
-                  onClick={handleViewAll}
-                  className="text-black hover:text-primary transition-all duration-300 mt-4 md:mt-0 md:ml-auto text-base sm:text-lg"
-                >
-                  View All
-                  <FontAwesomeIcon
-                    icon={faChevronRight}
-                    className="ml-2 text-sm sm:text-base"
-                  />
-                </button>
               </div>
             </div>
           ) : (

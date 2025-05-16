@@ -79,11 +79,11 @@ const WhoweAre = () => {
                   </div>
                   {openSection === section.id && (
                     <div
-                      className="p-3 sm:p-4 bg-gradient-to-r from-white/10 to-white/5"
+                      className="pb-4 sm:pb-4 lg:pb-6 pl-14 sm:pl-14 lg:pl-[70px] bg-gradient-to-r from-white/10 to-white/5"
                       id={`section-${section.id}`}
                     >
                       <motion.p
-                        className="text-xs sm:text-sm md:text-base text-gray-300 pl-4 sm:pl-6"
+                        className="text-xs sm:text-sm md:text-base text-gray-300"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         transition={{ duration: 0.5 }}

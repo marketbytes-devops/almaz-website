@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import rightImage from "../../../../assets/Frame9757.webp";
 import Button from "../../../../components/Button";
 import TitleDescription from "../../../../components/TitleDescription";
+import { useNavigate } from "react-router-dom";
 
 const AboutSection = () => {
   const [monthlyServices, setMonthlyServices] = useState(0);
@@ -10,6 +11,7 @@ const AboutSection = () => {
   const [onTimeDelivery, setOnTimeDelivery] = useState(0);
   const sectionRef = useRef(null);
   const intervalRef = useRef(null);
+  const navigate = useNavigate();
 
   const targets = {
     monthlyServices: 348,
@@ -126,8 +128,9 @@ const AboutSection = () => {
             <div className="flex flex-col gap-10 -mt-2 sm:-mt-2 lg:-mt-0">
               <Button
                 label="Explore More"
+                onClick={() => navigate("/about-us")}
                 icon="ArrowUpRight"
-                className="w-fit bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors ripple-button duration-300"
+                className="w-fit bg-secondary text-black rounded-2xl px-4 py-3 text-lg hover:bg-white hover:text-gray-900 transition-colors duration-300"
               />
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-4 lg:flex lg:justify-between lg:items-center lg:gap-4 bg-gray-100 p-4 rounded-2xl sm:bg-transparent sm:p-0">
                 <div className="text-center">
