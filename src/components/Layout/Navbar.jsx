@@ -99,11 +99,13 @@ const Navbar = () => {
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2">
           <div className="flex items-center justify-between h-14 sm:h-16">
             <div className="flex-shrink-0">
+              <Link to="/">
               <img
                 src={Logo}
                 alt="Company Logo"
                 className="h-8 w-auto sm:h-9 md:h-10"
               />
+              </Link>
             </div>
  
             <div className="hidden lg:flex items-center space-x-6 lg:space-x-8 py-2.5 px-8 lg:px-10 rounded-[20px] border-2 border-gray-300 bg-white/20">
