@@ -45,7 +45,7 @@ const Footer = () => {
       </style>
       <div className="w-full mx-auto max-w-[90rem] flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-row gap-6 sm:gap-8 md:gap-12">
         {/* Logo and Social Media */}
-        <div className="w-full sm:w-1/2 md:w-1/4 flex flex-col items-center sm:items-start md:items-start footer-column">
+        <div className="w-full pl-0 sm:pl-0 md:pl-[90px] lg:pl-[90px] xl:pl-[90px] sm:w-1/2 md:w-1/5 flex flex-col items-center sm:items-start md:items-start footer-column">
           <img
             src={Logo}
             alt="Company Logo"
@@ -104,7 +104,7 @@ const Footer = () => {
         </div>
 
         {/* Email and Phone */}
-        <div className="w-full sm:w-1/2 md:w-1/4 flex flex-col items-center sm:items-start md:items-start footer-column">
+        <div className="w-full pl-0 sm:pl-0 md:pl-6 lg:pl-6 xl:pl-6 sm:w-1/2 md:w-1/4 flex flex-col items-center sm:items-start md:items-start footer-column">
           <h3 className="text-base sm:text-lg md:text-lg font-bold mb-3 sm:mb-4 pt-4">
             Email
           </h3>
@@ -178,7 +178,7 @@ const Footer = () => {
       <div className="text-sm sm:text-base md:text-lg text-center py-6 sm:py-8 md:py-10">
         <p>
           © {currentYear} All rights reserved. Made by{" "}
-          <span className="font-bold">MarketBytes WebWorks Pvt Ltd</span>
+          <span className="font-bold"><a href="https://www.marketbytes.in/" className="decoration-none cursor-pointer hover:text-primary">MarketBytes WebWorks Pvt Ltd</a></span>
         </p>
       </div>
     </footer>

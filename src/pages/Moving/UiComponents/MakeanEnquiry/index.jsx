@@ -73,7 +73,7 @@ const MakeanEnquiry = () => {
           ></div>
 
 
-          <div className="relative bg-gradient-to-b from-gray-500 to-primary text-white rounded-3xl shadow-lg w-full max-w-lg mx-32">
+          <div className="relative bg-gradient-to-b from-gray-500 to-primary text-white rounded-3xl p-8 shadow-lg w-full max-w-lg mx-32">
             <button
               className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
               onClick={() => setIsModalOpen(false)}

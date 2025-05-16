@@ -46,7 +46,7 @@ const Services = () => {
               />
             </div>
             <div className="w-full self-start">
-              <h2 className="text-3xlpt-0 md:pt-6 pb-3 mb-6">
+              <h2 className="text-3xl pt-0 md:pt-6 pb-0 sm:pb-0 md:pb-3 lg:pb-3 mb-4 sm:mb-4 lg:mb-2">
                 {service.featureTitle}
               </h2>
               <p className="text-lg sm:text-xl text-gray-700 mb-6 pr-0 md:pr-20">
@@ -69,7 +69,7 @@ const Services = () => {
         </div>
       </div>
 
-      <section className="container-secondary -mb-16 sm:-mb-16 lg:-mb-0">
+      <section className="container-secondary -mt-2 sm:-mt-2 lg:-mt-0 md:-mt-0 xl:-mt-0 -mb-16 sm:-mb-16 lg:-mb-0">
         <OurServices currentSlug={slug} />
       </section>
     </div>

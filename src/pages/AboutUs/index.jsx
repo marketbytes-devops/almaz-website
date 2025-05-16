@@ -31,7 +31,7 @@ const AboutUs = () => {
       </section>
  
       <section className="w-full overflow-hidden">
-        <div className="container-secondary our-services mt-10 sm:mt-10 lg:mt-16">
+        <div className="container-secondary our-services mt-10 sm:mt-10 lg:mt-16 mb-4 sm:mb-4 md:mb-0 lg:mb-0 xl:mb-0">
           <WhychooseUs />
         </div>
       </section>

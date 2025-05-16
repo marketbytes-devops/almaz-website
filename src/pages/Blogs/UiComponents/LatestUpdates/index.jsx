@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { data } from '../../../../assets/data/blogData';
-import Banner from '../../../../components/Banner';
 import TitleDescription from '../../../../components/TitleDescription';
-
 
 const truncateDescription = (text, wordLimit = 40) => {
   const words = text.split(' ');
@@ -11,14 +9,18 @@ const truncateDescription = (text, wordLimit = 40) => {
   return words.slice(0, wordLimit).join(' ') + '...';
 };
 
-
 const LatestUpdates = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 2;
+  const postsPerPage = 4;
+  const latestPostsCount = 3;
+  const totalPages = Math.ceil((data.blogLists.length - latestPostsCount) / postsPerPage);
 
-  const latestUpdates = data.blogLists.slice(0, 3);
-  const otherUpdatesPage1 = data.blogLists.slice(3, 7);
-  const otherUpdatesPage2 = data.blogLists.slice(7, 11);
+  const latestUpdates = data.blogLists.slice(0, latestPostsCount);
+  const otherUpdates = data.blogLists.slice(latestPostsCount);
+  const currentOtherUpdates = otherUpdates.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  );
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -32,14 +34,12 @@ const LatestUpdates = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
 
-  const currentOtherUpdates = currentPage === 1 ? otherUpdatesPage1 : otherUpdatesPage2;
-
   return (
     <div className="mx-auto">
       {currentPage === 1 && (
         <section className="mb-8 sm:mb-12">
           <div className='pb-8 sm:pb-8 lg:pb-14 -mt-8 sm:-mt-8 lg:-mt-0'>
-          <TitleDescription title='Latest Updates' titleClass='text-3xl'/>
+            <TitleDescription title='Latest Updates' titleClass='text-3xl'/>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-items-center">
             {latestUpdates.map((update) => (
@@ -57,7 +57,7 @@ const LatestUpdates = () => {
       <section className="">
         <div className='pb-8 sm:pb-8 lg:pb-14'>
           <TitleDescription title='Other Updates' titleClass='text-3xl'/>
-          </div>
+        </div>
         <div className="space-y-4 sm:space-y-6">
           {currentOtherUpdates.map((update, index) => (
             <div key={update.id}>

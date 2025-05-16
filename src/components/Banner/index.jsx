@@ -103,14 +103,22 @@ const Banner = ({
           animate={{ opacity: 1, y: 0 }}
         >
           {author && <span>By {author}</span>}
+          <div className="-ml-3 hidden lg:block">
           {author && (date || time) && <span> | </span>}
           {date && <span>{date}</span>}
           {date && time && <span> | </span>}
           {time && <span>{time}</span>}
+          </div>
         </motion.div>
+        <div className="absolute text-xs bottom-[18px] left-2 block lg:hidden">
+          {date && <span>{date}</span>}
+          {date && time && <span> | </span>}
+          {time && <span>{time}</span>}
+          </div>
         {showSocialIcons && (
+          <>
           <motion.div
-            className="absolute bottom-14 lg:bottom-4 right-2 lg:right-8 flex gap-4 z-20"
+            className="hidden md:flex lg:flex xl:flex absolute bottom-14 lg:bottom-4 right-2 lg:right-8 gap-4 z-20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -156,6 +164,55 @@ const Banner = ({
               <FontAwesomeIcon icon={faYoutube} size="md" />
             </a>
           </motion.div>
+
+          <motion.div
+            className="flex md:hidden lg:hidden xl:hidden absolute bottom-4 lg:bottom-4 right-2 lg:right-8 gap-4 z-20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          >
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-secondary transition-colors duration-300"
+            >
+              <FontAwesomeIcon icon={faFacebookF} size="xs" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-secondary transition-colors duration-300"
+            >
+              <FontAwesomeIcon icon={faTwitter} size="xs" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-secondary transition-colors duration-300"
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} size="xs" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-secondary transition-colors duration-300"
+            >
+              <FontAwesomeIcon icon={faInstagram} size="xs" />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-secondary transition-colors duration-300"
+            >
+              <FontAwesomeIcon icon={faYoutube} size="xs" />
+            </a>
+          </motion.div>
+          </>
         )}
       </div>
     </div>

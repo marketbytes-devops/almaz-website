@@ -5,8 +5,11 @@ import MovingBoxes3 from "../../../../assets/blogArticle.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import TitleDescription from "../../../../components/TitleDescription";
+import { useNavigate } from "react-router-dom";
 
 const BlogSection = () => {
+  const navigate = useNavigate()
+
   return (
     <div className="bg-white">
       <div className="mx-auto">
@@ -15,7 +18,8 @@ const BlogSection = () => {
             title="Latest News and Articles"
             titleClass="text-3xl text-black mb-2"
           />
-          <button className="hidden lg:flex items-center text-black hover:text-primary transition-all duration-300 text-sm sm:text-base">
+          <button className="hidden lg:flex items-center text-black hover:text-primary transition-all duration-300 text-sm sm:text-base"
+          onClick={() => navigate("/blogs")}>
             View All
             <FontAwesomeIcon
               icon={faChevronRight}
