@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import backgroundImage from "../../assets/img-1.webp";
 import Button from "../../components/Button";
 import FormField from "../../components/FormField";
@@ -31,7 +31,7 @@ const Home = () => {
   const [recaptchaToken, setRecaptchaToken] = useState("");
   const [error, setError] = useState("");
   const [trackingResult, setTrackingResult] = useState(null);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -69,7 +69,7 @@ const Home = () => {
         setError("");
         setIsExpanded(false);
         setAreFieldsEnabled(false);
-        navigate("/thank-you"); 
+        navigate("/thank-you");
       })
       .catch((error) => {
         setError("Enquiry submission failed. Please try again.");
@@ -212,11 +212,10 @@ const Home = () => {
                       setTrackingResult(null);
                       setError("");
                     }}
-                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${
-                      activeTab === "booking"
-                        ? "text-black border-b-4 border-gray-900 bg-white"
-                        : "text-gray-600 bg-white/80"
-                    } transition-colors`}
+                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${activeTab === "booking"
+                      ? "text-black border-b-4 border-gray-900 bg-white"
+                      : "text-gray-600 bg-white/80"
+                      } transition-colors`}
                   >
                     Booking With Us
                   </button>
@@ -227,11 +226,10 @@ const Home = () => {
                       setAreFieldsEnabled(false);
                       setError("");
                     }}
-                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${
-                      activeTab === "tracking"
-                        ? "text-black border-b-4 border-gray-900 bg-white"
-                        : "text-gray-600 bg-white/80"
-                    } transition-colors`}
+                    className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${activeTab === "tracking"
+                      ? "text-black border-b-4 border-gray-900 bg-white"
+                      : "text-gray-600 bg-white/80"
+                      } transition-colors`}
                   >
                     Track Your Move
                   </button>
@@ -346,53 +344,103 @@ const Home = () => {
                   </div>
                 )}
               </div>
-              {trackingResult && activeTab === "tracking" && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-white -mt-6 p-6 text-gray-700 rounded-lg shadow-md max-w-[90%] sm:max-w-4xl mx-auto"
-                >
-                  <h2 className="text-2xl font-bold mb-4">Tracking Details</h2>
-                  {error && <p className="text-red-500 mb-4">{error}</p>}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <p><strong>Tracking ID:</strong> {trackingResult.tracking_id}</p>
-                      <p><strong>Cargo Type:</strong> {trackingResult.cargo_type}</p>
-                      <p><strong>Customer Name:</strong> {trackingResult.customer.name}</p>
-                      <p><strong>Receiver Name:</strong> {trackingResult.receiver_name}</p>
-                      <p><strong>Contact Number:</strong> {trackingResult.contact_number}</p>
-                      <p><strong>Email:</strong> {trackingResult.email}</p>
-                      <p><strong>Recipient Address:</strong> {trackingResult.recipient_address}</p>
-                      <p><strong>Recipient Country:</strong> {trackingResult.recipient_country}</p>
+              {
+                trackingResult && activeTab === "tracking" && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="bg-white -mt-6 p-6 text-gray-700 rounded-lg shadow-md max-w-[90%] sm:max-w-4xl mx-auto"
+                  >
+                    <h2 className="text-2xl font-bold mb-4 text-center">Tracking Details</h2>
+                    {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
+
+                    {/* Table for Tracking Information */}
+                    <div className="mb-6">
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead className="text-xs">
+                            <tr className="bg-gray-100">
+                              <th className="px-4 py-2 font-semibold text-center">Tracking ID</th>
+                              <th className="px-4 py-2 font-semibold text-center">Cargo Type</th>
+                              <th className="px-4 py-2 font-semibold text-center">Customer Name</th>
+                              <th className="px-4 py-2 font-semibold text-center">Receiver Name</th>
+                              <th className="px-4 py-2 font-semibold text-center">Contact Number</th>
+                              <th className="px-4 py-2 font-semibold text-center">Email</th>
+                              <th className="px-4 py-2 font-semibold text-center">Recipient Address</th>
+                              <th className="px-4 py-2 font-semibold text-center">Recipient Country</th>
+                              <th className="px-4 py-2 font-semibold text-center">Commodity</th>
+                              <th className="px-4 py-2 font-semibold text-center">Number of Packages</th>
+                              <th className="px-4 py-2 font-semibold text-center">Weight</th>
+                              <th className="px-4 py-2 font-semibold text-center">Volume</th>
+                              <th className="px-4 py-2 font-semibold text-center">Origin</th>
+                              <th className="px-4 py-2 font-semibold text-center">Destination</th>
+                              <th className="px-4 py-2 font-semibold text-center">Cargo Reference Number</th>
+                              <th className="px-4 py-2 font-semibold text-center">Collection Date</th>
+                              <th className="px-4 py-2 font-semibold text-center">Time of Departure</th>
+                              <th className="px-4 py-2 font-semibold text-center">Time of Arrival</th>
+                            </tr>
+                          </thead>
+                          <tbody className="text-xs">
+                            <tr className="border-b">
+                              <td className="px-4 py-2 text-left">{trackingResult.tracking_id}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.cargo_type}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.customer.name}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.receiver_name}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.contact_number}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.email}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.recipient_address}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.recipient_country}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.commodity}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.number_of_packages}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.weight} kg</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.volume} m³</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.origin}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.destination}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.cargo_ref_number}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.collection_date}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.time_of_departure}</td>
+                              <td className="px-4 py-2 text-left">{trackingResult.time_of_arrival}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
+
+                    {/* Table for Status Updates */}
                     <div>
-                      <p><strong>Commodity:</strong> {trackingResult.commodity}</p>
-                      <p><strong>Number of Packages:</strong> {trackingResult.number_of_packages}</p>
-                      <p><strong>Weight:</strong> {trackingResult.weight} kg</p>
-                      <p><strong>Volume:</strong> {trackingResult.volume} m³</p>
-                      <p><strong>Origin:</strong> {trackingResult.origin}</p>
-                      <p><strong>Destination:</strong> {trackingResult.destination}</p>
-                      <p><strong>Cargo Reference Number:</strong> {trackingResult.cargo_ref_number}</p>
-                      <p><strong>Collection Date:</strong> {trackingResult.collection_date}</p>
-                      <p><strong>Time of Departure:</strong> {trackingResult.time_of_departure}</p>
-                      <p><strong>Time of Arrival:</strong> {trackingResult.time_of_arrival}</p>
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead className="text-xs">
+                            <tr className="bg-gray-100">
+                              <th className="px-4 py-2 font-semibold text-center">Status</th>
+                              <th className="px-4 py-2 font-semibold text-center">Date</th>
+                              <th className="px-4 py-2 font-semibold text-center">Time</th>
+                            </tr>
+                          </thead>
+                          <tbody className="text-xs">
+                            {trackingResult.status_updates.length > 0 ? (
+                              trackingResult.status_updates.map((update) => (
+                                <tr key={update.id} className="border-b">
+                                  <td className="px-4 py-2 text-left">{update.status_content}</td>
+                                  <td className="px-4 py-2 text-left">{update.status_date}</td>
+                                  <td className="px-4 py-2 text-left">{update.status_time}</td>
+                                </tr>
+                              ))
+                            ) : (
+                              <tr>
+                                <td colSpan="3" className="px-4 py-2 text-left">
+                                  No status updates available.
+                                </td>
+                              </tr>
+                            )}
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="text-xl font-semibold mt-6 mb-2">Status Updates</h3>
-                  {trackingResult.status_updates.length > 0 ? (
-                    <ul className="list-disc pl-5">
-                      {trackingResult.status_updates.map((update) => (
-                        <li key={update.id}>
-                          {update.status_content} - {update.status_date} at {update.status_time}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p>No status updates available.</p>
-                  )}
-                </motion.div>
-              )}
+                  </motion.div>
+                )
+              }
             </motion.div>
           </motion.div>
         </div>
