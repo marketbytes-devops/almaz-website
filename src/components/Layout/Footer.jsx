@@ -57,7 +57,7 @@ const Footer = () => {
           </h3>
           <div className="flex space-x-2 sm:space-x-3">
             <a
-              href="https://www.youtube.com/@AlmasInternational"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
@@ -67,7 +67,7 @@ const Footer = () => {
               </div>
             </a>
             <a
-              href="https://www.facebook.com/AlmasInternational"
+              href="https://www.facebook.com/almasmoversintl"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -77,7 +77,7 @@ const Footer = () => {
               </div>
             </a>
             <a
-              href="https://www.instagram.com/AlmasInternational"
+              href="https://www.instagram.com/almasmovers/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -87,7 +87,7 @@ const Footer = () => {
               </div>
             </a>
             <a
-              href="https://x.com/AlmasIntl"
+              href="https://x.com/cs1almas"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X"
@@ -103,7 +103,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Email and Phone */}
+       
         <div className="w-full pl-0 sm:pl-0 md:pl-6 lg:pl-6 xl:pl-6 sm:w-1/2 md:w-1/4 flex flex-col items-center sm:items-start md:items-start footer-column">
           <h3 className="text-base sm:text-lg md:text-lg font-bold mb-3 sm:mb-4 pt-4">
             Email
@@ -123,14 +123,14 @@ const Footer = () => {
             className="pb-2 text-sm sm:text-base md:text-lg hover:text-primary transition-colors"
             aria-label="Call phone number +97444355663"
           >
-            +97444355663
+            +974 4435 5663
           </a>
           <a
             href="tel:+97466404688"
             className="text-sm sm:text-base md:text-lg hover:text-primary transition-colors"
             aria-label="Call phone number +97466404688"
           >
-            +97466404688
+            +974 6640 4688
           </a>
         </div>
 
@@ -189,7 +189,7 @@ const Footer = () => {
       <div className="border border-primary/20 max-w-[90rem] mx-auto mt-8 sm:mt-10 md:mt-12"></div>
       <div className="text-sm sm:text-base md:text-lg text-center py-6 sm:py-8 md:py-10">
         <p>
-          © {currentYear} All rights reserved. Made by{" "}
+          © {currentYear}All Rights Reserved by Almas Movers International.  Made With Passion By{" "}
           <span className="font-bold">
             <a href="https://www.marketbytes.in/" className="decoration-none cursor-pointer hover:text-primary">
               MarketBytes WebWorks Pvt Ltd

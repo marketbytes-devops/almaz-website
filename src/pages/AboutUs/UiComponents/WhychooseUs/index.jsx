@@ -52,31 +52,31 @@ const WhychooseUs = () => {
   const slides = [
     {
       icon: icon1,
-      title: "Fast World Wide Delivery",
+      title: "Connected Across Continents",
       description:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
-      alt: "Fast Delivery",
+        "With a strong global network and deep local knowledge, we ensure smooth moves across borders.",
+      alt: "Connected Across Continents",
     },
     {
       icon: icon2,
-      title: "Timely Delivery",
+      title: "Rapid Delivery Commitment",
       description:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
-      alt: "Timely Delivery",
+        "With a strong global network and deep local knowledge, we ensure smooth moves across borders.",
+      alt: "Rapid Delivery Commitment",
     },
     {
       icon: icon3,
-      title: "24/7 Service",
+      title: "24/7 Support",
       description:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
+        "We’re here when you need us, day or night. Get real-time updates, answers, and assistance throughout your move.",
       alt: "24/7 Service",
     },
     {
       icon: icon1,
-      title: "Fast World Wide Delivery",
+      title: "On-Time, Every Time",
       description:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
-      alt: "Fast Delivery",
+        "We value your time. Our team is committed to punctuality, ensuring every move is completed on schedule without compromise.",
+      alt: "On-Time, Every Time",
     },
     {
       icon: icon2,
@@ -95,14 +95,10 @@ const WhychooseUs = () => {
           titleClass="text-3xl font-poppins font-normal text-black pb-6 sm:pb-6 lg:pb-10"
         />
         <p className="text-left text-[22px] font-poppins font-medium max-w-full text-gray-900">
-          Why have people loved us for more than 14 years?
+         Over 14 Years of Trusted Relocation Excellence
         </p>
         <p className="text-left max-w-full mt-6 mb-10 text-gray-600">
-          At Almas Movers International, trust isn't built overnight—it's earned
-          move by move. For over a decade, we've been the reliable choice for
-          families and businesses relocating across Qatar and around the world.
-          Our clients choose us and stay with us because we combine global
-          standards with a personal touch.
+          At Almas Movers International, trust is not claimed, it’s earned, one move at a time. For more than a decade, families and businesses across Qatar and beyond have relied on us for safe, seamless, and professional relocations. Our strength lies in combining internationally recognized standards with a personal, client-first approach. It's this blend of experience, care, and consistency that keeps our clients coming back, and referring us forward.
         </p>
         <Slider {...settings} className="slick-slider">
           {slides.map((slide, index) => (

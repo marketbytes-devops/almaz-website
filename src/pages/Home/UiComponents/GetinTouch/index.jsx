@@ -53,7 +53,7 @@ const GetInTouchSection = () => {
 
   return (
     <div className="w-full flex flex-col md:flex-row items-center justify-center py-8 sm:py-10 container-secondary">
-      {/* Form Section */}
+      
       <motion.div
         className="w-full md:w-1/2"
         variants={formVariants}
@@ -62,10 +62,10 @@ const GetInTouchSection = () => {
         style={{ fontFamily: '"Poppins", sans-serif' }}
       >
         <TitleDescription
-          title="Get in touch"
-          description="Please get in touch with us if you have any questions or need further assistance."
-          titleClass="text-3xl sm:text-4xl text-black py-2"
-          descriptionClass="text-base sm:text-lg text-gray-600 mb-4"
+          title="Reach Out to Us"
+          description="For any inquiries or further assistance, please feel free to contact us. Our team is ready to provide you with prompt and professional support."
+          titleClass="text-3xl sm:text-4xl text-black py-2 mt-4"
+          descriptionClass="text-base sm:text-lg text-gray-600 mt-4 mb-6"
         />
 
         <form onSubmit={handleSubmit} className="space-y-4">

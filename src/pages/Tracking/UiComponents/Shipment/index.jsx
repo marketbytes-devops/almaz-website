@@ -7,14 +7,19 @@ import FormField from "../../../../components/FormField";
 const faqs = [
   {
     id: "shipment-number",
-    title: "What is a shipment or container number?",
+    title: "How do I track my shipment?",
     description:
-      "A container number is a unique number made up of 4 letters and 7 numbers printed on your booking forms and the top right of every container door.",
+      "To track your shipment, simply enter the 10-character tracking number (4 letters and 6 digits) in the field provided. You'll receive real-time updates on your cargo’s status and location.",
   },
   {
     id: "tracking-info",
-    title: "What information will you get from shipment and container tracking?",
-    description: "Details depend on the tracking system and provider.",
+    title: "What if my tracking number isn’t working?",
+    description: "Ensure that the tracking number is entered correctly (4 letters and 6 digits). If the issue persists, please contact our customer support team for assistance.",
+  },
+  {
+    id: "tracking-info",
+    title: "Can I track my shipment internationally?",
+    description: "Yes, you can track your shipment globally using the same tracking number. We provide real-time updates no matter where your cargo is located.",
   },
 ];
 
@@ -45,9 +50,9 @@ const Shipment = () => {
   return (
     <div>
       <TitleDescription
-        title="Shipment & Container Tracking"
+        title="Track Your Shipment"
         titleClass="text-2xl sm:text-3xl md:text-4xl text-black font-semibold"
-        description="Enter your tracking number to view full tracking detail."
+        description="Enter the tracking number to view the current location and status of your cargo in real-time."
         descriptionClass="text-base sm:text-lg text-black mt-4 sm:mt-6"
         style={{ fontFamily: '"Poppins", sans-serif' }}
       />
@@ -56,7 +61,7 @@ const Shipment = () => {
         <FormField
           type="text"
           name="trackingNumber"
-          placeholder="Container number or parcel"
+          placeholder="Input your 10-character tracking number to check the current status of your shipment"
           value={formData.trackingNumber}
           onChange={handleInputChange}
           required
@@ -72,7 +77,7 @@ const Shipment = () => {
       </div>
 
       <TitleDescription
-        description="Container number is made of 4 letters and 7 digits. Bill of lading number consists of 9 characters"
+        description=""
         descriptionClass="text-sm sm:text-base text-primary/100 mt-4 sm:mt-6"
         style={{ fontFamily: '"Poppins", sans-serif' }}
       />

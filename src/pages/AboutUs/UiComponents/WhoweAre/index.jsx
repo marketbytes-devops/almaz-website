@@ -8,19 +8,19 @@ import TitleDescription from "../../../../components/TitleDescription";
 const whoWeAreData = {
   title: "Who we are",
   description:
-    "Almas Movers International is an ISO-certified moving company based in Doha, Qatar since 2011. With global affiliations and a trusted team, we provide safe, professional relocation services locally and worldwide.",
+    "Established in 2011, Almas Movers International is an ISO-certified moving company based in Doha, Qatar. Backed by a skilled team and strong global affiliations, we specialize in delivering safe, efficient, and professional relocation services, both locally and across international borders",
   sections: [
     {
       id: "certified",
-      title: "Certified Excellence",
+      title: "Trusted. Tested. Certified.",
       description:
-        "ISO certified for quality and reliability, ensuring the safety of your belongings.",
+        "With ISO certification backing every move, we deliver dependable, high-quality service you can count on.",
       icon: yellowTick,
     },
     {
       id: "seamless",
-      title: "Seamless Relocation Services",
-      description: "Zero compromise on service standards.",
+      title: "Smooth Moves, Every Time",
+      description: "We set the bar high with uncompromised service, ensuring a seamless journey to your new destination.",
       icon: yellowTick,
     },
     {

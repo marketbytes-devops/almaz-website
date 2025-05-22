@@ -57,11 +57,11 @@ const Certifications = () => {
 
   const settings = {
     infinite: true,
-    speed: 300,
+    speed: 800,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     arrows: true,
     dots: true,
     dotsClass: "slick-dots flex justify-center items-center p-0 m-0 list-none",
@@ -120,15 +120,9 @@ const Certifications = () => {
   return (
     <div className="w-full pb-6 sm:pb-6 lg:pb-8">
       <div className="mb-8 text-left">
-        <TitleDescription title="Members & Certifications"
-        titleClass="text-3xl"
-        />
+        <TitleDescription title="Certifications & Memberships" titleClass="text-3xl" />
       </div>
-      <Slider
-        ref={sliderRef}
-        {...settings}
-        className="mx-0"
-      >
+      <Slider ref={sliderRef} {...settings} className="mx-0">
         {certifications.map((cert, index) => {
           const isCentered = index === getCenteredSlideIndex();
           const isAdjacentToCenter = Math.abs(index - getCenteredSlideIndex()) === 1;
@@ -136,25 +130,21 @@ const Certifications = () => {
             <div
               key={index}
               className={`px-1 flex justify-center mb-10 ${
-                isCentered ? "mx-2" : isAdjacentToCenter ? "mx-1" : "mx-0.5"
+                isCentered ? "px-4" : isAdjacentToCenter ? "px-2" : "px-1"
               }`}
             >
-              <div className="transition-all duration-200 ease-in-out flex justify-center">
+              <div className="transition-all duration-300 ease-in-out flex justify-center">
                 <div
-                  className={`flex items-center justify-center align-middle bg-[#F3F7F8] shadow-[4px_4px_10px_rgba(0,0,0,0.3)] transition-transform duration-200 h-[120px] ${
+                  className={`flex items-center justify-center bg-[#F3F7F8] shadow-[4px_4px_10px_rgba(0,0,0,0.3)] transition-transform duration-300 h-[120px] ${
                     isCentered
-                      ? "flex items-center justify-center transform scale-150 m-8 z-10 w-full h-[120px]"
-                      : "flex items-center justify-center transform scale-100 opacity-90 w-full h-[120px]"
+                      ? "transform scale-125 z-10 p-4 w-[150%]"
+                      : "transform scale-100 opacity-90 p-4 w-full"
                   }`}
                 >
                   <img
                     src={cert.src}
                     alt={cert.alt}
-                    className={`object-contain flex items-center justify-center transition-transform duration-200 p-4 ${
-                      isCentered
-                        ? "w-full h-full p-8 aspect-auto"
-                        : "w-full h-full aspect-auto"
-                    }`}
+                    className={`object-contain w-full h-full transition-transform duration-300 p-2`}
                   />
                 </div>
               </div>

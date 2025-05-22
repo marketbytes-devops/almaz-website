@@ -1,6 +1,7 @@
 import React from 'react';
 import connectimage from '../../../../assets/contact/Connectwithus.webp';
 import TitleDescription from '../../../../components/TitleDescription';
+import { Link } from 'react-router-dom';
 
 const Connectwithus = () => {
   return (
@@ -13,7 +14,7 @@ const Connectwithus = () => {
             <TitleDescription
               title="Connect With Us Anytime"
               titleClass="text-xl sm:text-2xl lg:text-3xl text-black py-3 sm:py-4"
-              description="Headquartered in Qatar and serving clients across the globe, we're always within reach. Feel free to contact us anytime by phone or email."
+              description="We are always here to assist you with your relocation needs. Headquartered in Qatar, we proudly serve clients globally. Reach out to us anytime for any queries or assistance."
               descriptionClass="text-xs sm:text-sm lg:text-sm text-black mb-4 sm:mb-6"
             />
           </div>
@@ -70,9 +71,13 @@ const Connectwithus = () => {
               </svg>
               <h3 className="text-lg sm:text-xl lg:text-2xl text-black">Email</h3>
             </div>
+            
             <div className="w-full pl-8 sm:pl-10 lg:pl-10">
-              <p className="text-sm sm:text-base lg:text-base">movers@almasintl.com</p>
+              <p className="text-sm sm:text-base lg:text-base">
+                <a href="mailto:movers@almasintl.com">movers@almasintl.com</a>
+              </p>
             </div>
+            
           </div>
 
           {/* Phone Number */}
@@ -95,14 +100,18 @@ const Connectwithus = () => {
               <h3 className="text-lg sm:text-xl lg:text-2xl text-black">Phone Number</h3>
             </div>
             <div className="w-full pl-8 sm:pl-10 lg:pl-10 pb-4 sm:pb-4 md:pb-0 lg:pb-0 xl:pb-0">
-              <p className="text-sm sm:text-base lg:text-base">+974 4435 5663</p>
-              <p className="text-sm sm:text-base lg:text-base">+974 6640 4688</p>
+              <p className="text-sm sm:text-base lg:text-base">
+                <a href="tel:+97444355663">+974 4435 5663</a>
+              </p>
+              <p className="text-sm sm:text-base lg:text-base">
+                <a href="tel:+97466404688">+974 6640 4688</a>
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Right Section - Image (unchanged from original) */}
+      
       <div className="w-full lg:w-1/2 bg-white overflow-hidden">
         <img
           src={connectimage}

@@ -2,6 +2,7 @@ import * as React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+import Service from "./pages/Home/UiComponents/Service";
 import AboutUs from "./pages/AboutUs";
 import Moving from "./pages/Moving";
 import Logistics from "./pages/Logistics";
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <Home /> },
+      { path: "/service", element: <Service /> },
       { path: "/about-us", element: <AboutUs /> },
       { path: "/moving", element: <Moving /> },
       { path: "/logistics", element: <Logistics /> },

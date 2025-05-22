@@ -3,10 +3,10 @@ import image1 from "../../../../assets/about/relocateimg.webp";
 import TitleDescription from "../../../../components/TitleDescription";
 
 const Relocate = () => {
-  const [monthlyServices, setMonthlyServices] = useState(0);
-  const [deliveries, setDeliveries] = useState(0);
-  const [globalPartners, setGlobalPartners] = useState(0);
-  const [onTimeDelivery, setOnTimeDelivery] = useState(0);
+  const [yearsExperience, setYearsExperience] = useState(0);
+  const [relocations, setRelocations] = useState(0);
+  const [countriesCovered, setCountriesCovered] = useState(0);
+  const [customerSatisfaction, setCustomerSatisfaction] = useState(0);
   const sectionRef = useRef(null);
 
   const startAnimation = () => {
@@ -15,38 +15,38 @@ const Relocate = () => {
     const totalFrames = Math.round(duration / (1000 / frameRate));
 
     let frame1 = 0;
-    const increment1 = 348000 / totalFrames;
+    const increment1 = 14 / totalFrames;
     const counter1 = setInterval(() => {
       frame1++;
       const currentValue = Math.round(increment1 * frame1);
-      setMonthlyServices(currentValue);
+      setYearsExperience(currentValue);
       if (frame1 >= totalFrames) {
         clearInterval(counter1);
-        setMonthlyServices(348000);
+        setYearsExperience(14);
       }
     }, 1000 / frameRate);
 
     let frame2 = 0;
-    const increment2 = 499000 / totalFrames;
+    const increment2 = 1000 / totalFrames;
     const counter2 = setInterval(() => {
       frame2++;
       const currentValue = Math.round(increment2 * frame2);
-      setDeliveries(currentValue);
+      setRelocations(currentValue);
       if (frame2 >= totalFrames) {
         clearInterval(counter2);
-        setDeliveries(499000);
+        setRelocations(1000);
       }
     }, 1000 / frameRate);
 
     let frame3 = 0;
-    const increment3 = 150 / totalFrames;
+    const increment3 = 120 / totalFrames;
     const counter3 = setInterval(() => {
       frame3++;
       const currentValue = Math.round(increment3 * frame3);
-      setGlobalPartners(currentValue);
+      setCountriesCovered(currentValue);
       if (frame3 >= totalFrames) {
         clearInterval(counter3);
-        setGlobalPartners(150);
+        setCountriesCovered(120);
       }
     }, 1000 / frameRate);
 
@@ -55,10 +55,10 @@ const Relocate = () => {
     const counter4 = setInterval(() => {
       frame4++;
       const currentValue = Math.round(increment4 * frame4);
-      setOnTimeDelivery(currentValue);
+      setCustomerSatisfaction(currentValue);
       if (frame4 >= totalFrames) {
         clearInterval(counter4);
-        setOnTimeDelivery(99);
+        setCustomerSatisfaction(99);
       }
     }, 1000 / frameRate);
 
@@ -77,10 +77,10 @@ const Relocate = () => {
         if (entry.isIntersecting) {
           startAnimation();
         } else {
-          setMonthlyServices(0);
-          setDeliveries(0);
-          setGlobalPartners(0);
-          setOnTimeDelivery(0);
+          setYearsExperience(0);
+          setRelocations(0);
+          setCountriesCovered(0);
+          setCustomerSatisfaction(0);
         }
       },
       { threshold: 0.5 }
@@ -97,29 +97,32 @@ const Relocate = () => {
     };
   }, []);
 
-  const formatNumber = (num) => {
-    if (num >= 1000) {
-      return `${(num / 1000).toFixed(0)}k`;
+  const formatNumber = (num, suffix = "") => {
+    if (suffix === "+") {
+      return `${num}${suffix}`;
     }
-    return num.toString();
+    if (num >= 1000) {
+      return `${(num / 1000).toFixed(0)}k${suffix}`;
+    }
+    return `${num}${suffix}`;
   };
 
   const stats = [
     {
-      value: formatNumber(monthlyServices),
-      label: "Monthly Services",
+      value: formatNumber(yearsExperience, "+"),
+      label: "Years of Experience",
     },
     {
-      value: formatNumber(deliveries),
-      label: "Deliveries Completed",
+      value: formatNumber(relocations, "+"),
+      label: "Corporate Relocations",
     },
     {
-      value: `${globalPartners}+`,
-      label: "Global Partners",
+      value: formatNumber(countriesCovered, "+"),
+      label: "Countries Covered",
     },
     {
-      value: `${onTimeDelivery}%`,
-      label: "On-Time Delivery",
+      value: `${customerSatisfaction}%`,
+      label: "Customer Satisfaction",
     },
   ];
 
@@ -136,7 +139,7 @@ const Relocate = () => {
       <div className="relative w-full mb-4">
         <div className="w-full flex items-center flex-col">
           <TitleDescription
-            title="Relocating Made Simple, Secure, and Stress-Free"
+            title="Making Your Move Simple, Secure, and Stress-Free"
             titleClass="text-secondary"
           />
         </div>

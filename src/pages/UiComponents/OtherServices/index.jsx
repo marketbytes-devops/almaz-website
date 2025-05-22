@@ -10,44 +10,45 @@ const servicesData = {
     {
       image: pic4,
       title: 'House Moving',
-      description: 'Seamlessly moving your home with care and precision.',
+      description: 'Our house moving service guarantees the safe and timely relocation of your belongings across Qatar. We take care of every step, ensuring a smooth and efficient move into your new home.',
     },
     {
       image: pic3,
       title: 'Office Relocation',
-      description: 'Hassle-free office relocation with minimal downtime.',
+      description: 'Efficient office and commercial moving solutions with minimal disruption to your business. We handle furniture, equipment, and all logistics, ensuring a smooth transition to your new office space.',
     },
     {
       image: pic5,
       title: 'International Relocation',
-      description: 'Safe and secure international relocation services.',
+      description: 'We offer seamless international relocation services, managing everything from packing to delivery, ensuring a stress-free transition to your new home or office, no matter the destination'
+ ,
     },
     {
       image: pic4,
       title: 'Insurance',
-      description: 'Comprehensive insurance for your peace of mind.',
+      description: 'Comprehensive insurance coverage for all your belongings during a move, offering peace of mind. Whether moving locally or internationally, our tailored insurance plans protect your goods throughout the process.',
     },
   ],
   Logistics: [
     {
       image: pic4,
-      title: 'Warehouse Logistics',
-      description: 'Efficient warehouse management for your business needs.',
+      title: 'Storage Services',
+      description: 'Secure, clean, and spacious storage facilities for your personal or commercial needs. Our well-equipped storage units ensure your items are safely stored and easily accessible when needed.',
     },
     {
       image: pic3,
-      title: 'Freight Forwarding',
-      description: 'Reliable freight forwarding for global shipments.',
+      title: 'Car Shipping Service',
+      description: 'Need to ship your car overseas? Our reliable car shipping services offer pre-inspection, safe transport, and insurance to ensure your vehicle reaches its destination in perfect condition.',
     },
     {
       image: pic5,
-      title: 'Last Mile Delivery',
-      description: 'Fast and reliable last-mile delivery solutions.',
+      title: 'Air Freight',
+      description: ' Our air freight service ensures your goods are delivered swiftly to international destinations. We handle everything from booking to customs clearance, ensuring timely arrivals.',
     },
     {
       image: pic4,
-      title: 'Supply Chain Solutions',
-      description: 'Streamlined supply chain solutions for efficiency.',
+      title: 'Sea Freight',
+      description: 'We offer comprehensive sea freight solutions for both large and small shipments. Our team manages everything from loading to customs clearance, ensuring smooth transit.',
     },
   ],
 };
@@ -97,7 +98,7 @@ const OtherServices = ({ serviceType }) => {
             <h3 className="text-left text-lg font-semibold text-gray-800 mb-2">
               {service.title}
             </h3>
-            <p className="text-gray-600">{service.description}</p>
+            <p className="text-gray-600 text-sm">{service.description}</p>
           </div>
         ))}
       </div>

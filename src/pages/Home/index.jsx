@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import backgroundImage from "../../assets/img-1.webp";
 import Button from "../../components/Button";
@@ -9,7 +10,7 @@ import ContactUs from "./UiComponents/ContactUs";
 import Review from "./UiComponents/Review";
 import BlogSection from "./UiComponents/Blogs";
 import GetInTouchSection from "./UiComponents/GetinTouch";
- 
+
 const Home = () => {
   const [activeTab, setActiveTab] = useState("booking");
   const [isExpanded, setIsExpanded] = useState(false);
@@ -22,7 +23,7 @@ const Home = () => {
     message: "",
     trackingNumber: "",
   });
- 
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -30,29 +31,44 @@ const Home = () => {
       [name]: value,
     }));
   };
- 
+
   const handleFormSubmit = () => {
     console.log("Form submitted:", formData);
   };
- 
+
   const handleFullNameClick = () => {
     setIsExpanded(true);
     setAreFieldsEnabled(true);
   };
- 
+
   const handleCloseExpandedForm = () => {
     setIsExpanded(false);
     setAreFieldsEnabled(false);
   };
- 
+
   const serviceOptions = [
     { value: "moving", label: "Moving" },
     { value: "logistics", label: "Logistics" },
     { value: "relocation", label: "Relocation" },
   ];
- 
+
   return (
     <>
+      {/* SEO Meta Tags */}
+      <Helmet>
+        <title>Top Tips for a Stress-Free International Move | Almas Movers International</title>
+        <meta
+          name="description"
+          content="Moving internationally? Discover essential tips for a stress-free relocation, from hiring professionals to managing your finances and settling in. Start your smooth journey with Almas Movers."
+        />
+        <meta
+          name="keywords"
+          content="Stress-Free International Move, International relocation, moving abroad, international moving tips, relocation services, packing for international move, international relocation tips, moving overseas, stress-free move, international moving company"
+        />
+        {/* Canonical URL for the page (replace with actual domain) */}
+        <link rel="canonical" href="https://www.almasmovers.com/top-tips-stress-free-international-move" />
+      </Helmet>
+
       <div className="container-primary w-full pt-12 sm:pt-16">
         <div
           className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white mx-0 px-0 sm:px-6 md:px-8 rounded-b-3xl rounded-t-none"
@@ -90,8 +106,8 @@ const Home = () => {
                 <span className="text-yellow-400">fast and safe!</span>
               </div>
               <div className="text-gray-100 font-normal text-base sm:text-lg md:text-xl">
-                Qatar's most trusted international moving & relocation <br />
-                experts delivering seamless and reliable logistics solutions
+                Qatar’s Trusted Experts in International Moving & Relocation,<br />
+                Delivering Seamless and Reliable Logistics Solutions.
               </div>
             </motion.h1>
             <motion.div
@@ -136,7 +152,7 @@ const Home = () => {
                         : "text-gray-600 bg-white/80"
                     } transition-colors`}
                   >
-                    Booking
+                    Booking With Us
                   </button>
                   <button
                     onClick={() => {
@@ -150,11 +166,11 @@ const Home = () => {
                         : "text-gray-600 bg-white/80"
                     } transition-colors`}
                   >
-                    Tracking
+                    Track Your Move
                   </button>
                 </div>
                 <div className="border-t border-white/50 -mx-4 sm:-mx-6 mt-4 sm:mt-6"></div>
- 
+
                 {activeTab === "booking" ? (
                   <div className={`pt-4 sm:pt-6 ${!isExpanded ? "pb-0" : "pb-4"}`}>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap">
@@ -172,7 +188,7 @@ const Home = () => {
                       </div>
                       <div className="flex-1 min-w-[200px]">
                         <FormField
-                          type="number"
+                          type="tel"
                           name="phoneNumber"
                           placeholder="Phone Number"
                           value={formData.phoneNumber}
@@ -267,19 +283,19 @@ const Home = () => {
       <section className="container-secondary about-us mt-8 sm:mt-10 lg:mt-16">
         <AboutSection />
       </section>
-      <section className="container-secondary our-services pl-10 sm:pl-20 md:pl-40 mt-0 sm:mt-0 lg:mt-16">
+      <section className="container-secondary our-services mt-6 sm:mt-6 lg:mt-16">
         <OurServices />
       </section>
-      <section className="container-secondary our-services mt-0 sm:mt-0 lg:mt-16">
+      <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
         <ContactUs />
       </section>
-      <section className="container-secondary our-services mt-6 sm:mt-6 lg:mt-16">
+      <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
         <Review />
       </section>
-      <section className="container-secondary our-services -mt-4 sm:-mt-4 lg:mt-16">
+      <section className="container-secondary our-services">
         <BlogSection />
       </section>
-      <section className="w-full bg-primary/10 mt-8 sm:mt-8 lg:mt-16">
+      <section className="w-full bg-primary/10 mt-10 sm:mt-12 lg:mt-16">
         <div className="mx-auto w-full py-6 sm:py-12 md:py-16">
           <GetInTouchSection />
         </div>
@@ -287,5 +303,5 @@ const Home = () => {
     </>
   );
 };
- 
+
 export default Home;

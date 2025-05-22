@@ -8,126 +8,59 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"; // Updated icons
  
 const reviewCard = [
-  {
+   {
     id: "1",
-    initials: "LL",
-    title: "Leorem Lipsom",
+    initials: "FA",
+    title: "Fatima A",
     role: "Designer",
     description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
+      "Almas Mover handled my office relocation with precision and professionalism. They worked efficiently and minimized downtime for our business. Truly a reliable moving partner in Qatar.",
+
     stars: 5,
     date: "23 June 2025",
   },
   {
     id: "2",
-    initials: "JD",
-    title: "John Doe",
+    initials: "AK",
+    title: "Ahmed K",
     role: "Developer",
     description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
+      "I was impressed by the efficiency and friendliness of Almas Mover’s staff. They handled everything with great attention to detail and made sure my move was completed on time. Excellent service!",
     stars: 4,
-    date: "23 June 2025",
+    date: "07 January 2025",
   },
   {
     id: "3",
-    initials: "JS",
-    title: "Jane Smith",
+    initials: "SM",
+    title: "Sarah M",
     role: "Designer",
     description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
+      "From packing to unloading, Almas Mover International exceeded my expectations. Their communication was clear, and the entire process was seamless. I wouldn’t trust anyone else with my move.",
     stars: 4,
-    date: "23 June 2025",
+    date: "26 January 2025",
   },
   {
     id: "4",
-    initials: "AJ",
-    title: "Alice Johnson",
+    initials: "KS",
+    title: "Khalid S",
     role: "Manager",
     description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
+      "Moving can be stressful, but Almas Mover International made it so easy. Their team was careful, professional, and respectful. Great value for money and highly recommended in Qatar!",
     stars: 5,
-    date: "23 June 2025",
+    date: "16 February 2025",
   },
   {
     id: "5",
-    initials: "BB",
-    title: "Bob Brown",
+    initials: "RT",
+    title: "Reem T",
     role: "Developer",
     description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
+      "Almas Mover handled my office relocation with precision and professionalism. They worked efficiently and minimized downtime for our business. Truly a reliable moving partner in Qatar.",
     stars: 4,
-    date: "23 June 2025",
+    date: "31 March 2025",
   },
-  {
-    id: "6",
-    initials: "CD",
-    title: "Charlie Davis",
-    role: "Designer",
-    description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
-    stars: 5,
-    date: "23 June 2025",
-  },
-  {
-    id: "7",
-    initials: "DW",
-    title: "Diana Wilson",
-    role: "Manager",
-    description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
-    stars: 4,
-    date: "23 June 2025",
-  },
-  {
-    id: "8",
-    initials: "EM",
-    title: "Eve Moore",
-    role: "Developer",
-    description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
-    stars: 5,
-    date: "23 June 2025",
-  },
-  {
-    id: "9",
-    initials: "FT",
-    title: "Frank Taylor",
-    role: "Designer",
-    description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
-    stars: 4,
-    date: "23 June 2025",
-  },
-  {
-    id: "10",
-    initials: "GC",
-    title: "Grace Clark",
-    role: "Manager",
-    description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
-    stars: 5,
-    date: "23 June 2025",
-  },
-  {
-    id: "11",
-    initials: "HL",
-    title: "Hank Lewis",
-    role: "Developer",
-    description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
-    stars: 4,
-    date: "23 June 2025",
-  },
-  {
-    id: "12",
-    initials: "IH",
-    title: "Ivy Hall",
-    role: "Designer",
-    description:
-      "Superb Moves are a fantastic team. We highly recommend them. They have completed two moves for us now and each time have been efficient, friendly and exceptionally well organized.",
-    stars: 5,
-    date: "23 June 2025",
-  },
+ 
+  
 ];
  
 const Review = () => {
@@ -214,12 +147,12 @@ const Review = () => {
   return (
     <div className="slider-container pb-12 sm:pb-20">
       <TitleDescription
-        title="What Our Client Says"
+        title="Moving Stories"
         titleClass="text-3xl text-black py-2"
       />
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8">
         <p className="text-gray-600 text-base sm:text-base text-center sm:text-left mt-5">
-          Delivering excellence to our client, ready to do the same for you
+         Delivering excellence to every move, ready to do the same for you!
         </p>
       </div>
       <div className="relative">

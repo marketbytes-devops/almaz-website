@@ -11,8 +11,8 @@ const truncateDescription = (text, wordLimit = 40) => {
 
 const LatestUpdates = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 4;
-  const latestPostsCount = 3;
+  const postsPerPage = 2; 
+  const latestPostsCount = 3; 
   const totalPages = Math.ceil((data.blogLists.length - latestPostsCount) / postsPerPage);
 
   const latestUpdates = data.blogLists.slice(0, latestPostsCount);

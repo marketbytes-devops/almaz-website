@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import TitleDescription from "../../../../components/TitleDescription";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { data } from "../../../../assets/data/blogData";
 
 const BlogSection = () => {
@@ -29,44 +29,48 @@ const BlogSection = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-8">
+         
           <div className="w-full md:w-1/2 flex flex-col">
-            <img
-              src={latestBlogs[0].image}
-              alt={latestBlogs[0].title}
-              className="object-cover w-full h-60 rounded-2xl mb-4"
-            />
-            <p className="text-2xl font-medium text-black mb-2">
-              {latestBlogs[0].title}
-            </p>
-            <p className="text-gray-600">{latestBlogs[0].highlight}</p>
-            <p className="text-gray-600 font-medium pt-2">
-              {latestBlogs[0].date}
-            </p>
+            <Link to={`/blogs/${latestBlogs[0].id}`}>
+              <div>
+                <img
+                  src={latestBlogs[0].image}
+                  alt={latestBlogs[0].title}
+                  className="object-cover w-full h-60 rounded-2xl mb-4"
+                />
+                <p className="text-2xl font-medium text-black mb-2">
+                  {latestBlogs[0].title}
+                </p>
+                <p className="text-gray-600">{latestBlogs[0].highlight}</p>
+                <p className="text-gray-600 font-medium pt-2">
+                  {latestBlogs[0].date}
+                </p>
+              </div>
+            </Link>
           </div>
 
-          {/* Other Blogs (Next 3 Blogs) */}
+         
           <div className="w-full md:w-1/2 flex flex-col">
             {latestBlogs.slice(1, 4).map((blog, index) => (
-              <div
-                key={index}
-                className="rounded-xl flex flex-col sm:flex-row items-center mb-8"
-              >
-                <div className="w-full sm:w-1/3 sm:mr-4">
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                    className="w-full h-24 object-cover rounded-xl"
-                  />
+              <Link to={`/blogs/${blog.id}`} key={index}>
+                <div className="rounded-xl flex flex-col sm:flex-row items-center mb-8">
+                  <div className="w-full sm:w-1/3 sm:mr-4">
+                    <img
+                      src={blog.image}
+                      alt={blog.title}
+                      className="w-full h-24 object-cover rounded-xl"
+                    />
+                  </div>
+                  <div className="w-full sm:w-2/3">
+                    <h3 className="text-lg text-secondary mt-[-8]">
+                      {blog.detail.content[0].type === "text" ? "Article" : "News"}
+                    </h3>
+                    <p className="text-black text-md font-semibold mb-2">
+                      {blog.title}
+                    </p>
+                  </div>
                 </div>
-                <div className="w-full sm:w-2/3">
-                  <h3 className="text-lg text-secondary mt-[-8]">
-                    {blog.detail.content[0].type === "text" ? "Article" : "News"}
-                  </h3>
-                  <p className="text-black text-md font-semibold mb-2">
-                    {blog.title}
-                  </p>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

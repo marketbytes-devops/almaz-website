@@ -14,9 +14,9 @@ const AboutSection = () => {
   const navigate = useNavigate();
 
   const targets = {
-    monthlyServices: 348,
-    deliveriesCompleted: 499,
-    globalPartners: 150,
+    monthlyServices: 14,
+    deliveriesCompleted: 1000,
+    globalPartners: 120,
     onTimeDelivery: 99,
   };
 
@@ -95,7 +95,7 @@ const AboutSection = () => {
 
   const formatNumber = (value, suffix) => {
     if (suffix === "K") {
-      return `${Math.round(value)}K`;
+      return `${Math.round(value)}+`;
     } else if (suffix === "+") {
       return `${Math.round(value)}+`;
     } else if (suffix === "%") {
@@ -119,11 +119,8 @@ const AboutSection = () => {
               />
               <br />
               <p className="text-md text-gray-700">
-                Almas movers international is an ISO certified company based in
-                Doha-Qatar since 2011. We are member of world's largest moving
-                association known as IAM (International association of Movers),
-                BAR (British Association of Movers) and FIATA.
-              </p>
+  Since 2011, Almas Movers International, based in Doha, Qatar, has provided ISO-certified, stress-free international move and relocation services. As members of IAM, BAR, and FIATA, we ensure expert international moving tips and seamless moving abroad experiences.
+</p>
             </div>
             <div className="flex flex-col gap-10 -mt-2 sm:-mt-2 lg:-mt-0">
               <Button
@@ -138,7 +135,7 @@ const AboutSection = () => {
                     {formatNumber(monthlyServices, "K")}
                   </p>
                   <p className="text-sm sm:text-base lg:text-lg text-gray-700">
-                    Monthly <br /> Services
+                    Years of <br /> Experience 
                   </p>
                 </div>
                 <div className="text-center">
@@ -146,7 +143,7 @@ const AboutSection = () => {
                     {formatNumber(deliveriesCompleted, "K")}
                   </p>
                   <p className="text-sm sm:text-base lg:text-lg text-gray-700">
-                    Deliveries <br /> Completed
+               Corporate  <br /> Relocations
                   </p>
                 </div>
                 <div className="text-center">
@@ -154,7 +151,7 @@ const AboutSection = () => {
                     {formatNumber(globalPartners, "+")}
                   </p>
                   <p className="text-sm sm:text-base lg:text-lg text-gray-700">
-                    Global <br /> Partners
+                  Countries <br /> Covered
                   </p>
                 </div>
                 <div className="text-center">
@@ -162,7 +159,7 @@ const AboutSection = () => {
                     {formatNumber(onTimeDelivery, "%")}
                   </p>
                   <p className="text-sm sm:text-base lg:text-lg text-gray-700">
-                    On-time <br /> Delivery
+                   Customer <br />Satisfaction
                   </p>
                 </div>
               </div>
