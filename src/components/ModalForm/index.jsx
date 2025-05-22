@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FormField from "../FormField";
 import Button from "../Button";
+import Captcha from "../Captcha"; 
 
 const ModalForm = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ const ModalForm = ({ isOpen, onClose }) => {
     serviceType: "",
     message: "",
   });
+  const [recaptchaToken, setRecaptchaToken] = useState(""); 
+  const [error, setError] = useState("");
 
   const serviceOptions = [
     { value: "moving", label: "Moving" },
@@ -24,17 +27,29 @@ const ModalForm = ({ isOpen, onClose }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Enquiry Form submitted:", formData);
-    onClose(); // Close modal after submission
-    setFormData({
-      fullName: "",
-      phoneNumber: "",
-      email: "",
-      serviceType: "",
-      message: "",
-    }); // Reset form
+    if (!recaptchaToken) {
+      setError("reCAPTCHA verification failed. Please try again.");
+      return;
+    }
+
+    try {
+      console.log("Enquiry Form submitted:", { ...formData, recaptchaToken });
+      setFormData({
+        fullName: "",
+        phoneNumber: "",
+        email: "",
+        serviceType: "",
+        message: "",
+      });
+      setRecaptchaToken(""); 
+      setError(""); 
+      onClose(); 
+    } catch (error) {
+      setError("Form submission failed. Please try again.");
+      console.error("Form submission error:", error);
+    }
   };
 
   const modalVariants = {
@@ -89,6 +104,7 @@ const ModalForm = ({ isOpen, onClose }) => {
               </svg>
             </button>
             <h2 className="text-2xl text-center mb-6">Moving Soon? Let's Talk</h2>
+            {error && <p className="text-red-500 text-center mb-4">{error}</p>}
             <form onSubmit={handleSubmit} className="space-y-4">
               <FormField
                 type="text"
@@ -131,6 +147,7 @@ const ModalForm = ({ isOpen, onClose }) => {
                 placeholder="Message"
                 required
               />
+              <Captcha setRecaptchaToken={setRecaptchaToken} />
               <div className="flex justify-center">
                 <Button
                   label="Submit"

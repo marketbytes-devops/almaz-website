@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { motion } from "framer-motion"; // Added for animations
+import { motion } from "framer-motion";
 import TitleDescription from "../../../../components/TitleDescription";
 import Imagedown from "../../../../assets/getintouch.webp";
 import Imageup from "../../../../assets/getintouch2.webp";
 import Button from "../../../../components/Button";
 import FormField from "../../../../components/FormField";
+import Captcha from "../../../../components/Captcha";
 
-// Animation variants for form and images
 const formVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -33,15 +33,37 @@ const GetInTouchSection = () => {
     serviceType: "",
     message: "",
   });
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const [error, setError] = useState(""); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    if (!recaptchaToken) {
+      setError("reCAPTCHA verification failed. Please try again.");
+      return;
+    }
+
+    try {
+      console.log("Form submitted:", { ...formData, recaptchaToken });
+
+      setFormData({
+        fullName: "",
+        phoneNumber: "",
+        email: "",
+        serviceType: "",
+        message: "",
+      });
+      setRecaptchaToken(""); 
+      setError(""); 
+    } catch (error) {
+      setError("Form submission failed. Please try again.");
+      console.error("Form submission error:", error);
+    }
   };
 
   const serviceOptions = [
@@ -53,7 +75,6 @@ const GetInTouchSection = () => {
 
   return (
     <div className="w-full flex flex-col md:flex-row items-center justify-center py-8 sm:py-10 container-secondary">
-      
       <motion.div
         className="w-full md:w-1/2"
         variants={formVariants}
@@ -67,7 +88,7 @@ const GetInTouchSection = () => {
           titleClass="text-3xl sm:text-4xl text-black py-2 mt-4"
           descriptionClass="text-base sm:text-lg text-gray-600 mt-4 mb-6"
         />
-
+        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <FormField
             type="text"
@@ -120,6 +141,7 @@ const GetInTouchSection = () => {
             style={{ fontFamily: '"Poppins", sans-serif' }}
             className="w-full text-sm sm:text-base"
           />
+          <Captcha setRecaptchaToken={setRecaptchaToken} />
           <motion.div>
             <Button
               label="Submit"
@@ -129,8 +151,6 @@ const GetInTouchSection = () => {
           </motion.div>
         </form>
       </motion.div>
-
-      {/* Image Section */}
       <motion.div
         className="hidden lg:flex items-center justify-center w-full md:w-1/2 h-full relative"
         variants={imageVariants}
@@ -139,12 +159,9 @@ const GetInTouchSection = () => {
       >
         <div className="relative flex flex-col items-center">
           <div className="relative flex flex-col items-center">
-            {/* White Circle Background */}
             <div
               className="absolute w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-white rounded-full z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[45%]"
             ></div>
-
-            {/* Top Image */}
             <div
               className="relative w-48 sm:w-64 md:w-80 h-56 sm:h-72 md:h-96 mr-0 md:mr-32 z-10"
             >
@@ -154,8 +171,6 @@ const GetInTouchSection = () => {
                 className="w-full h-full rounded-3xl object-cover"
               />
             </div>
-
-            {/* Bottom Image */}
             <div
               className="relative w-40 sm:w-48 md:w-64 h-44 sm:h-56 md:h-72 mt-[-4rem] sm:mt-[-5rem] md:mt-[-6rem] left-0 md:left-20 z-5"
             >
@@ -166,8 +181,6 @@ const GetInTouchSection = () => {
               />
             </div>
           </div>
-
-          {/* Decorative SVG */}
           <div className="absolute inset-0 flex items-center justify-center z-5">
             <svg
               width="474"

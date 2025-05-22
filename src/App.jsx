@@ -1,5 +1,6 @@
 import * as React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Service from "./pages/Home/UiComponents/Service";
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}>
+      <RouterProvider router={router} />
+    </GoogleReCaptchaProvider>
+  );
 }
 
 export default App;
