@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import TitleDescription from "../../../../components/TitleDescription";
 import Imagedown from "../../../../assets/getintouch.webp";
@@ -6,6 +6,7 @@ import Imageup from "../../../../assets/getintouch2.webp";
 import Button from "../../../../components/Button";
 import FormField from "../../../../components/FormField";
 import Captcha from "../../../../components/Captcha";
+import apiClient from "../../../../api/apiClient";
 
 const formVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -32,38 +33,47 @@ const GetInTouchSection = () => {
     email: "",
     serviceType: "",
     message: "",
+    refererUrl: window.location.href,
+    submittedUrl: window.location.href,
   });
   const [recaptchaToken, setRecaptchaToken] = useState("");
-  const [error, setError] = useState(""); 
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!recaptchaToken) {
       setError("reCAPTCHA verification failed. Please try again.");
       return;
     }
 
-    try {
-      console.log("Form submitted:", { ...formData, recaptchaToken });
-
-      setFormData({
-        fullName: "",
-        phoneNumber: "",
-        email: "",
-        serviceType: "",
-        message: "",
+    apiClient
+      .post("contacts/enquiries/", {
+        ...formData,
+        recaptchaToken,
+      })
+      .then((response) => {
+        console.log("Form submitted:", response.data);
+        setFormData({
+          fullName: "",
+          phoneNumber: "",
+          email: "",
+          serviceType: "",
+          message: "",
+          refererUrl: window.location.href,
+          submittedUrl: window.location.href,
+        });
+        setRecaptchaToken("");
+        setError("");
+      })
+      .catch((error) => {
+        setError("Form submission failed. Please try again.");
+        console.error("Form submission error:", error);
       });
-      setRecaptchaToken(""); 
-      setError(""); 
-    } catch (error) {
-      setError("Form submission failed. Please try again.");
-      console.error("Form submission error:", error);
-    }
   };
 
   const serviceOptions = [
@@ -101,7 +111,7 @@ const GetInTouchSection = () => {
             className="w-full text-sm sm:text-base"
           />
           <FormField
-            type="number"
+            type="tel"
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleChange}

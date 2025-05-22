@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import backgroundImage from "../../assets/img-1.webp";
 import Button from "../../components/Button";
 import FormField from "../../components/FormField";
+import Captcha from "../../components/Captcha";
 import AboutSection from "./UiComponents/AboutSection";
 import OurServices from "./UiComponents/OurServices";
 import ContactUs from "./UiComponents/ContactUs";
 import Review from "./UiComponents/Review";
 import BlogSection from "./UiComponents/Blogs";
 import GetInTouchSection from "./UiComponents/GetinTouch";
+import apiClient from "../../api/apiClient";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("booking");
@@ -21,8 +23,13 @@ const Home = () => {
     serviceType: "",
     email: "",
     message: "",
+    refererUrl: window.location.href,
+    submittedUrl: window.location.href,
     trackingNumber: "",
   });
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const [error, setError] = useState("");
+  const [trackingResult, setTrackingResult] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -32,8 +39,64 @@ const Home = () => {
     }));
   };
 
-  const handleFormSubmit = () => {
-    console.log("Form submitted:", formData);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!recaptchaToken) {
+      setError("reCAPTCHA verification failed. Please try again.");
+      return;
+    }
+
+    apiClient
+      .post("contacts/enquiries/", {
+        ...formData,
+        recaptchaToken,
+      })
+      .then((response) => {
+        console.log("Enquiry submitted:", response.data);
+        setFormData({
+          fullName: "",
+          phoneNumber: "",
+          serviceType: "",
+          email: "",
+          message: "",
+          refererUrl: window.location.href,
+          submittedUrl: window.location.href,
+          trackingNumber: formData.trackingNumber,
+        });
+        setRecaptchaToken("");
+        setError("");
+        setIsExpanded(false);
+        setAreFieldsEnabled(false);
+      })
+      .catch((error) => {
+        setError("Enquiry submission failed. Please try again.");
+        console.error("Enquiry submission error:", error);
+      });
+  };
+
+  const handleTrackingSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.trackingNumber) {
+      setError("Please enter a tracking number.");
+      return;
+    }
+
+    apiClient
+      .get(`jobs/jobs/?tracking_id=${formData.trackingNumber}`)
+      .then((response) => {
+        if (response.data.length > 0) {
+          setTrackingResult(response.data[0]);
+          setError("");
+        } else {
+          setTrackingResult(null);
+          setError("No job found with this tracking number.");
+        }
+      })
+      .catch((error) => {
+        setTrackingResult(null);
+        setError("Failed to fetch tracking details. Please try again.");
+        console.error("Tracking error:", error);
+      });
   };
 
   const handleFullNameClick = () => {
@@ -65,7 +128,6 @@ const Home = () => {
           name="keywords"
           content="Stress-Free International Move, International relocation, moving abroad, international moving tips, relocation services, packing for international move, international relocation tips, moving overseas, stress-free move, international moving company"
         />
-        {/* Canonical URL for the page (replace with actual domain) */}
         <link rel="canonical" href="https://www.almasmovers.com/top-tips-stress-free-international-move" />
       </Helmet>
 
@@ -145,6 +207,8 @@ const Home = () => {
                       setActiveTab("booking");
                       setIsExpanded(false);
                       setAreFieldsEnabled(false);
+                      setTrackingResult(null);
+                      setError("");
                     }}
                     className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${
                       activeTab === "booking"
@@ -159,6 +223,7 @@ const Home = () => {
                       setActiveTab("tracking");
                       setIsExpanded(false);
                       setAreFieldsEnabled(false);
+                      setError("");
                     }}
                     className={`text-sm sm:text-base font-medium cursor-pointer rounded-xl px-4 sm:px-6 py-1 sm:py-2 ${
                       activeTab === "tracking"
@@ -243,6 +308,8 @@ const Home = () => {
                             className="w-full"
                           />
                         </div>
+                        <Captcha setRecaptchaToken={setRecaptchaToken} />
+                        {error && <p className="text-red-500 text-center mt-2">{error}</p>}
                         <div className="mt-4">
                           <Button
                             label="Get a quote"
@@ -272,10 +339,58 @@ const Home = () => {
                       label="Track"
                       icon="ArrowUpRight"
                       className="w-full sm:w-auto bg-yellow-400 text-black text-base sm:text-lg rounded-2xl px-4 py-2 sm:px-4 sm:py-3 hover:bg-white hover:text-gray-900 transition-colors"
+                      onClick={handleTrackingSubmit}
                     />
                   </div>
                 )}
               </div>
+              {trackingResult && activeTab === "tracking" && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white -mt-6 p-6 text-gray-700 rounded-lg shadow-md max-w-[90%] sm:max-w-4xl mx-auto"
+                >
+                  <h2 className="text-2xl font-bold mb-4">Tracking Details</h2>
+                  {error && <p className="text-red-500 mb-4">{error}</p>}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <p><strong>Tracking ID:</strong> {trackingResult.tracking_id}</p>
+                      <p><strong>Cargo Type:</strong> {trackingResult.cargo_type}</p>
+                      <p><strong>Customer Name:</strong> {trackingResult.customer.name}</p>
+                      <p><strong>Receiver Name:</strong> {trackingResult.receiver_name}</p>
+                      <p><strong>Contact Number:</strong> {trackingResult.contact_number}</p>
+                      <p><strong>Email:</strong> {trackingResult.email}</p>
+                      <p><strong>Recipient Address:</strong> {trackingResult.recipient_address}</p>
+                      <p><strong>Recipient Country:</strong> {trackingResult.recipient_country}</p>
+                    </div>
+                    <div>
+                      <p><strong>Commodity:</strong> {trackingResult.commodity}</p>
+                      <p><strong>Number of Packages:</strong> {trackingResult.number_of_packages}</p>
+                      <p><strong>Weight:</strong> {trackingResult.weight} kg</p>
+                      <p><strong>Volume:</strong> {trackingResult.volume} m³</p>
+                      <p><strong>Origin:</strong> {trackingResult.origin}</p>
+                      <p><strong>Destination:</strong> {trackingResult.destination}</p>
+                      <p><strong>Cargo Reference Number:</strong> {trackingResult.cargo_ref_number}</p>
+                      <p><strong>Collection Date:</strong> {trackingResult.collection_date}</p>
+                      <p><strong>Time of Departure:</strong> {trackingResult.time_of_departure}</p>
+                      <p><strong>Time of Arrival:</strong> {trackingResult.time_of_arrival}</p>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold mt-6 mb-2">Status Updates</h3>
+                  {trackingResult.status_updates.length > 0 ? (
+                    <ul className="list-disc pl-5">
+                      {trackingResult.status_updates.map((update) => (
+                        <li key={update.id}>
+                          {update.status_content} - {update.status_date} at {update.status_time}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>No status updates available.</p>
+                  )}
+                </motion.div>
+              )}
             </motion.div>
           </motion.div>
         </div>

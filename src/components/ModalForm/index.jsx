@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FormField from "../FormField";
 import Button from "../Button";
-import Captcha from "../Captcha"; 
+import Captcha from "../Captcha";
+import apiClient from "../../api/apiClient";
 
 const ModalForm = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -11,8 +12,10 @@ const ModalForm = ({ isOpen, onClose }) => {
     email: "",
     serviceType: "",
     message: "",
+    refererUrl: window.location.href,
+    submittedUrl: window.location.href,
   });
-  const [recaptchaToken, setRecaptchaToken] = useState(""); 
+  const [recaptchaToken, setRecaptchaToken] = useState("");
   const [error, setError] = useState("");
 
   const serviceOptions = [
@@ -27,29 +30,37 @@ const ModalForm = ({ isOpen, onClose }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!recaptchaToken) {
       setError("reCAPTCHA verification failed. Please try again.");
       return;
     }
 
-    try {
-      console.log("Enquiry Form submitted:", { ...formData, recaptchaToken });
-      setFormData({
-        fullName: "",
-        phoneNumber: "",
-        email: "",
-        serviceType: "",
-        message: "",
+    apiClient
+      .post("contacts/enquiries/", {
+        ...formData,
+        recaptchaToken,
+      })
+      .then((response) => {
+        console.log("Enquiry Form submitted:", response.data);
+        setFormData({
+          fullName: "",
+          phoneNumber: "",
+          email: "",
+          serviceType: "",
+          message: "",
+          refererUrl: window.location.href,
+          submittedUrl: window.location.href,
+        });
+        setRecaptchaToken("");
+        setError("");
+        onClose();
+      })
+      .catch((error) => {
+        setError("Form submission failed. Please try again.");
+        console.error("Form submission error:", error);
       });
-      setRecaptchaToken(""); 
-      setError(""); 
-      onClose(); 
-    } catch (error) {
-      setError("Form submission failed. Please try again.");
-      console.error("Form submission error:", error);
-    }
   };
 
   const modalVariants = {
