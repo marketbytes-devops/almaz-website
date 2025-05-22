@@ -37,7 +37,7 @@ const Layout = () => {
       </div>
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-5 right-5 bg-primary text-secondary hover:text-white rounded-full w-12 h-12 flex items-center justify-center text-xl cursor-pointer z-[1000] transition-colors duration-300 ${showScrollButton ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        className={`fixed bottom-[90px] right-3 bg-primary text-secondary hover:text-white rounded-full w-12 h-12 flex items-center justify-center text-xl cursor-pointer z-[1000] transition-colors duration-300 ${showScrollButton ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         aria-label="Scroll to top"
       >
