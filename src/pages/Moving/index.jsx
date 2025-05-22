@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Banner from "../../components/Banner";
-import bannerImage from "../../assets/moving/Movingbanner.webp";
+import bannerImage from "../../assets/moving/move.webp";
 import GetInTouchSection from "../Home/UiComponents/GetinTouch";
 import OtherServices from "../UiComponents/OtherServices";
  
