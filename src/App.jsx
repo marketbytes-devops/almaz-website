@@ -15,6 +15,7 @@ import BlogDetail from "./pages/Blogs/BlogDetail";
 import Gallery from "./pages/gallery";
 import Services from "./pages/Services";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
