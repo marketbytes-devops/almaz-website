@@ -1,16 +1,13 @@
-import card11 from '../../assets/blogs/card11.webp';
-import card12 from '../../assets/blogs/card12.webp';
-import card13 from '../../assets/blogs/card13.webp';
-import card14 from '../../assets/blogs/card14.webp';
-import card15 from '../../assets/blogs/card15.webp';
-import card16 from '../../assets/blogs/card16.webp';
-import card17 from '../../assets/blogs/card17.webp';
-
+import card1 from "../../assets/blogs/card13.webp";
+import card2 from "../../assets/blogs/officemoving.webp";
+import card3 from "../../assets/blogs/fam.webp";
+import card4 from "../../assets/blogs/insurance.webp";
+import card5 from "../../assets/blogs/stress-free-move.webp";
 export const data = {
   blogLists: [
     {
       id: "benefits-professional-storage-services-during-move",
-      image: card11,
+      image: card1,
       title: "The Benefits of Professional Storage Services During a Move",
       highlight: "Professional storage services offer the flexibility, security, and peace of mind you need to make your move less stressful and more organized.",
       date: "20 May 2025",
@@ -174,7 +171,7 @@ export const data = {
     },
     {
       id: "how-to-move-office-with-minimal-disruption",
-      image: card12,
+      image: card2,
       title: "How to Move Your Office with Minimal Disruption ",
       highlight: "With the right planning and professional support, your office move can be seamless, efficient, and virtually disruption-free.",
       date: "22 May 2025",
@@ -329,7 +326,7 @@ export const data = {
     },
     {
       id: "importance-insurance-when-moving",
-      image: card13,
+      image: card4,
       title: "The Importance of Insurance When Moving: What You Need to Know",
       highlight: "Moving insurance isn’t just a formality—it’s your financial and emotional safety net when the unexpected happens during a move.",
       date: "23 May 2025",
@@ -463,7 +460,7 @@ export const data = {
     },
     {
       id: "choose-right-relocation-service-family",
-      image: card14,
+      image: card3,
       title: "How to Choose the Right Relocation Service for Your Family",
       highlight: "The right relocation service can turn a potentially stressful family move into a smooth, well-organized transition—giving you more time to focus on what matters most: your family.",
       date: "25 May 2025",
@@ -646,7 +643,7 @@ export const data = {
     },
     {
       id: "top-tips-stress-free-international-move",
-      image: card15,
+      image: card5,
       title: "Top Tips for a Stress-Free International Move ",
       highlight: "Streamline your business move with our corporate services.",
       date: "24 May 2025",

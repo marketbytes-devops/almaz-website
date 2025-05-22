@@ -152,3 +152,6 @@ img {
     height: auto;
   }
 }
+.grecaptcha-badge { 
+    visibility: hidden !important;
+}

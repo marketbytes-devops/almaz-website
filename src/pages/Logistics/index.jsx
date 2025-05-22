@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Banner from '../../components/Banner';
-import bannerImage from '../../assets/logistics/MovingBanner.webp';
+import bannerImage from '../../assets/logistics/logisticsbanner.webp';
 import GetInTouchSection from '../Home/UiComponents/GetinTouch';
 import OtherServices from '../UiComponents/OtherServices';
 
@@ -23,7 +23,7 @@ const Logistics = () => {
       <Banner
         bannerImage={bannerImage}
         titleFirst="Logistics"
-        titleSecond="Stress-Free International Move"
+        
         bannerDescription="Dubai, London, Tokyo, wherever life takes you next, we ensure a stress-free international move for you and your loved ones, helping you arrive with ease and feel at home from the very start."
         description="Almas Movers International is your trusted partner for international relocation. Based in Qatar, we are globally recognized for our exceptional relocation services. Unlike other international moving companies, we prioritize distinction, customer satisfaction, and customized solutions for a seamless moving abroad experience. Discover our expert international moving tips and tailored packing for international move services."
         mainRoute="Home"
