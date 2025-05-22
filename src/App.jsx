@@ -15,7 +15,8 @@ import PrivacyPolicy from "./pages/PrivacyAndPolicy/PrivacyAndPolicy";
 import BlogDetail from "./pages/Blogs/BlogDetail";
 import Gallery from "./pages/gallery";
 import Services from "./pages/Services";
-
+import NotFound from "./pages/NotFound"; 
+import ThankYou from "./pages/ThankYou";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
       { path: "/gallery", element: <Gallery /> },
       { path: "/services/:slug", element: <Services /> },
     ],
+  },
+  { path: "/thank-you", element: <ThankYou /> },
+  {
+    path: "*", 
+    element: <NotFound />,
   },
 ]);
 

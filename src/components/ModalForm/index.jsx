@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom"; 
 import FormField from "../FormField";
 import Button from "../Button";
 import Captcha from "../Captcha";
@@ -17,6 +18,7 @@ const ModalForm = ({ isOpen, onClose }) => {
   });
   const [recaptchaToken, setRecaptchaToken] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate(); 
 
   const serviceOptions = [
     { value: "moving", label: "Moving" },
@@ -56,6 +58,7 @@ const ModalForm = ({ isOpen, onClose }) => {
         setRecaptchaToken("");
         setError("");
         onClose();
+        navigate("/thank-you"); 
       })
       .catch((error) => {
         setError("Form submission failed. Please try again.");

@@ -13,7 +13,7 @@ const Layout = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollButton(window.scrollY > 200);
+      setShowScrollButton(window.scrollY > 100);
     };
 
     window.addEventListener('scroll', handleScroll);

@@ -1,5 +1,5 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom"; // Add useNavigate
 import { Helmet } from "react-helmet";
 import Banner from "../../components/Banner";
 import serviceData from "../../assets/data/serviceData";
@@ -8,11 +8,17 @@ import TickIcon from "../../assets/moving/yellowtick.svg";
 
 const Services = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const service = serviceData.find(
     (item) => item.slug === `/services/${slug}`
   );
 
-  // Default SEO data for the specific slug or fallback
+  useEffect(() => {
+    if (!service) {
+      navigate("/not-found", { replace: true });
+    }
+  }, [service, navigate]);
+
   const seoData = {
     metaTitle: service?.metaTitle || (slug === "top-tips-stress-free-international-move" 
       ? "Top Tips for a Stress-Free International Move | Almas Movers International" 
@@ -22,23 +28,11 @@ const Services = () => {
       : "Explore our professional moving and relocation services designed to make your move seamless and stress-free with Almas Movers International."),
     keywords: service?.keywords || (slug === "top-tips-stress-free-international-move" 
       ? "Stress-Free International Move, International relocation, moving abroad, international moving tips, relocation services, packing for international move, international relocation tips, moving overseas, international moving company" 
-      : "moving services, relocation services, international moving, Almas Movers"),
+      : "moving services, relocation services, Almas Movers"),
   };
 
   if (!service) {
-    return (
-      <div className="w-full py-8 bg-white text-center min-h-[400px]">
-        <Helmet>
-          <title>Service Not Found | Almas Movers International</title>
-          <meta name="description" content="The service you're looking for does not exist. Explore our other moving and relocation services at Almas Movers International." />
-          <meta name="keywords" content="moving services, relocation services, Almas Movers" />
-        </Helmet>
-        <h2 className="text-3xl font-bold text-black">Service Not Found</h2>
-        <p className="mt-4 text-gray-600 text-lg">
-          The service you're looking for does not exist.
-        </p>
-      </div>
-    );
+    return null;
   }
 
   return (

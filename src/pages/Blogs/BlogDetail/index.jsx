@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom"; 
 import { data } from "../../../assets/data/blogData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
@@ -15,6 +15,7 @@ const truncateDescription = (text, wordLimit = 40) => {
 
 const BlogDetail = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const blog = data.blogLists.find((blog) => blog.id === slug);
   const contentRef = useRef(null);
   const recentPostsRef = useRef(null);
@@ -27,7 +28,13 @@ const BlogDetail = () => {
   ];
 
   useEffect(() => {
-    if (!contentRef.current || !recentPostsRef.current) return;
+    if (!blog) {
+      navigate("/not-found", { replace: true });
+    }
+  }, [blog, navigate]);
+
+  useEffect(() => {
+    if (!blog || !contentRef.current || !recentPostsRef.current) return;
 
     const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
     if (!isLargeScreen) return;
@@ -75,20 +82,10 @@ const BlogDetail = () => {
       sentinel.remove();
       window.removeEventListener("resize", handleResize);
     };
-  }, [slug]);
+  }, [slug, blog]); 
 
   if (!blog) {
-    return (
-      <div className="container mx-auto px-8 py-8 my-8 text-center">
-        <h1 className="text-3xl font-bold">Blog Not Found</h1>
-        <p className="mt-4 text-gray-700">
-          The blog you are looking for does not exist.{" "}
-          <Link to="/blogs" className="text-blue-500 underline">
-            Return to Blogs
-          </Link>
-        </p>
-      </div>
-    );
+    return null;
   }
 
   const titleWords = blog.title.split(" ");

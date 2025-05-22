@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; 
 import backgroundImage from "../../assets/img-1.webp";
 import Button from "../../components/Button";
 import FormField from "../../components/FormField";
@@ -30,6 +31,7 @@ const Home = () => {
   const [recaptchaToken, setRecaptchaToken] = useState("");
   const [error, setError] = useState("");
   const [trackingResult, setTrackingResult] = useState(null);
+  const navigate = useNavigate(); 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -67,6 +69,7 @@ const Home = () => {
         setError("");
         setIsExpanded(false);
         setAreFieldsEnabled(false);
+        navigate("/thank-you"); 
       })
       .catch((error) => {
         setError("Enquiry submission failed. Please try again.");
@@ -117,7 +120,6 @@ const Home = () => {
 
   return (
     <>
-      {/* SEO Meta Tags */}
       <Helmet>
         <title>Top Tips for a Stress-Free International Move | Almas Movers International</title>
         <meta

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; 
 import TitleDescription from "../../../../components/TitleDescription";
 import Imagedown from "../../../../assets/getintouch.webp";
 import Imageup from "../../../../assets/getintouch2.webp";
@@ -38,6 +39,7 @@ const GetInTouchSection = () => {
   });
   const [recaptchaToken, setRecaptchaToken] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,6 +71,7 @@ const GetInTouchSection = () => {
         });
         setRecaptchaToken("");
         setError("");
+        navigate("/thank-you"); 
       })
       .catch((error) => {
         setError("Form submission failed. Please try again.");
