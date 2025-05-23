@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import AlmasLogo from "../../../../assets/watermark.svg";
 import TitleDescription from "../../../../components/TitleDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"; // Updated icons
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"; 
  
 const reviewCard = [
    {
