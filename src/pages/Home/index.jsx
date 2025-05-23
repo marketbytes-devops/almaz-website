@@ -454,10 +454,10 @@ const handleFormSubmit = (e) => {
       <section className="overflow-hidden container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
         <ContactUs />
       </section>
-      <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16 mb-16 sm:mb-16 md:mb-8 lg:mb-8 xl:mb-8">
+      <section className="overflow-hidden container-secondary our-services mt-8 sm:mt-10 lg:mt-16 mb-16 sm:mb-16 md:mb-8 lg:mb-8 xl:mb-8">
         <Review />
       </section>
-      <section className="container-secondary our-services">
+      <section className="container-secondary our-services -mt-20 sm:-mt-20 md:-mt-0 lg:-mt-0 xl:-mt-0">
         <BlogSection />
       </section>
       <section className="w-full bg-primary/10 mt-10 sm:mt-12 lg:mt-16">
