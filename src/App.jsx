@@ -13,7 +13,7 @@ import Blogs from "./pages/Blogs";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyAndPolicy/PrivacyAndPolicy";
 import BlogDetail from "./pages/Blogs/BlogDetail";
-import Gallery from "./pages/gallery";
+import Gallery from "./pages/Gallery";
 import Services from "./pages/Services";
 import NotFound from "./pages/NotFound"; 
 import ThankYou from "./pages/ThankYou";
