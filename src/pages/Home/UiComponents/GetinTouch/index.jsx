@@ -114,7 +114,7 @@ const GetInTouchSection = () => {
             className="w-full text-sm sm:text-base"
           />
           <FormField
-            type="tel"
+            type="number"
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleChange}

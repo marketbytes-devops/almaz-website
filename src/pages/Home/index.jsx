@@ -253,7 +253,7 @@ const handleFormSubmit = (e) => {
                       </div>
                       <div className="flex-1 min-w-[200px]">
                         <FormField
-                          type="tel"
+                          type="number"
                           name="phoneNumber"
                           placeholder="Phone Number"
                           value={formData.phoneNumber}

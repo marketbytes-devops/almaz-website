@@ -56,7 +56,7 @@ const Footer = () => {
             Connect
           </h3>
           <div className="flex space-x-2 sm:space-x-3">
-            <a
+            {/* <a
               href=""
               target="_blank"
               rel="noopener noreferrer"
@@ -65,7 +65,7 @@ const Footer = () => {
               <div className="w-8 sm:w-9 md:w-8 h-8 sm:h-9 md:h-8 bg-secondary rounded flex justify-center items-center social-icon-container">
                 <Icons.Youtube className="text-black w-4 sm:w-5" />
               </div>
-            </a>
+            </a> */}
             <a
               href="https://www.facebook.com/almasmoversintl"
               target="_blank"

@@ -105,7 +105,7 @@ const MakeanEnquiry = () => {
                 required
               />
               <FormField
-                type="tel"
+                type="number"
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
