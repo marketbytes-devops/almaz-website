@@ -160,7 +160,7 @@ const Review = () => {
           {reviewCard.map((review, index) => (
             <div key={review.id} className="card-container w-full px-0 sm:px-0 md:px-2 lg:px-2 py-0 sm:py-0 md:py-4">
               <div
-                className={`review-card relative w-full py-8 sm:py-12 pb-12 sm:pb-16 space-y-4 px-4 rounded-3xl shadow-lg overflow-hidden ${
+                className={`review-card relative w-full py-8 sm:py-12 pb-12 sm:pb-16 space-y-4 px-4 mb-16 sm:mb-16 md:mb-0 lg:mb-0 xl:mb-0 rounded-3xl shadow-lg overflow-hidden ${
                   index === currentSlide % reviewCard.length
                     ? "bg-gradient-to-br from-primary to-gray-700"
                     : "bg-gradient-to-br from-[#c0c0c0] to-gray-50"
@@ -215,7 +215,7 @@ const Review = () => {
             </div>
           ))}
         </Slider>
-        <div className="navigation-buttons flex justify-center items-center absolute bottom-[-80px] left-0 right-0">
+        <div className="navigation-buttons flex justify-center items-center absolute -bottom-[5px] sm:-bottom-[5px] md:-bottom-[80px] lg:-bottom-[80px] xl:-bottom-[80px] left-0 right-0">
           <button
             onClick={handlePrev}
             className="nav-button mx-2 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"

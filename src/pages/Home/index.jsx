@@ -41,41 +41,41 @@ const Home = () => {
     }));
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    if (!recaptchaToken) {
-      setError("reCAPTCHA verification failed. Please try again.");
-      return;
-    }
+const handleFormSubmit = (e) => {
+  e.preventDefault();
+  if (!recaptchaToken) {
+    setError("reCAPTCHA verification failed. Please try again.");
+    return;
+  }
 
-    apiClient
-      .post("contacts/enquiries/", {
-        ...formData,
-        recaptchaToken,
-      })
-      .then((response) => {
-        console.log("Enquiry submitted:", response.data);
-        setFormData({
-          fullName: "",
-          phoneNumber: "",
-          serviceType: "",
-          email: "",
-          message: "",
-          refererUrl: window.location.href,
-          submittedUrl: window.location.href,
-          trackingNumber: formData.trackingNumber,
-        });
-        setRecaptchaToken("");
-        setError("");
-        setIsExpanded(false);
-        setAreFieldsEnabled(false);
-        navigate("/thank-you");
-      })
-      .catch((error) => {
-        setError("Enquiry submission failed. Please try again.");
-        console.error("Enquiry submission error:", error);
+  apiClient
+    .post("contacts/enquiries/", {
+      ...formData,
+      recaptchaToken,
+    })
+    .then((response) => {
+      console.log("Enquiry submitted:", response.data);
+      setFormData({
+        fullName: "",
+        phoneNumber: "",
+        serviceType: "",
+        email: "",
+        message: "",
+        refererUrl: window.location.href,
+        submittedUrl: window.location.href,
+        trackingNumber: formData.trackingNumber,
       });
-  };
+      setRecaptchaToken("");
+      setError("");
+      setIsExpanded(false);
+      setAreFieldsEnabled(false);
+      navigate("/thank-you"); 
+    })
+    .catch((error) => {
+      setError("Enquiry submission failed. Please try again.");
+      console.error("Enquiry submission error:", error);
+    });
+};
 
   const handleTrackingSubmit = (e) => {
     e.preventDefault();
@@ -448,16 +448,24 @@ const Home = () => {
       <section className="container-secondary about-us mt-8 sm:mt-10 lg:mt-16">
         <AboutSection />
       </section>
-      <section className="container-secondary our-services mt-6 sm:mt-6 lg:mt-16">
+      <section className="overflow-hidden container-secondary our-services mt-6 sm:mt-6 lg:mt-16">
         <OurServices />
       </section>
-      <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
+      <section className="overflow-hidden container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
         <ContactUs />
       </section>
-      <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
+      <section className="overflow-hidden container-secondary our-services mt-8 sm:mt-10 lg:mt-16 mb-16 sm:mb-16 md:mb-8 lg:mb-8 xl:mb-8">
         <Review />
       </section>
+<<<<<<< Updated upstream
+<<<<<<< HEAD
       <section className="container-secondary our-services ">
+=======
+      <section className="container-secondary our-services -mt-20 sm:-mt-20 md:-mt-0 lg:-mt-0 xl:-mt-0">
+>>>>>>> beead20944b5098205b5a5e7ebf7253382b4e1a5
+=======
+      <section className="container-secondary our-services">
+>>>>>>> Stashed changes
         <BlogSection />
       </section>
       <section className="w-full bg-primary/10 mt-10 sm:mt-12 lg:mt-16">
