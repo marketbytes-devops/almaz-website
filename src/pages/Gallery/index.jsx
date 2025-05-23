@@ -14,7 +14,8 @@ import image12 from '../../assets/gallery/Air-freight.webp';
 import image13 from '../../assets/gallery/blogArticle.webp';
 import bannerImage from '../../assets/international_relocation.webp';
 import Banner from '../../components/Banner';
- 
+import TitleDescription from '../../components/TitleDescription';
+
 const Gallery = () => {
   const tabs = [
     {
@@ -34,20 +35,20 @@ const Gallery = () => {
       images: [image7, image10, image11, image12, image13],
     },
   ];
- 
+
   const [activeTab, setActiveTab] = useState(tabs[0].name);
   const [selectedImage, setSelectedImage] = useState(null);
- 
+
   const activeImages = tabs.find((tab) => tab.name === activeTab).images;
- 
+
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
- 
+
   const handleCloseModal = () => {
     setSelectedImage(null);
   };
- 
+
   return (
     <>
       <Banner
@@ -58,19 +59,19 @@ const Gallery = () => {
         subRoute="Gallery"
         subRoutePath="/gallery"
       />
-      <section className="container-secondary mt-16">
-        <div className="max-w-[90%] mx-auto py-16 px-4 text-black">
-          <h1 className="text-3xl font-bold mb-8 text-center">Gallery</h1>
-          <div className="flex justify-center mb-8">
-            <div className="flex space-x-2 bg-gray-100 p-1 rounded-lg">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 -mb-12 sm:-mb-8 md:-mb-8 lg:-mb-8 xl:-mb-8">
+        <div className="py-8 sm:py-12 lg:py-16 text-center">
+          <TitleDescription title="Gallery" titleClass="flex items-center justify-center" />
+          <div className="flex justify-center items-center my-6 sm:my-8">
+            <div className="flex flex-wrap justify-center gap-2 bg-gray-100 p-2 rounded-lg max-w-full">
               {tabs.map((tab) => (
                 <button
                   key={tab.name}
                   onClick={() => setActiveTab(tab.name)}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
                     activeTab === tab.name
                       ? 'bg-primary text-white'
-                      : 'bg-transparent text-black hover:bg-gray-200'
+                      : 'bg-transparent text-primary hover:bg-gray-200'
                   }`}
                   aria-label={`View ${tab.name} gallery`}
                 >
@@ -79,11 +80,11 @@ const Gallery = () => {
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {activeImages.map((image, index) => (
               <div
                 key={index}
-                className="overflow-hidden rounded-lg shadow-md cursor-pointer"
+                className="overflow-hidden rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:shadow-lg"
                 onClick={() => handleImageClick(image)}
                 role="button"
                 tabIndex={0}
@@ -93,7 +94,7 @@ const Gallery = () => {
                 <img
                   src={image}
                   alt={`${activeTab} image ${index + 1}`}
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
@@ -101,28 +102,27 @@ const Gallery = () => {
           </div>
         </div>
       </section>
- 
-     
+
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
           onClick={handleCloseModal}
           role="dialog"
           aria-label="Image preview modal"
           aria-modal="true"
         >
           <div
-            className="relative max-w-4xl w-full mx-4"
+            className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-4xl mx-4 sm:mx-6"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-2 right-2 text-white bg-gray-800 rounded-full p-2 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-white"
+              className="absolute top-2 right-2 text-white bg-gray-800 rounded-full p-2 sm:p-3 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-white"
               onClick={handleCloseModal}
               aria-label="Close image preview"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-5 w-5 sm:h-6 sm:w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -138,7 +138,7 @@ const Gallery = () => {
             <img
               src={selectedImage}
               alt="Full-size gallery image"
-              className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+              className="w-full h-auto max-h-[80vh] sm:max-h-[85vh] object-contain rounded-lg"
               loading="lazy"
             />
           </div>
@@ -147,5 +147,5 @@ const Gallery = () => {
     </>
   );
 };
- 
+
 export default Gallery;
