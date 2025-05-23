@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "../Button"; 
-import Logo from "../../assets/logo.webp"; 
+import Button from "../Button";
+import Logo from "../../assets/logo.webp";
 import ModalForm from "../ModalForm";
-
+ 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
-
+ 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
-
+ 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+ 
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/about-us", label: "About Us" },
@@ -33,7 +33,7 @@ const Navbar = () => {
     { to: "/blogs", label: "Blogs" },
     { to: "/contact", label: "Contact Us" },
   ];
-
+ 
   const menuVariants = {
     hidden: { y: "-100%", opacity: 0 },
     visible: {
@@ -47,7 +47,7 @@ const Navbar = () => {
       transition: { duration: 0.2, ease: "easeIn" },
     },
   };
-
+ 
   const itemVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: {
@@ -56,7 +56,7 @@ const Navbar = () => {
       transition: { duration: 0.2, ease: "easeOut" },
     },
   };
-
+ 
   return (
     <div className="flex items-center justify-center">
       <motion.nav
@@ -82,7 +82,7 @@ const Navbar = () => {
                 />
               </Link>
             </div>
-
+ 
             <div className="hidden lg:flex items-center space-x-6 lg:space-x-8 py-2.5 px-8 lg:px-10 rounded-[20px] border-2 border-gray-300 bg-white/20">
               <ul className="flex space-x-4 lg:space-x-6">
                 {navLinks.map((link) => (
@@ -106,7 +106,7 @@ const Navbar = () => {
                 ))}
               </ul>
             </div>
-
+ 
             <div className="hidden lg:flex pr-6 lg:pr-8">
               <Button
                 label="Get a quote"
@@ -115,7 +115,7 @@ const Navbar = () => {
                 onClick={() => setIsModalOpen(true)}
               />
             </div>
-
+ 
             <div className="lg:hidden">
               <button
                 onClick={toggleMenu}
@@ -149,7 +149,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
+ 
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -220,16 +220,16 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </motion.nav>
-
+ 
       <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
+ 
       <style>
         {`
           .ripple-button {
             position: relative;
             overflow: hidden;
           }
-
+ 
           .ripple-button::after {
             content: '';
             position: absolute;
@@ -243,12 +243,12 @@ const Navbar = () => {
             transition: width 0.4s ease, height 0.4s ease;
             pointer-events: none;
           }
-
+ 
           .ripple-button:hover::after {
             width: 200%;
             height: 200%;
           }
-
+ 
           @media (max-width: 1023px) {
             .container {
               padding-left: 0.5rem;
@@ -263,7 +263,7 @@ const Navbar = () => {
               height: 3.5rem;
             }
           }
-
+ 
           @media (min-width: 1024px) {
             .container {
               padding-left: 2.5rem;
@@ -273,7 +273,7 @@ const Navbar = () => {
               width: 93.5% !important;
             }
           }
-
+ 
           @media (min-width: 1280px) {
             .container {
               padding-left: 6.5rem;
@@ -285,5 +285,5 @@ const Navbar = () => {
     </div>
   );
 };
-
+ 
 export default Navbar;

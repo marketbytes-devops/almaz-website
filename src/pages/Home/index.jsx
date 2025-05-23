@@ -13,7 +13,7 @@ import Review from "./UiComponents/Review";
 import BlogSection from "./UiComponents/Blogs";
 import GetInTouchSection from "./UiComponents/GetinTouch";
 import apiClient from "../../api/apiClient";
-
+ 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("booking");
   const [isExpanded, setIsExpanded] = useState(false);
@@ -32,7 +32,7 @@ const Home = () => {
   const [error, setError] = useState("");
   const [trackingResult, setTrackingResult] = useState(null);
   const navigate = useNavigate();
-
+ 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -40,14 +40,14 @@ const Home = () => {
       [name]: value,
     }));
   };
-
+ 
 const handleFormSubmit = (e) => {
   e.preventDefault();
   if (!recaptchaToken) {
     setError("reCAPTCHA verification failed. Please try again.");
     return;
   }
-
+ 
   apiClient
     .post("contacts/enquiries/", {
       ...formData,
@@ -69,21 +69,21 @@ const handleFormSubmit = (e) => {
       setError("");
       setIsExpanded(false);
       setAreFieldsEnabled(false);
-      navigate("/thank-you"); 
+      navigate("/thank-you");
     })
     .catch((error) => {
       setError("Enquiry submission failed. Please try again.");
       console.error("Enquiry submission error:", error);
     });
 };
-
+ 
   const handleTrackingSubmit = (e) => {
     e.preventDefault();
     if (!formData.trackingNumber) {
       setError("Please enter a tracking number.");
       return;
     }
-
+ 
     apiClient
       .get(`jobs/jobs/?tracking_id=${formData.trackingNumber}`)
       .then((response) => {
@@ -101,23 +101,23 @@ const handleFormSubmit = (e) => {
         console.error("Tracking error:", error);
       });
   };
-
+ 
   const handleFullNameClick = () => {
     setIsExpanded(true);
     setAreFieldsEnabled(true);
   };
-
+ 
   const handleCloseExpandedForm = () => {
     setIsExpanded(false);
     setAreFieldsEnabled(false);
   };
-
+ 
   const serviceOptions = [
     { value: "moving", label: "Moving" },
     { value: "logistics", label: "Logistics" },
     { value: "relocation", label: "Relocation" },
   ];
-
+ 
   return (
     <>
       <Helmet>
@@ -132,7 +132,7 @@ const handleFormSubmit = (e) => {
         />
         <link rel="canonical" href="https://www.almasmovers.com/top-tips-stress-free-international-move" />
       </Helmet>
-
+ 
       <div className="container-primary w-full pt-12 sm:pt-16">
         <div
           className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white mx-0 px-0 sm:px-6 md:px-8 rounded-b-3xl rounded-t-none"
@@ -235,8 +235,8 @@ const handleFormSubmit = (e) => {
                   </button>
                 </div>
                 <div className="border-t border-white/50 -mx-4 sm:-mx-6 mt-4 sm:mt-6"></div>
-
-                {activeTab === "booking" ? (
+ 
+               {activeTab === "booking" ? (
                   <div className={`pt-4 sm:pt-6 ${!isExpanded ? "pb-0" : "pb-4"}`}>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap">
                       <div className="flex-1 min-w-[200px]">
@@ -354,7 +354,7 @@ const handleFormSubmit = (e) => {
                   >
                     <h2 className="text-2xl font-bold mb-4 text-center">Tracking Details</h2>
                     {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
-
+ 
                     {/* Table for Tracking Information */}
                     <div className="mb-6">
                       <div className="overflow-x-auto">
@@ -406,7 +406,7 @@ const handleFormSubmit = (e) => {
                         </table>
                       </div>
                     </div>
-
+ 
                     {/* Table for Status Updates */}
                     <div>
                       <div className="overflow-x-auto">
@@ -468,5 +468,6 @@ const handleFormSubmit = (e) => {
     </>
   );
 };
-
+ 
 export default Home;
+ 

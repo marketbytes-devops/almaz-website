@@ -15,7 +15,7 @@ const reviewCard = [
     role: "Designer",
     description:
       "Almas Mover handled my office relocation with precision and professionalism. They worked efficiently and minimized downtime for our business. Truly a reliable moving partner in Qatar.",
-
+ 
     stars: 5,
     date: "23 June 2025",
   },
@@ -60,7 +60,7 @@ const reviewCard = [
     date: "31 March 2025",
   },
  
-  
+ 
 ];
  
 const Review = () => {
