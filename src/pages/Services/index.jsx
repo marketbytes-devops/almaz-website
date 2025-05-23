@@ -36,7 +36,7 @@ const Services = () => {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full -mb-8 sm:-mb-8 md:-mb-0 lg:-mb-0 xl:-mb-0">
       <Helmet>
         <title>{seoData.metaTitle}</title>
         <meta name="description" content={seoData.metaDescription} />
@@ -88,7 +88,7 @@ const Services = () => {
         </div>
       </div>
 
-      <section className="container-secondary -mt-2 sm:-mt-2 lg:-mt-0 md:-mt-0 xl:-mt-0 -mb-16 sm:-mb-16 lg:-mb-0">
+      <section className="container-secondary -mt-2 sm:-mt-2 lg:-mt-0 md:-mt-0 xl:-mt-0 mb-16 sm:mb-16 lg:-mb-0 overflow-hidden">
         <OurServices currentSlug={slug} />
       </section>
     </div>
