@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import AlmasLogo from "../../../../assets/watermark.svg";
 import TitleDescription from "../../../../components/TitleDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"; 
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"; // Updated icons
  
 const reviewCard = [
    {
@@ -15,7 +15,7 @@ const reviewCard = [
     role: "Designer",
     description:
       "Almas Mover handled my office relocation with precision and professionalism. They worked efficiently and minimized downtime for our business. Truly a reliable moving partner in Qatar.",
-
+ 
     stars: 5,
     date: "23 June 2025",
   },
@@ -60,7 +60,7 @@ const reviewCard = [
     date: "31 March 2025",
   },
  
-  
+ 
 ];
  
 const Review = () => {
