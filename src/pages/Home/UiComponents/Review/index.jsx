@@ -5,14 +5,19 @@ import "slick-carousel/slick/slick-theme.css";
 import AlmasLogo from "../../../../assets/watermark.svg";
 import TitleDescription from "../../../../components/TitleDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"; // Updated icons
- 
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"; 
+import FA from "../../../../assets/home/Fatima.webp"
+import AK from "../../../../assets/home/Ahmedk.webp"
+import SM from "../../../../assets/home/Sarah.webp"
+import KS from "../../../../assets/home/Khalid.webp"
+import RT from "../../../../assets/home/Reem.webp"
+
 const reviewCard = [
    {
     id: "1",
-    initials: "FA",
+    person: FA,
     title: "Fatima A",
-    role: "Designer",
+    role: "Al Khor",
     description:
       "Almas Mover handled my office relocation with precision and professionalism. They worked efficiently and minimized downtime for our business. Truly a reliable moving partner in Qatar.",
  
@@ -21,9 +26,9 @@ const reviewCard = [
   },
   {
     id: "2",
-    initials: "AK",
+    person: AK,
     title: "Ahmed K",
-    role: "Developer",
+    role: "Al Wakrah",
     description:
       "I was impressed by the efficiency and friendliness of Almas Mover’s staff. They handled everything with great attention to detail and made sure my move was completed on time. Excellent service!",
     stars: 4,
@@ -31,9 +36,9 @@ const reviewCard = [
   },
   {
     id: "3",
-    initials: "SM",
-    title: "Sarah M",
-    role: "Designer",
+    person: SM,
+    title: "Sarah S",
+    role: "Al Jumail",
     description:
       "From packing to unloading, Almas Mover International exceeded my expectations. Their communication was clear, and the entire process was seamless. I wouldn’t trust anyone else with my move.",
     stars: 4,
@@ -41,9 +46,9 @@ const reviewCard = [
   },
   {
     id: "4",
-    initials: "KS",
+    person: KS,
     title: "Khalid S",
-    role: "Manager",
+    role: "Doha",
     description:
       "Moving can be stressful, but Almas Mover International made it so easy. Their team was careful, professional, and respectful. Great value for money and highly recommended in Qatar!",
     stars: 5,
@@ -51,9 +56,9 @@ const reviewCard = [
   },
   {
     id: "5",
-    initials: "RT",
+    person: RT,
     title: "Reem T",
-    role: "Developer",
+    role: "Abu Dhalouf",
     description:
       "Almas Mover handled my office relocation with precision and professionalism. They worked efficiently and minimized downtime for our business. Truly a reliable moving partner in Qatar.",
     stars: 4,
@@ -169,9 +174,7 @@ const Review = () => {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <div className="relative inline-block">
-                      <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-gray-300 flex items-center justify-center text-white font-semibold text-base sm:text-lg">
-                        {review.initials}
-                      </div>
+                        <img src={review.person} alt={review.title} className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-gray-300 flex items-center justify-center" />
                     </div>
                   </div>
                   <div className="ml-4">

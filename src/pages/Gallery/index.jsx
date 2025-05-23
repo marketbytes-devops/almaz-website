@@ -10,7 +10,6 @@ import image8 from '../../assets/gallery/pic2.webp';
 import image9 from '../../assets/gallery/pic3.webp';
 import image10 from '../../assets/gallery/pic4.webp';
 import image11 from '../../assets/gallery/pic5.webp';
-import image12 from '../../assets/gallery/Air-freight.webp';
 import image13 from '../../assets/gallery/blogArticle.webp';
 import bannerImage from '../../assets/international_relocation.webp';
 import Banner from '../../components/Banner';
@@ -32,7 +31,7 @@ const Gallery = () => {
     },
     {
       name: 'Team',
-      images: [image7, image10, image11, image12, image13],
+      images: [image7, image10, image11, image13],
     },
   ];
 
