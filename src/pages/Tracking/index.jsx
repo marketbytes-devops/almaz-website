@@ -23,11 +23,11 @@ const Tracking = () => {
  
       <Banner
         bannerImage={bannerImage}
-        titleFirst="Tracking"
+        titleFirst="Track Your Cargo"
         smallText="Never lose sight of your cargo. Track it instantly with just a tracking number and stay updated every step of the way."
         mainRoute="HOME"
-        subRoute="TRACKING"
-        subRoutePath="/tracking"
+        subRoute="TRACK"
+        subRoutePath="/track"
       />
  
       <section className="w-full mt-8 sm:mt-8 lg:mt-16">

@@ -29,7 +29,7 @@ const Navbar = () => {
     { to: "/about-us", label: "About Us" },
     { to: "/moving", label: "Moving" },
     { to: "/logistics", label: "Logistics" },
-    { to: "/tracking", label: "Track" },
+    { to: "/track", label: "Track" },
     { to: "/blogs", label: "Blogs" },
     { to: "/contact", label: "Contact Us" },
   ];

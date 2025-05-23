@@ -215,7 +215,7 @@ const Review = () => {
             </div>
           ))}
         </Slider>
-        <div className="navigation-buttons flex justify-center items-center absolute -bottom-[5px] sm:-bottom-[5px] md:-bottom-[80px] lg:-bottom-[80px] xl:-bottom-[80px] left-0 right-0">
+        <div className="navigation-buttons flex justify-center items-center absolute -bottom-[6px] sm:-bottom-[6px] md:-bottom-[80px] lg:-bottom-[80px] xl:-bottom-[80px] left-0 right-0">
           <button
             onClick={handlePrev}
             className="nav-button mx-2 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
