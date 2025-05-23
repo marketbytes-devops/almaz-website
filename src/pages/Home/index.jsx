@@ -454,7 +454,7 @@ const Home = () => {
       <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
         <ContactUs />
       </section>
-      <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16">
+      <section className="container-secondary our-services mt-8 sm:mt-10 lg:mt-16 mb-16 sm:mb-16 md:mb-8 lg:mb-8 xl:mb-8">
         <Review />
       </section>
       <section className="container-secondary our-services">
