@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom"; 
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { data } from "../../../assets/data/blogData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
@@ -82,7 +83,7 @@ const BlogDetail = () => {
       sentinel.remove();
       window.removeEventListener("resize", handleResize);
     };
-  }, [slug, blog]); 
+  }, [slug, blog]);
 
   if (!blog) {
     return null;
@@ -107,6 +108,12 @@ const BlogDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{blog.metaTitle}</title>
+        <meta name="description" content={blog.metaDescription} />
+        <meta name="keywords" content={blog.keywords} />
+        <link rel="canonical" href={`https://www.almasmovers.com/blog/${slug}`} />
+      </Helmet>
       <div className="w-full overflow-hidden relative">
         <Banner
           bannerImage={blog.image}
@@ -144,7 +151,7 @@ const BlogDetail = () => {
                     <img
                       key={index}
                       src={block.src}
-                      alt={block.alt}
+                      alt={block.alt || blog.title}
                       className="w-full h-96 object-cover rounded-lg"
                     />
                   );
@@ -226,7 +233,6 @@ const BlogDetail = () => {
                   return null;
               }
             })}
-            
             <div className="flex justify-start pt-2 xs:pt-2 md:pt-2 lg:pt-2 xl:pt-2 text-center sm:text-center md:text-left lg:text-left xl:text-left">
               <Button
                 label="Reach Out To Us"
@@ -274,7 +280,11 @@ const BlogDetail = () => {
           </div>
         </div>
       </div>
-      <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} serviceOptions={serviceOptions} />
+      <ModalForm
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        serviceOptions={serviceOptions}
+      />
     </>
   );
 };

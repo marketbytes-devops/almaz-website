@@ -13,6 +13,9 @@ export const data = {
       date: "20 May 2025",
       time: "10:00 AM",
       author: "",
+      metaTitle: "Benefits of Storage Services During a Move | Almas Movers",
+      metaDescription: "Discover how professional storage services can reduce stress, offer flexibility, and protect your belongings during a move in Qatar and beyond.",
+      keywords: "storage services, moving storage, Qatar storage solutions, Almas Movers, secure storage, climate-controlled storage",
       detail: {
         content: [
           {
@@ -177,6 +180,9 @@ export const data = {
       date: "22 May 2025",
       time: "11:05 AM",
       author: "",
+      metaTitle: "Move Your Office with Minimal Disruption | Almas Movers",
+      metaDescription: "Relocate your office smoothly with expert tips to reduce downtime. Plan smart with Almas Movers’ office relocation guide.",
+      keywords: "office relocation, business moving, Qatar office movers, Almas Movers, minimal disruption moving",
       detail: {
         content: [
           {
@@ -332,6 +338,9 @@ export const data = {
       date: "23 May 2025",
       time: "12:00 PM",
       author: "",
+      metaTitle: "Importance of Moving Insurance: Protect Your Belongings",
+      metaDescription: "Moving insurance is key to protecting your valuables. Learn why it’s essential, what it covers, and how to choose the right policy.",
+      keywords: "moving insurance, Qatar moving coverage, Almas Movers, shipment protection, relocation insurance",
       detail: {
         content: [
           {
@@ -466,6 +475,9 @@ export const data = {
       date: "25 May 2025",
       time: "03:00 PM",
       author: "",
+      metaTitle: "Choose the Right Relocation Service for Your Family",
+      metaDescription: "Planning a family move? Learn how to pick a relocation service tailored to your family’s needs, from insurance to special requirements.",
+      keywords: "family relocation, Qatar movers, Almas Movers, family moving services, international family move",
       detail: {
         content: [
           {
@@ -649,6 +661,9 @@ export const data = {
       date: "24 May 2025",
       time: "04:00 PM",
       author: "",
+      metaTitle: "Tips for a Stress-Free International Move | Almas Movers",
+      metaDescription: "Moving abroad? Discover tips for a stress-free international move, from planning and packing to hiring professionals and managing finances.",
+      keywords: "international move, Qatar movers, Almas Movers, stress-free relocation, global moving tips",
       detail: {
         content: [
           {

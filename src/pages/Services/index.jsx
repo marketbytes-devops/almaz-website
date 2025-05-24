@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // Add useNavigate
+import { useParams, useNavigate } from "react-router-dom"; 
 import { Helmet } from "react-helmet";
 import Banner from "../../components/Banner";
 import serviceData from "../../assets/data/serviceData";
@@ -19,18 +19,6 @@ const Services = () => {
     }
   }, [service, navigate]);
 
-  const seoData = {
-    metaTitle: service?.metaTitle || (slug === "top-tips-stress-free-international-move" 
-      ? "Top Tips for a Stress-Free International Move | Almas Movers International" 
-      : "Our Services | Almas Movers International"),
-    metaDescription: service?.metaDescription || (slug === "top-tips-stress-free-international-move" 
-      ? "Moving internationally? Discover essential tips for a stress-free relocation, from hiring professionals to managing your finances and settling in. Start your smooth journey with Almas Movers." 
-      : "Explore our professional moving and relocation services designed to make your move seamless and stress-free with Almas Movers International."),
-    keywords: service?.keywords || (slug === "top-tips-stress-free-international-move" 
-      ? "Stress-Free International Move, International relocation, moving abroad, international moving tips, relocation services, packing for international move, international relocation tips, moving overseas, international moving company" 
-      : "moving services, relocation services, Almas Movers"),
-  };
-
   if (!service) {
     return null;
   }
@@ -38,10 +26,10 @@ const Services = () => {
   return (
     <div className="w-full -mb-8 sm:-mb-8 md:-mb-0 lg:-mb-0 xl:-mb-0">
       <Helmet>
-        <title>{seoData.metaTitle}</title>
-        <meta name="description" content={seoData.metaDescription} />
-        <meta name="keywords" content={seoData.keywords} />
-        <link rel="canonical" href={`https://www.almasmovers.com/services/${slug}`} />
+        <title>{service.metaTitle}</title>
+        <meta name="description" content={service.metaDescription} />
+        <meta name="keywords" content={service.keywords} />
+        <link rel="canonical" href={`https://www.almasmovers.com${service.slug}`} />
       </Helmet>
       <Banner
         bannerImage={service.bannerImage}

@@ -14,8 +14,8 @@ import StorageBanner from "../../assets/international_relocation.webp";
 import InsuranceBanner from "../../assets/international_relocation.webp";
 import AirfreightBanner from "../../assets/international_relocation.webp";
 import SeafrieghtBanner from "../../assets/international_relocation.webp";
-
 import InternationalFeatureImage from "../../assets/moving/pic2.webp";
+
 const serviceData = [
   {
     id: 0,
@@ -37,6 +37,9 @@ const serviceData = [
       "Global network of trusted partners",
       "Real-time shipment tracking",
     ],
+    metaTitle: "International Relocation Services from Doha, Qatar | Almas Movers",
+    metaDescription: "Move anywhere in the world with confidence. Almas Movers International offers seamless international relocation services from Qatar with expert handling and global reach.",
+    keywords: "international relocation, moving abroad, international moving services, Qatar movers, Almas Movers, global relocation, international shipping"
   },
   {
     id: 1,
@@ -58,6 +61,9 @@ const serviceData = [
       "Flexible scheduling to suit your needs",
       "Affordable pricing with no hidden fees",
     ],
+    metaTitle: "House Moving Services in Doha, Qatar | Safe & Affordable Moves",
+    metaDescription: "Make your home relocation easy with Almas Movers. We offer trusted house moving services in Qatar with careful packing, transport, and setup.",
+    keywords: "house moving, home relocation, Qatar movers, Almas Movers, safe moving services, affordable movers"
   },
   {
     id: 2,
@@ -78,6 +84,9 @@ const serviceData = [
       "Regular updates on transport status",
       "Fully insured transportation",
     ],
+    metaTitle: "Vehicle Relocation in Qatar | Ship Your Car Safely with Almas Movers",
+    metaDescription: "Move your car or vehicle anywhere, safely and on time. Almas Movers provides secure international and domestic vehicle relocation services in Qatar.",
+    keywords: "vehicle relocation, car shipping, Qatar vehicle movers, Almas Movers, secure car transport"
   },
   {
     id: 3,
@@ -98,6 +107,9 @@ const serviceData = [
       "Furniture disassembly and reassembly",
       "Dedicated project manager for coordination",
     ],
+    metaTitle: "Office Relocation in Doha | Professional Business Moving Services",
+    metaDescription: "Relocate your office without disruption. Almas Movers offers expert office relocation in Qatar with efficient planning, packing, and reinstallation.",
+    keywords: "office relocation, business moving, Qatar office movers, Almas Movers, professional moving services"
   },
   {
     id: 4,
@@ -118,6 +130,9 @@ const serviceData = [
       "Flexible storage durations",
       "Easy access to your belongings",
     ],
+    metaTitle: "Storage Solutions in Doha, Qatar | Secure Short & Long-Term Storage",
+    metaDescription: "Looking for safe and flexible storage? Almas Movers offers climate-controlled storage units in Doha for homes, offices, and international clients.",
+    keywords: "storage solutions, Qatar storage, secure storage, Almas Movers, climate-controlled storage"
   },
   {
     id: 5,
@@ -138,6 +153,9 @@ const serviceData = [
       "Quick and hassle-free claims process",
       "Expert guidance on policy selection",
     ],
+    metaTitle: "Moving Insurance in Qatar | Protect Your Shipment with Almas Movers",
+    metaDescription: "Ensure peace of mind with our comprehensive moving insurance coverage. Almas Movers protects your belongings during transit locally and internationally.",
+    keywords: "moving insurance, Qatar moving coverage, Almas Movers, shipment protection"
   },
   {
     id: 6,
@@ -158,6 +176,9 @@ const serviceData = [
       "Full shipment tracking",
       "Customs clearance support",
     ],
+    metaTitle: "Air Freight Services in Qatar | Fast Global Shipping with Almas Movers",
+    metaDescription: "Need express delivery? Almas Movers offers reliable air freight services in Qatar with fast, secure, and worldwide cargo handling.",
+    keywords: "air freight, Qatar shipping, Almas Movers, global cargo services, express shipping"
   },
   {
     id: 7,
@@ -178,6 +199,9 @@ const serviceData = [
       "Global port network",
       "Transparent pricing and schedules",
     ],
+    metaTitle: "Sea Freight Shipping in Qatar | Global Ocean Cargo by Almas Movers",
+    metaDescription: "Affordable sea freight solutions for large shipments from Qatar to the world. Almas Movers ensures timely, secure, and cost-effective ocean freight services.",
+    keywords: "sea freight, Qatar shipping, Almas Movers, ocean cargo, cost-effective shipping"
   },
 ];
 

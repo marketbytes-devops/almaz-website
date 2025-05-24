@@ -1,6 +1,21 @@
 import TitleDescription from '../../../components/TitleDescription';
+import { Helmet } from 'react-helmet';
+
 const PrivacyPolicy = () => {
   return (
+    <>
+    <Helmet>
+        <title>Privacy Policy | Almas Movers International - Doha, Qatar</title>
+        <meta
+          name="description"
+          content="Learn how Almas Movers International collects, uses, and protects your personal information. We are committed to safeguarding your privacy in every interaction."
+        />
+        <meta
+          name="keywords"
+          content="Almas Movers privacy policy, Qatar moving services, data protection, relocation privacy, Doha movers"
+        />
+        <link rel="canonical" href="https://www.almasmovers.com/privacy-policy" />
+      </Helmet>
     <div className='container-secondary'>
       <div className="w-full px-4 sm:px-4 lg:px-0 pt-4 sm:pt-4 lg:pt-16 text-gray-900">
         <div className="py-6 sm:py-8 lg:py-10 text-center -mb-4">
@@ -113,6 +128,7 @@ const PrivacyPolicy = () => {
         </div>
       </div>
     </div>
+  </>
   );
 };
 

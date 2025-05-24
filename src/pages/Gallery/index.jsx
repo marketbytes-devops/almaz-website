@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import image1 from '../../assets/gallery/img1.webp';
 import image2 from '../../assets/gallery/img2.webp';
 import image3 from '../../assets/gallery/img3.webp';
@@ -50,6 +51,18 @@ const Gallery = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Project Gallery | Almas Movers International – Our Work in Action</title>
+        <meta
+          name="description"
+          content="View our gallery showcasing successful moves, logistics operations, and client relocations. See why Almas Movers is trusted across Qatar and internationally."
+        />
+        <meta
+          name="keywords"
+          content="Almas Movers gallery, Qatar moving services, international relocation, logistics gallery, warehousing services"
+        />
+        <link rel="canonical" href="https://www.almasmovers.com/gallery" />
+      </Helmet>
       <Banner
         title="Gallery"
         bannerImage={bannerImage}
