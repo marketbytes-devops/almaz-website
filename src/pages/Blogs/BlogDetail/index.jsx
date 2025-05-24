@@ -114,7 +114,7 @@ const BlogDetail = () => {
           titleSecond={titleSecond}
           mainRoute="Home"
           subRoute="Blogs"
-          subRoutePath={`/blogs/${slug}`}
+          subRoutePath={`/blog/${slug}`}
           date={blog.date}
           time={blog.time}
           author={blog.author}
@@ -227,7 +227,7 @@ const BlogDetail = () => {
               }
             })}
             
-            <div className="flex justify-center mt-8 text-center">
+            <div className="flex justify-start pt-2 xs:pt-2 md:pt-2 lg:pt-2 xl:pt-2 text-center sm:text-center md:text-left lg:text-left xl:text-left">
               <Button
                 label="Reach Out To Us"
                 icon="ArrowUpRight"
@@ -260,7 +260,7 @@ const BlogDetail = () => {
                     </p>
                   </div>
                   <Link
-                    to={`/blogs/${post.id}`}
+                    to={`/blog/${post.id}`}
                     className="inline-block items-center text-sm md:text-base font-one text-primary-six hover:text-primary-three transition-colors duration-300"
                   >
                     <span>Read More</span>

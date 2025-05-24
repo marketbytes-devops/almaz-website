@@ -13,7 +13,7 @@ import Review from "./UiComponents/Review";
 import BlogSection from "./UiComponents/Blogs";
 import GetInTouchSection from "./UiComponents/GetinTouch";
 import apiClient from "../../api/apiClient";
- 
+
 const Home = () => {
   const [activeTab, setActiveTab] = useState("booking");
   const [isExpanded, setIsExpanded] = useState(false);
@@ -32,7 +32,7 @@ const Home = () => {
   const [error, setError] = useState("");
   const [trackingResult, setTrackingResult] = useState(null);
   const navigate = useNavigate();
- 
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -40,50 +40,50 @@ const Home = () => {
       [name]: value,
     }));
   };
- 
-const handleFormSubmit = (e) => {
-  e.preventDefault();
-  if (!recaptchaToken) {
-    setError("reCAPTCHA verification failed. Please try again.");
-    return;
-  }
- 
-  apiClient
-    .post("contacts/enquiries/", {
-      ...formData,
-      recaptchaToken,
-    })
-    .then((response) => {
-      console.log("Enquiry submitted:", response.data);
-      setFormData({
-        fullName: "",
-        phoneNumber: "",
-        serviceType: "",
-        email: "",
-        message: "",
-        refererUrl: window.location.href,
-        submittedUrl: window.location.href,
-        trackingNumber: formData.trackingNumber,
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!recaptchaToken) {
+      setError("reCAPTCHA verification failed. Please try again.");
+      return;
+    }
+
+    apiClient
+      .post("contacts/enquiries/", {
+        ...formData,
+        recaptchaToken,
+      })
+      .then((response) => {
+        console.log("Enquiry submitted:", response.data);
+        setFormData({
+          fullName: "",
+          phoneNumber: "",
+          serviceType: "",
+          email: "",
+          message: "",
+          refererUrl: window.location.href,
+          submittedUrl: window.location.href,
+          trackingNumber: formData.trackingNumber,
+        });
+        setRecaptchaToken("");
+        setError("");
+        setIsExpanded(false);
+        setAreFieldsEnabled(false);
+        navigate("/thank-you");
+      })
+      .catch((error) => {
+        setError("Enquiry submission failed. Please try again.");
+        console.error("Enquiry submission error:", error);
       });
-      setRecaptchaToken("");
-      setError("");
-      setIsExpanded(false);
-      setAreFieldsEnabled(false);
-      navigate("/thank-you");
-    })
-    .catch((error) => {
-      setError("Enquiry submission failed. Please try again.");
-      console.error("Enquiry submission error:", error);
-    });
-};
- 
+  };
+
   const handleTrackingSubmit = (e) => {
     e.preventDefault();
     if (!formData.trackingNumber) {
       setError("Please enter a tracking number.");
       return;
     }
- 
+
     apiClient
       .get(`jobs/jobs/?tracking_id=${formData.trackingNumber}`)
       .then((response) => {
@@ -101,38 +101,38 @@ const handleFormSubmit = (e) => {
         console.error("Tracking error:", error);
       });
   };
- 
+
   const handleFullNameClick = () => {
     setIsExpanded(true);
     setAreFieldsEnabled(true);
   };
- 
+
   const handleCloseExpandedForm = () => {
     setIsExpanded(false);
     setAreFieldsEnabled(false);
   };
- 
+
   const serviceOptions = [
     { value: "moving", label: "Moving" },
     { value: "logistics", label: "Logistics" },
     { value: "relocation", label: "Relocation" },
   ];
- 
+
   return (
     <>
       <Helmet>
-        <title>Top Tips for a Stress-Free International Move | Almas Movers International</title>
+        <title>International Movers in Doha, Qatar | Almas Movers International</title>
         <meta
           name="description"
-          content="Moving internationally? Discover essential tips for a stress-free relocation, from hiring professionals to managing your finances and settling in. Start your smooth journey with Almas Movers."
+          content="Trusted international movers in Doha, Qatar offering relocation, logistics, storage, and freight services. Get a stress-free moving experience with Almas Movers."
         />
         <meta
           name="keywords"
-          content="Stress-Free International Move, International relocation, moving abroad, international moving tips, relocation services, packing for international move, international relocation tips, moving overseas, stress-free move, international moving company"
+          content="international movers Doha, Qatar movers, Almas Movers, international relocation, logistics services, storage solutions, freight services, stress-free moving, moving company Qatar"
         />
-        <link rel="canonical" href="https://www.almasmovers.com/top-tips-stress-free-international-move" />
+        <link rel="canonical" href="https://www.almasmovers.com/" />
       </Helmet>
- 
+
       <div className="container-primary w-full pt-12 sm:pt-16">
         <div
           className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-cover bg-center flex flex-col justify-center items-center text-center text-white mx-0 px-0 sm:px-6 md:px-8 rounded-b-3xl rounded-t-none"
@@ -235,8 +235,8 @@ const handleFormSubmit = (e) => {
                   </button>
                 </div>
                 <div className="border-t border-white/50 -mx-4 sm:-mx-6 mt-4 sm:mt-6"></div>
- 
-               {activeTab === "booking" ? (
+
+                {activeTab === "booking" ? (
                   <div className={`pt-4 sm:pt-6 ${!isExpanded ? "pb-0" : "pb-4"}`}>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap">
                       <div className="flex-1 min-w-[200px]">
@@ -354,7 +354,7 @@ const handleFormSubmit = (e) => {
                   >
                     <h2 className="text-2xl font-bold mb-4 text-center">Tracking Details</h2>
                     {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
- 
+
                     {/* Table for Tracking Information */}
                     <div className="mb-6">
                       <div className="overflow-x-auto">
@@ -406,7 +406,7 @@ const handleFormSubmit = (e) => {
                         </table>
                       </div>
                     </div>
- 
+
                     {/* Table for Status Updates */}
                     <div>
                       <div className="overflow-x-auto">
@@ -468,6 +468,5 @@ const handleFormSubmit = (e) => {
     </>
   );
 };
- 
+
 export default Home;
- 

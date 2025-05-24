@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import Icons from "../../components/Icons";
 import PropTypes from "prop-types";
- 
+
 const FormField = ({ type, name, placeholder, value, onChange, onClick, options, required, disabled }) => {
   const containerStyles = `
     w-full
   `;
- 
+
   const wrapperStyles = `
     flex items-center w-full px-4 py-3 border border-gray-300 rounded-lg
     bg-white text-gray-500 gap-3 placeholder-gray-400 placeholder:text-sm placeholder:font-normal
     transition-all duration-200
     ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
   `;
- 
+
   const inputStyles = `
     w-full border-none focus:outline-none bg-transparent text-gray-500
     placeholder-gray-500 placeholder:text-sm placeholder:font-normal
@@ -24,11 +24,11 @@ const FormField = ({ type, name, placeholder, value, onChange, onClick, options,
       [&::-webkit-inner-spin-button]:appearance-none
     ` : ''}
   `;
- 
+
   const iconStyles = `
     text-black hover:text-secondary transition-colors
   `;
- 
+
   const renderIcon = () => {
     switch (name) {
       case "fullName":
@@ -47,18 +47,39 @@ const FormField = ({ type, name, placeholder, value, onChange, onClick, options,
         return null;
     }
   };
- 
+
+  const handleKeyDown = (e) => {
+    if (type === "number") {
+      const allowedKeys = [
+        "Backspace",
+        "Delete",
+        "Tab",
+        "Escape",
+        "Enter",
+        "ArrowLeft",
+        "ArrowRight",
+      ];
+      if (
+        allowedKeys.includes(e.key) ||
+        (/[0-9]/.test(e.key) && !e.shiftKey && !e.ctrlKey && !e.altKey)
+      ) {
+        return;
+      }
+      e.preventDefault();
+    }
+  };
+
   const renderInput = () => {
     switch (type) {
       case "select":
         const CustomDropdown = () => {
           const [isOpen, setIsOpen] = useState(false);
           const dropdownRef = useRef(null);
- 
+
           const toggleDropdown = () => {
             if (!disabled) setIsOpen(!isOpen);
           };
- 
+
           const handleOptionClick = (option) => {
             if (!disabled) {
               const event = {
@@ -68,7 +89,7 @@ const FormField = ({ type, name, placeholder, value, onChange, onClick, options,
               setIsOpen(false);
             }
           };
- 
+
           useEffect(() => {
             const handleClickOutside = (event) => {
               if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -78,9 +99,9 @@ const FormField = ({ type, name, placeholder, value, onChange, onClick, options,
             document.addEventListener("mousedown", handleClickOutside);
             return () => document.removeEventListener("mousedown", handleClickOutside);
           }, []);
- 
+
           const selectedLabel = options.find((opt) => opt.value === value)?.label || placeholder;
- 
+
           return (
             <div className="relative w-full" ref={dropdownRef}>
               <div className={wrapperStyles}>
@@ -141,6 +162,7 @@ const FormField = ({ type, name, placeholder, value, onChange, onClick, options,
               value={value}
               onChange={onChange}
               onClick={onClick}
+              onKeyDown={handleKeyDown} 
               className={inputStyles}
               required={required}
               disabled={disabled}
@@ -151,10 +173,10 @@ const FormField = ({ type, name, placeholder, value, onChange, onClick, options,
         );
     }
   };
- 
+
   return <div className={containerStyles}>{renderInput()}</div>;
 };
- 
+
 FormField.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -171,15 +193,15 @@ FormField.propTypes = {
   required: PropTypes.bool,
   disabled: PropTypes.bool,
 };
- 
+
 FormField.defaultProps = {
   placeholder: "",
   value: "",
-  onChange: () => { },
-  onClick: () => { },
+  onChange: () => {},
+  onClick: () => {},
   options: [],
   required: false,
   disabled: false,
 };
- 
+
 export default FormField;

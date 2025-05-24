@@ -142,7 +142,7 @@ const serviceData = [
   {
     id: 6,
     title: "Air Freight",
-    slug: "/services/air-freight",
+    slug: "/services/air-freight-services",
     cardImage: AirfreightIcon,
     bannerImage: AirfreightBanner,
     bannerDescription:
@@ -162,7 +162,7 @@ const serviceData = [
   {
     id: 7,
     title: "Sea Freight",
-    slug: "/services/sea-freight",
+    slug: "/services/sea-freight-services",
     cardImage: SeafrieghtIcon,
     bannerImage: SeafrieghtBanner,
     bannerDescription:

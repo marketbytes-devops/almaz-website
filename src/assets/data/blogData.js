@@ -6,7 +6,7 @@ import card5 from "../../assets/blogs/stress-free-move.webp";
 export const data = {
   blogLists: [
     {
-      id: "benefits-professional-storage-services-during-move",
+      id: "benefits-of-storage-services-during-a-move",
       image: card1,
       title: "The Benefits of Professional Storage Services During a Move",
       highlight: "Professional storage services offer the flexibility, security, and peace of mind you need to make your move less stressful and more organized.",
@@ -170,7 +170,7 @@ export const data = {
       }
     },
     {
-      id: "how-to-move-office-with-minimal-disruption",
+      id: "how-to-move-your-office-with-minimal-disruption",
       image: card2,
       title: "How to Move Your Office with Minimal Disruption ",
       highlight: "With the right planning and professional support, your office move can be seamless, efficient, and virtually disruption-free.",
@@ -325,7 +325,7 @@ export const data = {
       }
     },
     {
-      id: "importance-insurance-when-moving",
+      id: "importance-of-moving-insurance",
       image: card4,
       title: "The Importance of Insurance When Moving: What You Need to Know",
       highlight: "Moving insurance isn’t just a formality—it’s your financial and emotional safety net when the unexpected happens during a move.",
@@ -459,7 +459,7 @@ export const data = {
       }
     },
     {
-      id: "choose-right-relocation-service-family",
+      id: "choose-right-relocation-service-for-family",
       image: card3,
       title: "How to Choose the Right Relocation Service for Your Family",
       highlight: "The right relocation service can turn a potentially stressful family move into a smooth, well-organized transition—giving you more time to focus on what matters most: your family.",
@@ -642,7 +642,7 @@ export const data = {
       }
     },
     {
-      id: "top-tips-stress-free-international-move",
+      id: "stress-free-international-move-tips",
       image: card5,
       title: "Top Tips for a Stress-Free International Move ",
       highlight: "Streamline your business move with our corporate services.",

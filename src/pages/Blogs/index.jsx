@@ -4,21 +4,23 @@ import Banner from "../../components/Banner";
 import bannerImage from "../../assets/blogs/banner.webp";
 import GetInTouchSection from "../../pages/Home/UiComponents/GetinTouch";
 import LatestUpdates from "./UiComponents/LatestUpdates";
- 
+
 const Blogs = () => {
   return (
     <>
       <Helmet>
-        <title>
-          Top Tips for a Stress-Free International Move | Almas Movers
-          International
-        </title>
+        <title>Moving & Logistics Blog | Tips, Trends & Insights from Almas Movers</title>
         <meta
           name="description"
-          content="Moving internationally? Discover essential tips for a stress-free relocation, from hiring professionals to managing your finances and settling in. Start your smooth journey with Almas Movers."
+          content="Stay updated with the latest in moving, logistics, and international relocation. Expert tips and industry insights from Almas Movers International, Qatar."
         />
+        <meta
+          name="keywords"
+          content="moving blog, logistics blog, international relocation tips, Almas Movers blog, moving tips Qatar, logistics insights, stress-free moving, Doha moving advice"
+        />
+        <link rel="canonical" href="https://www.almasmovers.com/blog" />
       </Helmet>
- 
+
       <div>
         <Banner
           bannerImage={bannerImage}
@@ -26,10 +28,10 @@ const Blogs = () => {
           titleSecond=""
           mainRoute="Home"
           subRoute="Blogs"
-          subRoutePath="/blogs"
+          subRoutePath="/blog"
         />
       </div>
- 
+
       <section className="w-full mt-8 sm:mt-8 lg:mt-16">
         <div className="container-secondary">
           <p className="text-gray-700 text-center">
@@ -42,11 +44,11 @@ const Blogs = () => {
           </p>
         </div>
       </section>
- 
+
       <section className="container-secondary our-services my-14">
         <LatestUpdates />
       </section>
- 
+
       <section className="w-full bg-primary/10 mt-12 sm:mt-12 lg:mt-16">
         <div className="mx-auto w-full py-8 sm:py-12 md:py-16">
           <GetInTouchSection />
@@ -55,5 +57,5 @@ const Blogs = () => {
     </>
   );
 };
- 
+
 export default Blogs;

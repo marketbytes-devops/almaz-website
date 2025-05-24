@@ -110,7 +110,7 @@ const Banner = ({
           {time && <span>{time}</span>}
           </div>
         </motion.div>
-        <div className="absolute text-xs bottom-[18px] left-2 block lg:hidden">
+        <div className="absolute text-[10px] bottom-[18px] left-2 block lg:hidden">
           {date && <span>{date}</span>}
           {date && time && <span> | </span>}
           {time && <span>{time}</span>}

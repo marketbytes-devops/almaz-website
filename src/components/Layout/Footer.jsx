@@ -62,7 +62,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label="YouTube"
             >
-              <div className="w-8 sm:w-9 md:w-8 h-8 sm:h-9 md:h-8 bg-secondary rounded flex justify-center items-center social-icon-container">
+              <div className="w-8 sm:w-9 md:w-8 h-8 sm:h-9 md:h-8 bg-secondary hover:bg-primary transition-all duration-300 rounded flex justify-center items-center social-icon-container">
                 <Icons.Youtube className="text-black w-4 sm:w-5" />
               </div>
             </a> */}
@@ -72,7 +72,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label="Facebook"
             >
-              <div className="w-8 sm:w-9 md:w-8 h-8 sm:h-9 md:h-8 bg-secondary rounded flex justify-center items-center social-icon-container">
+              <div className="w-8 sm:w-9 md:w-8 h-8 sm:h-9 md:h-8 bg-secondary hover:bg-primary transition-all duration-300 rounded flex justify-center items-center social-icon-container">
                 <Icons.Facebook className="text-black w-4 sm:w-5" />
               </div>
             </a>
@@ -82,7 +82,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label="Instagram"
             >
-              <div className="w-8 sm:w-9 md:w-8 h-8 sm:h-9 md:h-8 bg-secondary rounded flex justify-center items-center social-icon-container">
+              <div className="w-8 sm:w-9 md:w-8 h-8 sm:h-9 md:h-8 bg-secondary hover:bg-primary transition-all duration-300 rounded flex justify-center items-center social-icon-container">
                 <Icons.Instagram className="text-black w-4 sm:w-5" />
               </div>
             </a>
@@ -92,7 +92,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label="X"
             >
-              <div className="w-8 sm:w-9 md:w-8 h-8 sm:h-9 md:h-8 bg-secondary rounded flex justify-center items-center social-icon-container">
+              <div className="w-8 sm:w-9 md:w-8 h-8 sm:h-9 md:h-8 bg-secondary hover:bg-primary transition-all duration-300 rounded flex justify-center items-center social-icon-container">
                 <FontAwesomeIcon
                   icon={faXTwitter}
                   className="text-black w-4 sm:w-5"

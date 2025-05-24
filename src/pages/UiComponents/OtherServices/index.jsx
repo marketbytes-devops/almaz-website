@@ -70,9 +70,9 @@ const OtherServices = ({ serviceType }) => {
 
   const handleTabClick = (tab) => {
     if (tab === 'Movers') {
-      navigate('/moving');
+      navigate('/moving-services');
     } else if (tab === 'Logistics') {
-      navigate('/logistics');
+      navigate('/logistics-services');
     }
   };
 

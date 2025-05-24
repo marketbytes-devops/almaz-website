@@ -18,7 +18,7 @@ const BlogSection = () => {
           />
           <button
             className="hidden lg:flex items-center text-black hover:text-primary transition-all duration-300 text-sm sm:text-base"
-            onClick={() => navigate("/blogs")}
+            onClick={() => navigate("/blog")}
           >
             View All
             <FontAwesomeIcon
@@ -31,7 +31,7 @@ const BlogSection = () => {
         <div className="flex flex-col md:flex-row gap-8">
          
           <div className="w-full md:w-1/2 flex flex-col">
-            <Link to={`/blogs/${latestBlogs[0].id}`}>
+            <Link to={`/blog/${latestBlogs[0].id}`}>
               <div>
                 <img
                   src={latestBlogs[0].image}
@@ -52,7 +52,7 @@ const BlogSection = () => {
          
           <div className="w-full md:w-1/2 flex flex-col">
             {latestBlogs.slice(1, 4).map((blog, index) => (
-              <Link to={`/blogs/${blog.id}`} key={index}>
+              <Link to={`/blog/${blog.id}`} key={index}>
                 <div className="rounded-xl flex flex-col sm:flex-row items-center mb-8">
                   <div className="w-full sm:w-1/3 sm:mr-4">
                     <img
@@ -78,7 +78,7 @@ const BlogSection = () => {
       <div className="-mt-6 sm:-mt-6 md:mt-0 lg:mt-0 xl:mt-0 lg:hidden flex items-center justify-center">
         <button
           className="text-gray-800 hover:text-primary transition-all duration-300 text-sm sm:text-base font-medium mt-2 sm:mt-0"
-          onClick={() => navigate("/blogs")}
+          onClick={() => navigate("/blog")}
         >
           View all
           <FontAwesomeIcon

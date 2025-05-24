@@ -115,7 +115,7 @@ const Card = ({ id, image, title, date, description, isLatest }) => {
 
   return (
     <Link
-      to={`/blogs/${id}`}
+      to={`/blog/${id}`}
       className="w-full bg-gray-100 rounded-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -159,7 +159,7 @@ const OtherCard = ({ id, image, title, date, author, description }) => {
 
   return (
     <Link
-      to={`/blogs/${id}`}
+      to={`/blog/${id}`}
       className="flex flex-col sm:flex-row bg-white rounded-xl overflow-hidden group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

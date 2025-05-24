@@ -27,11 +27,11 @@ const Navbar = () => {
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/about-us", label: "About Us" },
-    { to: "/moving", label: "Moving" },
-    { to: "/logistics", label: "Logistics" },
-    { to: "/track", label: "Track" },
-    { to: "/blogs", label: "Blogs" },
-    { to: "/contact", label: "Contact Us" },
+    { to: "/moving-services", label: "Moving" },
+    { to: "/logistics-services", label: "Logistics" },
+    { to: "/track-your-cargo", label: "Track" },
+    { to: "/blog", label: "Blogs" },
+    { to: "/contact-us", label: "Contact Us" },
   ];
  
   const menuVariants = {

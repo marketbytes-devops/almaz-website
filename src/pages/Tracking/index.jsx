@@ -10,16 +10,18 @@ import ContactUs from "../../pages/Home/UiComponents/ContactUs";
 const Tracking = () => {
   return (
     <>
-      <Helmet>
-        <title>
-          Top Tips for a Stress-Free International Move | Almas Movers
-          International
-        </title>
-        <meta
-          name="description"
-          content="Moving internationally? Discover essential tips for a stress-free relocation, from hiring professionals to managing your finances and settling in. Start your smooth journey with Almas Movers."
-        />
-      </Helmet>
+    <Helmet>
+      <title>Track Your Shipment | Almas Movers International Doha</title>
+      <meta
+        name="description"
+        content="Track your shipment easily with Almas Movers International. Get real-time updates on your relocation or logistics delivery from Doha to anywhere in the world."
+      />
+      <meta
+        name="keywords"
+        content="track shipment, Almas Movers tracking, international relocation tracking, logistics tracking Doha, real-time shipment updates, moving services Qatar"
+      />
+      <link rel="canonical" href="https://www.almasmovers.com/track-your-cargo" />
+    </Helmet>
  
       <Banner
         bannerImage={bannerImage}
@@ -27,7 +29,7 @@ const Tracking = () => {
         smallText="Never lose sight of your cargo. Track it instantly with just a tracking number and stay updated every step of the way."
         mainRoute="HOME"
         subRoute="TRACK"
-        subRoutePath="/track"
+        subRoutePath="/track-your-cargo"
       />
  
       <section className="w-full mt-8 sm:mt-8 lg:mt-16">

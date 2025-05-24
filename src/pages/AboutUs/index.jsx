@@ -7,21 +7,23 @@ import WhychooseUs from "./UiComponents/WhychooseUs";
 import Certifications from "./UiComponents/Certifications";
 import Relocate from "./UiComponents/Relocating";
 import GetInTouchSection from "../Home/UiComponents/GetinTouch";
- 
+
 const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>
-          Top Tips for a Stress-Free International Move | Almas Movers
-          International
-        </title>
+        <title>About Almas Movers | Leading Relocation & Logistics Company in Qatar</title>
         <meta
           name="description"
-          content="Moving internationally? Discover essential tips for a stress-free relocation, from hiring professionals to managing your finances and settling in. Start your smooth journey with Almas Movers."
+          content="Learn more about Almas Movers International – Qatar’s trusted name in international relocation, logistics, and moving services with years of proven expertise."
         />
+        <meta
+          name="keywords"
+          content="About Almas Movers, international relocation Qatar, logistics company Qatar, moving services Doha, Almas Movers International, trusted movers Qatar, relocation expertise"
+        />
+        <link rel="canonical" href="https://www.almasmovers.com/about-us" />
       </Helmet>
- 
+
       <Banner
         bannerImage={bannerImage}
         titleFirst="ISO Certified"
@@ -30,7 +32,7 @@ const AboutUs = () => {
         subRoute="About Us"
         subRoutePath="/about-us"
       />
- 
+
       <section className="w-full mt-10 sm:mt-10 lg:mt-16">
         <div className="w-full container-secondary">
           <p className="text-gray-700 text-center">
@@ -46,31 +48,31 @@ const AboutUs = () => {
           </p>
         </div>
       </section>
- 
+
       <section className="w-full bg-primary mt-10 sm:mt-10 lg:mt-16 overflow-hidden">
         <div className="container-secondary our-services">
           <WhoweAre />
         </div>
       </section>
- 
+
       <section className="w-full overflow-hidden">
         <div className="container-secondary our-services mt-10 sm:mt-10 lg:mt-16 mb-4 sm:mb-4 md:mb-0 lg:mb-0 xl:mb-0">
           <WhychooseUs />
         </div>
       </section>
- 
+
       <section className="w-full mt-10 sm:mt-10 lg:mt-16 overflow-hidden">
         <div className="container-secondary">
           <Certifications />
         </div>
       </section>
- 
+
       <section className="w-full mt-10 sm:mt-10 lg:mt-16">
         <div className="w-full">
           <Relocate />
         </div>
       </section>
- 
+
       <section className="w-full bg-primary/10 mt-12 sm:mt-12 lg:mt-16">
         <div className="mx-auto w-full py-8 sm:py-12 md:py-16">
           <GetInTouchSection />
@@ -79,7 +81,6 @@ const AboutUs = () => {
     </>
   );
 };
- 
+
 export default AboutUs;
- 
- 
+
